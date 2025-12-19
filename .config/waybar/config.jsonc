@@ -1,0 +1,168 @@
+[
+  {
+    "output": "HDMI-A-3",
+    "include": [
+      "$HOME/.config/waybar/Modules",
+      "$HOME/.config/waybar/ModulesWorkspaces",
+      "$HOME/.config/waybar/ModulesCustom",
+      "$HOME/.config/waybar/ModulesGroups",
+      "$HOME/.config/waybar/UserModules"
+    ],
+
+    "layer": "top",
+    "position": "top",
+    "height": 14,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 2,
+
+    "modules-left": [
+      "custom/menu",
+      "custom/separator#blank_2",
+      "mpris",
+      "tray"
+    ],
+    "modules-center": [
+      "custom/separator#blank_2",
+      "cpu",
+      "memory",
+      "custom/gpu"
+    ],
+    "mpris": {
+      "format": "{title}",
+      "max-length": 30,
+      "tooltip-format": "{artist} - {title}"
+    },
+    "custom/gpu": {
+      "exec": "~/.config/waybar/scripts/gpu.sh",
+      "interval": 5,
+      "format": "{}",
+      "tooltip": true
+    },
+    "cpu": {
+      "format": " {usage}%"
+    },
+    "memory": {
+      "format": " {used} GB"
+    }
+  },
+  
+
+  {
+    "output": "HDMI-A-1",
+    "include": [
+      "$HOME/.config/waybar/Modules",
+      "$HOME/.config/waybar/ModulesWorkspaces",
+      "$HOME/.config/waybar/ModulesCustom",
+      "$HOME/.config/waybar/ModulesGroups",
+      "$HOME/.config/waybar/UserModules"
+    ],
+
+    "layer": "top",
+    "position": "top",
+    "height": 14,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 2,
+
+    "modules-left": [
+      "custom/menu",
+      "custom/separator#blank_2",
+      "mpris",
+      "tray"
+    ],
+
+    "modules-center": [
+      "custom/separator#blank",
+      "clock#3",
+      "custom/separator#blank"
+    ],
+
+    "modules-right": [
+      "hyprland/window",
+      "custom/separator#blank_2",
+      "cpu",
+      "memory",
+      "custom/gpu",
+      "temperature",
+      "battery",
+      "network",
+      "custom/separator#blank",
+      "custom/brightness",
+      "custom/separator#blank",
+      "pulseaudio",
+      "custom/separator#blank",
+      "custom/power"
+    ],
+
+    // ==== Config extra de módulos ====
+
+    "clock#3": {
+      "format": "{:%H:%M %p}",
+      "tooltip-format": "{:%A, %d %B %Y}"
+    },
+
+    "cpu": {
+      "format": " {usage}%"
+    },
+    "mpris": {
+      "format": "{title}",
+      "max-length": 30,
+      "tooltip-format": "{artist} - {title}"
+    },
+    "custom/gpu": {
+      "exec": "~/.config/waybar/scripts/gpu.sh",
+      "interval": 5,
+      "format": "{}",
+      "tooltip": true
+    },
+    
+    "memory": {
+      "format": " {used} GB"
+    },
+
+    "temperature": {
+      "format": " {temperatureC}°C"
+    },
+
+    "network": {
+      "format-wifi": " {essid} ({signalStrength}%)",
+      "format-ethernet": " {ifname}",
+      "format-disconnected": "⚠ Sin red"
+    },
+
+    "battery": {
+      "format": "{capacity}% {icon}",
+      "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/brightness": {
+      "exec": "~/.config/waybar/scripts/brightness-ddc.sh",
+      "interval": 3,
+      "format": " {}%",
+      "on-click": "~/.config/waybar/scripts/brightness-ddc.sh up",
+      "on-click-right": "~/.config/waybar/scripts/brightness-ddc.sh down",
+      "on-scroll-up": "~/.config/waybar/scripts/brightness-ddc.sh up",
+      "on-scroll-down": "~/.config/waybar/scripts/brightness-ddc.sh down",
+      "tooltip": false
+    },
+
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{icon} {volume}%",
+      "format-muted": " Muted",
+      "format-icons": {
+        "headphones": "",
+        "handsfree": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol",
+      "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+      "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    }
+  }
+]

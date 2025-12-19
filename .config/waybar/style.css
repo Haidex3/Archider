@@ -1,0 +1,89 @@
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 97%;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  border-radius: 10px;
+  transition: background-color 0.5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0 10px;
+  margin-top: 4px;
+  background: #0e0e16;
+  border-radius: 20px;
+  padding: 0; /* limpio, sin padding extra */
+}
+
+/* ==== Espaciado individual ==== */
+#clock,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#workspaces,
+#window,
+#mpris,
+#custom-menu,
+#custom-power {
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
+/* ==== Colores ==== */
+#clock { color: #cdd6f4; }
+#cpu { color: #a6e3a1; }
+#memory { color: #89dceb; }
+#temperature { color: #94e2d5; }
+#temperature.critical { background-color: #f38ba8; color: #11111b; }
+
+#battery { color: #a6e3a1; }
+#battery.critical:not(.charging) {
+  background-color: #f38ba8;
+  color: #11111b;
+  animation: blink 0.5s linear infinite alternate;
+}
+@keyframes blink { to { color: #313244; } }
+
+#network { color: #94e2d5; }
+#network.disconnected,
+#network.disabled {
+  background-color: #313244;
+  color: #cdd6f4;
+}
+
+#pulseaudio { color: #a6e3a1; }
+#pulseaudio.bluetooth { color: #f5c2e7; }
+#pulseaudio.muted { color: #f38ba8; }
+
+#workspaces button {
+  color: #a6adc8;
+  padding: 0 4px;
+  border-radius: 9px;
+  transition: all 0.3s ease-in-out;
+}
+#workspaces button.active { color: #94e2d5; padding: 0 8px; }
+#workspaces button.urgent { color: #f38ba8; }
+#workspaces button:hover { background-color: #313244; color: #6c7086; }
+
+#window { color: #cba6f7; }
+#mpris { color: #b4befe; }
+#custom-menu { color: #94e2d5; }
+#custom-power { color: #f38ba8; }
+
+#custom-gpu {
+  color: #a6ff00; 
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+}

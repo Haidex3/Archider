@@ -1,0 +1,136 @@
+@theme "~/.config/rofi/themes/dracula.rasi"
+
+
+/*------------------------------------------------------------------------------
+ *    Configuration
+-------------------------------------------------------------------------------*/
+
+configuration {
+    show-icons: false;
+}
+
+/*------------------------------------------------------------------------------
+ *    Window conf
+-------------------------------------------------------------------------------*/
+
+window {
+    transparency: "real";
+    location: center;
+    fullscreen: false;
+    width: 390px;
+
+    enabled: true;
+    border: 2px;
+    border-color: @bg3;
+    cursor: "default";
+    background-color: @bg0;
+    border-radius: 10px;
+}
+
+/*------------------------------------------------------------------------------
+ *    Main Box
+-------------------------------------------------------------------------------*/
+
+mainbox {
+    enabled: true;
+    spacing: 15px;
+    padding: 30px;
+    background-color: transparent;
+    children: [ "inputbar", "listview" ];
+}
+
+/*------------------------------------------------------------------------------
+ *    Info // Inputbar
+-------------------------------------------------------------------------------*/
+
+inputbar {
+    location: center;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: @blue;
+    background-color: transparent;
+    children: [ "prompt" ];
+}
+
+prompt {
+    padding: 6px;
+    border-radius: 100%;
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+/*------------------------------------------------------------------------------
+ *    Message
+-------------------------------------------------------------------------------*/
+
+message {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: @orange;
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    placeholder-color: @fg0;
+    blink: true;
+    markup: true;
+}
+
+error-message {
+    padding: 12px;
+    border: 0px;
+    background-color: @bg1;
+    text-color: @red;
+}
+
+/*------------------------------------------------------------------------------
+ *    Elements box // Listview
+-------------------------------------------------------------------------------*/
+
+listview {
+    enabled: true;
+    columns: 4;
+    lines: 1;
+    spacing: 20px;
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+/*------------------------------------------------------------------------------
+ *    Elements
+-------------------------------------------------------------------------------*/
+
+element {
+    enabled: true;
+    margin: 0px;
+    padding: 14px 10px;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: @cyan;
+    background-color: @bg1;
+    text-color: @fg0;
+    cursor: pointer;
+    transition: 150;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 16";
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+element selected.normal {
+    border-color: @red;
+    text-color: @red;
+    background-color: @bg2;
+}
