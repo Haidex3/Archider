@@ -17,6 +17,7 @@ waybar
 xdg-desktop-portal
 yazi
 fastfetch
+quickshell
 )
 
 echo "🔄 Sincronizando dotfiles..."

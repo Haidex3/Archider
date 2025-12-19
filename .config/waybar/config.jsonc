@@ -127,7 +127,7 @@
 
     "network": {
       "format-wifi": " {essid} ({signalStrength}%)",
-      "format-ethernet": " {ifname}",
+      "format-ethernet": "󰈀 {ifname}",
       "format-disconnected": "⚠ Sin red"
     },
 
@@ -150,7 +150,7 @@
     "pulseaudio": {
       "format": "{icon} {volume}%",
       "format-bluetooth": "{icon} {volume}%",
-      "format-muted": " Muted",
+      "format-muted": "󰖁 Muted",
       "format-icons": {
         "headphones": "",
         "handsfree": "",
