@@ -1,0 +1,16 @@
+# Ignorar todo
+*
+
+# Permitir directorios
+!*/
+
+# Permitir archivos básicos
+!.gitignore
+README.md
+
+# Permitir .config como directorio
+!.config/
+
+# Permitir SOLO menus dentro de .config
+!.config/menus/
+!.config/menus/**
