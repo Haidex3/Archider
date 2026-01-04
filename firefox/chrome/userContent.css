@@ -349,9 +349,42 @@
         box-sizing: border-box;
     }
 
-    /* Tree: wrapper interno */
-    [role="tree"] > div,
-    ul[class*="tree"] > div {
-        background-color: inherit !important;
+    /* Navigation block: card-body real (fondo + padding) */
+    .block_navigation.card .card-body,
+    .block_navigation.block .card-body,
+    [role="navigation"].block.card .card-body {
+        background-color: var(--auto-bg-dim) !important;
     }
+
+
+    /* Tree hereda fondo del card-body */
+    .block_navigation .card-body > [role="tree"],
+    .block_navigation .card-body > ul[class*="tree"] {
+        background-color: inherit !important;
+        padding: 0 !important;
+    }
+
+    /* Tabs legacy basados en tablas */
+    [role="tab"],
+    td[role="presentation"],
+    td[id*="selected"],
+    td[class*="tab"],
+    td[class*="button"] {
+        background-color: var(--auto-bg-dim) !important;
+        color: var(--auto-text) !important;
+    }
+
+    /* Tab activo */
+    [role="tab"][aria-selected="true"] {
+        background-color: var(--auto-bg-dark) !important;
+        color: var(--auto-text) !important;
+    }
+
+    /* Área clickeable del tab */
+    [role="tab"] {
+        display: inline-block !important;
+        padding: 0.4em 0.7em !important;
+        border-radius: 6px 6px 0 0;
+    }
+
 }
