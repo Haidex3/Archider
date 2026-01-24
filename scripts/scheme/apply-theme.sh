@@ -14,7 +14,6 @@ ROFI_CONFIG="$HOME/.config/rofi/colors.rasi"
 # VS Code (Code)
 #VSCODE_CONFIG="$HOME/.config/Code/User/settings.json"
 # Yazi terminal (ejemplo)
-YAZI_CONFIG="$HOME/.config/yazi/config.yml"
 
 # ----------------------------
 # Leer colores del archivo maestro
@@ -41,7 +40,7 @@ cat > "$ALACRITTY_CONFIG" <<EOF
 
 [colors.primary]
   background= "$background"
-  foreground= "$foreground"
+  foreground= "$primary"
 
 EOF
 
@@ -94,21 +93,5 @@ EOF
 #}
 #EOF
 
-# ----------------------------
-# Generar Yazi terminal config (ejemplo)
-# ----------------------------
-mkdir -p "$(dirname "$YAZI_CONFIG")"
-cat > "$YAZI_CONFIG" <<EOF
-colors:
-  background: "$background"
-  foreground: "$foreground"
-  cursor: "$cursor"
-  primary: "$primary"
-  secondary: "$secondary"
-  success: "$success"
-  error: "$error"
-  warning: "$warning"
-  info: "$info"
-EOF
 
 echo "✅ Tema aplicado desde $COLOR_FILE a todas las apps compatibles."

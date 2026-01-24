@@ -1,0 +1,182 @@
+#----------------------------------------------------------
+#--  THEME: Dark Dracula
+#----------------------------------------------------------
+
+[mgr]
+cwd = { fg = "#BD93F9", bold = true }
+
+# Hovered
+hovered = { bg = "#2A2B36", bold = true }
+preview_hovered = { underline = true }
+
+# Find
+find_symbol = " Finding: "
+find_keyword  = { fg = "#FF79C6", bold = true, underline = true }
+find_position = { fg = "#8BE9FD", bold = true }
+
+# Symlink
+symlink_target = { fg = "#8BE9FD", italic = true }
+
+# Marker
+marker_copied   = { fg = "#1E1F29", bg = "#50FA7B" }
+marker_cut      = { fg = "#1E1F29", bg = "#FF5555" }
+marker_marked   = { fg = "#1E1F29", bg = "#BD93F9" }
+marker_selected = { fg = "#1E1F29", bg = "#FF79C6" }
+
+# Count
+count_copied   = { fg = "#1E1F29", bg = "#50FA7B" }
+count_cut      = { fg = "#1E1F29", bg = "#FF5555" }
+count_selected = { fg = "#1E1F29", bg = "#F1FA8C" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#44475A" }
+
+# Tabs
+[tabs]
+active   = { fg = "#1E1F29", bg = "#BD93F9", bold = true }
+inactive = { fg = "#BD93F9", bg = "#1E1F29" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# Modes
+[mode]
+# Normal mode
+normal_main = { fg = "#1E1F29", bg = "#BD93F9", bold = true }
+normal_alt  = { fg = "#BD93F9", bg = "#2A2B36" }
+
+# Select mode
+select_main = { fg = "#1E1F29", bg = "#8BE9FD", bold = true }
+select_alt  = { fg = "#8BE9FD", bg = "#2A2B36" }
+
+# Unset mode
+unset_main = { fg = "#1E1F29", bg = "#FF5555", bold = true }
+unset_alt  = { fg = "#FF5555", bg = "#2A2B36" }
+
+# Status bar
+[status]
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#44475A" }
+perm_type  = { fg = "#50FA7B" }
+perm_read  = { fg = "#F1FA8C" }
+perm_write = { fg = "#FF5555" }
+perm_exec  = { fg = "#8BE9FD" }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#BD93F9", bg = "#2A2B36" }
+progress_error  = { fg = "#FF5555", bg = "#2A2B36" }
+
+# Which
+[which]
+cols = 3
+mask = { bg = "#2A2B36" }
+cand = { fg = "#BD93F9" }
+rest = { fg = "#44475A" }
+desc = { fg = "#8BE9FD" }
+separator = "  "
+separator_style = { fg = "#44475A" }
+
+# Confirmation
+[confirm]
+border  = { fg = "#BD93F9" }
+title   = { fg = "#BD93F9", bold = true }
+content = {}
+list    = {}
+btn_yes = { reversed = true }
+btn_no  = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
+
+# Spotter
+[spot]
+border = { fg = "#8BE9FD" }
+title  = { fg = "#8BE9FD" }
+
+# Table
+tbl_col  = { fg = "#8BE9FD" }
+tbl_cell = { fg = "#1E1F29", bg = "#F1FA8C" }
+
+# Notifications
+[notify]
+title_info  = { fg = "#50FA7B" }
+title_warn  = { fg = "#F1FA8C" }
+title_error = { fg = "#FF5555" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# Picker
+[pick]
+border   = { fg = "#8BE9FD" }
+active   = { fg = "#BD93F9", bold = true }
+inactive = {}
+
+# Input
+[input]
+border   = { fg = "#8BE9FD" }
+title    = {}
+value    = { fg = "#F8F8F2" }
+selected = { reversed = true }
+
+# Completion
+[cmp]
+border   = { fg = "#8BE9FD" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# Task manager
+[tasks]
+border  = { fg = "#8BE9FD" }
+title   = {}
+hovered = { fg = "#BD93F9", underline = true }
+
+# Help menu
+[help]
+on      = { fg = "#8BE9FD" }
+run     = { fg = "#BD93F9" }
+desc    = { fg = "#F8F8F2" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#1E1F29", bg = "#F8F8F2" }
+
+# File-specific styles
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*", fg = "#FF79C6" },
+
+  # Media
+  { mime = "{audio,video}/*", fg = "#50FA7B" },
+
+  # Archives
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd}", fg = "#FF5555" },
+
+  # Documents
+  { mime = "application/{pdf,doc,rtf}", fg = "#8BE9FD" },
+
+  # Empty files
+  { mime = "inode/empty", fg = "#44475A" },
+
+  # Special files
+  { name = "*", is = "orphan", bg = "#FF5555" },
+  { name = "*", is = "exec", fg = "#50FA7B", bold = true },
+
+  # Dummy files
+  { name = "*", is = "dummy", bg = "#FF5555" },
+  { name = "*/", is = "dummy", bg = "#FF5555" },
+
+  # Folders fallback (🦇 dracula)
+  { url = "*/", fg = "#BD93F9", bold = true },
+]

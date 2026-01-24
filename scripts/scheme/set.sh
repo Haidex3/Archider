@@ -6,6 +6,8 @@
 THEME_DIR="$HOME/.local/share/hatheme/themes"
 STATE_DIR="$HOME/.local/state/hatheme/scheme"
 IMG_DIR="$HOME/.local/share/hatheme/images"
+YAZI_CONFIG="$HOME/.config/yazi/theme.toml"
+
 
 FIREFOX_PROFILE="$HOME/.mozilla/firefox/s21rhd6v.default-release-1760989103541"
 CHROME_DIR="$FIREFOX_PROFILE/chrome"
@@ -115,6 +117,22 @@ else
 
     sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=1/" "$GTK_SETTINGS" \
         || echo "gtk-application-prefer-dark-theme=1" >> "$GTK_SETTINGS"
+fi
+# =====================
+# YAZI theme
+# =====================
+YAZI_THEMES_DIR="$HOME/.config/yazi/themes"
+YAZI_CONFIG="$HOME/.config/yazi/theme.toml"
+
+mkdir -p "$(dirname "$YAZI_CONFIG")"
+
+YAZI_THEME_FILE="$YAZI_THEMES_DIR/$SELECTED.toml"
+
+if [[ -f "$YAZI_THEME_FILE" ]]; then
+    cp "$YAZI_THEME_FILE" "$YAZI_CONFIG"
+    echo "Yazi theme set to '$SELECTED'"
+else
+    echo "⚠️ Yazi theme '$SELECTED.toml' not found"
 fi
 
 # =====================
