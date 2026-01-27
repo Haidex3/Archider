@@ -1,0 +1,32 @@
+* {
+    font: "Iosevka Nerd Font Medium 11";
+
+    bg0     : #E0F7FF;
+    bg1     : #CBEFFF;
+    bg2     : #B3E5FF;
+    bg3     : #99DBFF;
+    fg0     : #0A1F2B;
+    fg1     : #0077B6;
+    fg2     : #4A6572;
+    red     : #FF4C4C;
+    green   : #22C55E;
+    yellow  : #FACC15;
+    blue    : #0288D1;
+    magenta : #9D4EDD;
+    cyan    : #00B5D8;
+    orange  : #FF8C42;
+
+    accent: @magenta;
+    urgent: @red;
+
+    background: @bg0;
+    background-alt: @bg1;
+    foreground: @fg0;
+
+    background-color: @background;
+    text-color: @foreground;
+
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}

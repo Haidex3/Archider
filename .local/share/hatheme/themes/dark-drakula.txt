@@ -1,110 +1,148 @@
-primary_paletteKeyColor 8b0000
-secondary_paletteKeyColor 5e0b3c
-tertiary_paletteKeyColor a14f9c
-neutral_paletteKeyColor 4b4750
-neutral_variant_paletteKeyColor 5a545f
-background 0b0a0f
-onBackground e8e4eb
-surface 0f0d13
-surfaceDim 120f16
-surfaceBright 2a1f2e
-surfaceContainerLowest 050205
-surfaceContainerLow 0b0a0f
-surfaceContainer 14111a
-surfaceContainerHigh 1f1b28
-surfaceContainerHighest 2c2636
-onSurface e8e4eb
-surfaceVariant 3b3246
-onSurfaceVariant c1b8cd
-inverseSurface e8e4eb
-inverseOnSurface 0b0a0f
-outline 7a6f8c
-outlineVariant 3b3246
+# === Palette keys (dark drakula) ===
+primary_paletteKeyColor BD93F9
+secondary_paletteKeyColor FF79C6
+tertiary_paletteKeyColor 8BE9FD
+neutral_paletteKeyColor 7A7E9A
+neutral_variant_paletteKeyColor 5F637A
+
+# === Backgrounds ===
+background 0F0F14
+onBackground F8F8F2
+surface 0F0F14
+surfaceDim 0B0B10
+surfaceBright 191A22
+
+surfaceContainerLowest 08080D
+surfaceContainerLow 12121A
+surfaceContainer 191A22
+surfaceContainerHigh 222230
+surfaceContainerHighest 2A2A3A
+
+# === Surface text ===
+onSurface F8F8F2
+surfaceVariant 2B2B3C
+onSurfaceVariant C5C8E6
+
+inverseSurface F8F8F2
+inverseOnSurface 0F0F14
+
+outline 5F637A
+outlineVariant 3A3D4F
+
 shadow 000000
 scrim 000000
-surfaceTint 8b0000
-primary 8b0000
-onPrimary ffffff
-primaryContainer a12828
-onPrimaryContainer fff0f0
-inversePrimary c12b2b
-secondary 5e0b3c
-onSecondary fff0f0
-secondaryContainer 7f1b5a
-onSecondaryContainer ffdff0
-tertiary a14f9c
-onTertiary fff0ff
-tertiaryContainer c772b0
-onTertiaryContainer 2a0b25
-error ff6b6b
-onError 0b0a0f
-errorContainer 93000a
-onErrorContainer ffdad6
-primaryFixed c12b2b
-primaryFixedDim 8b0000
-onPrimaryFixed ffffff
-onPrimaryFixedVariant 7f1f1f
-secondaryFixed 7f1b5a
-secondaryFixedDim 5e0b3c
-onSecondaryFixed fff0f0
-onSecondaryFixedVariant 5a0f42
-tertiaryFixed c772b0
-tertiaryFixedDim a14f9c
-onTertiaryFixed 2a0b25
-onTertiaryFixedVariant 5a0b5a
-term0 0b0a0f
-term1 8b0000
-term2 5e0b3c
-term3 a14f9c
-term4 3b3246
-term5 7f1b5a
-term6 c772b0
-term7 e8e4eb
-term8 2a1f2e
-term9 c12b2b
-term10 7f2b6c
-term11 ffdff0
-term12 5a545f
-term13 7f1b5a
-term14 a14f9c
-term15 ffffff
-rosewater f5e9f2
-flamingo e8c8d7
-pink dcb8e4
-mauve b890d1
-red b5424f
-maroon 8b0000
-peach e8a0b8
-yellow ffd0d0
-green a0c8a8
-teal 88b0c8
-sky 88c0ff
-sapphire 7f80d0
-blue 5f60a0
-lavender a088d0
-klink 8b0000
-klinkSelection a12828
-kvisited 9a0b6c
-kvisitedSelection 9a1b7c
-knegative c12b2b
-knegativeSelection c12b2b
-kneutral 7f5a8b
-kneutralSelection 7f5a8b
-kpositive 54afff
-kpositiveSelection 54afff
-text e8e4eb
-subtext1 c1b8cd
-subtext0 7a6f8c
-overlay2 58485f
-overlay1 44344b
-overlay0 322838
-surface2 2a1f2e
-surface1 1f1b28
-surface0 14111a
-base 0b0a0f
-mantle 0a090e
-crust 09070c
-success 9ac8a8
-onSuccess 0b0a0f
-successContainer 2f3b2d
-onSuccessContainer d1e9d6
+
+# === Primary (DRACULA PURPLE) ===
+surfaceTint BD93F9
+primary BD93F9
+onPrimary 1B102A
+primaryContainer 3A2A5E
+onPrimaryContainer EBDDFF
+inversePrimary 9A6BDE
+
+# === Secondary (DRACULA PINK) ===
+secondary FF79C6
+onSecondary 33001A
+secondaryContainer 5A2342
+onSecondaryContainer FFDAEC
+
+# === Tertiary (CYAN) ===
+tertiary 8BE9FD
+onTertiary 002A33
+tertiaryContainer 1E4F5E
+onTertiaryContainer D6F7FF
+
+# === Error ===
+error FF5555
+onError 3A0000
+errorContainer 5A1A1A
+onErrorContainer FFDAD6
+
+# === Fixed tones ===
+primaryFixed EBDDFF
+primaryFixedDim BD93F9
+onPrimaryFixed 1B102A
+onPrimaryFixedVariant 3A2A5E
+
+secondaryFixed FFDAEC
+secondaryFixedDim FF79C6
+onSecondaryFixed 33001A
+onSecondaryFixedVariant 5A2342
+
+tertiaryFixed D6F7FF
+tertiaryFixedDim 8BE9FD
+onTertiaryFixed 002A33
+onTertiaryFixedVariant 1E4F5E
+
+# === Terminal colors (dark drakula) ===
+term0 0F0F14
+term1 FF5555
+term2 50FA7B
+term3 F1FA8C
+term4 BD93F9
+term5 FF79C6
+term6 8BE9FD
+term7 F8F8F2
+
+term8 5F637A
+term9 FF6E6E
+term10 69FF94
+term11 F4F99D
+term12 D6ACFF
+term13 FF92DF
+term14 A4FFFF
+term15 FFFFFF
+
+# === Accents ===
+rosewater F2D5CF
+flamingo EEBEBE
+pink FF79C6
+mauve BD93F9
+red FF5555
+maroon B14A4A
+peach FF6E6E
+yellow F1FA8C
+green 50FA7B
+teal 8BE9FD
+sky A4FFFF
+sapphire 6272A4
+blue BD93F9
+lavender D6ACFF
+
+# === KDE / UI states ===
+klink BD93F9
+klinkSelection 9A6BDE
+kvisited FF79C6
+kvisitedSelection FF79C6
+
+knegative FF5555
+knegativeSelection FF5555
+
+kneutral F1FA8C
+kneutralSelection F1FA8C
+
+kpositive 50FA7B
+kpositiveSelection 50FA7B
+
+# === Text hierarchy ===
+text F8F8F2
+subtext1 C5C8E6
+subtext0 7A7E9A
+
+overlay2 5F637A
+overlay1 4A4E63
+overlay0 3A3D4F
+
+surface2 222230
+surface1 191A22
+surface0 12121A
+
+base 0F0F14
+mantle 0B0B10
+crust 08080D
+
+# === Success ===
+success 50FA7B
+onSuccess 003A1A
+successContainer 1E4F34
+onSuccessContainer CFF5DD

@@ -1,110 +1,148 @@
-primary_paletteKeyColor 6674ac
-secondary_paletteKeyColor 71768e
-tertiary_paletteKeyColor 9a6593
-neutral_paletteKeyColor a1a1a6
-neutral_variant_paletteKeyColor b0b0b5
-background ffffff
-onBackground 131317
-surface ffffff
-surfaceDim f5f5f5
-surfaceBright ffffff
-surfaceContainerLowest fdfdfd
-surfaceContainerLow f8f8f8
-surfaceContainer f2f2f2
-surfaceContainerHigh eaeaea
-surfaceContainerHighest e0e0e0
-onSurface 131317
-surfaceVariant d8d8e0
-onSurfaceVariant 4a4a52
-inverseSurface 131317
-inverseOnSurface e4e1e7
-outline c0c0c8
-outlineVariant d8d8e0
+# === Palette keys (light normal) ===
+primary_paletteKeyColor 4C8EDA
+secondary_paletteKeyColor 7A8A99
+tertiary_paletteKeyColor B39DDB
+neutral_paletteKeyColor C4C7CC
+neutral_variant_paletteKeyColor AEB2B8
+
+# === Backgrounds ===
+background F7F8FA
+onBackground 1E1E1E
+surface F7F8FA
+surfaceDim EDEFF2
+surfaceBright FFFFFF
+
+surfaceContainerLowest FFFFFF
+surfaceContainerLow F2F4F7
+surfaceContainer F7F8FA
+surfaceContainerHigh E6E9EE
+surfaceContainerHighest DDE1E6
+
+# === Surface text ===
+onSurface 1E1E1E
+surfaceVariant E3E6EB
+onSurfaceVariant 4E545B
+
+inverseSurface 1E1E1E
+inverseOnSurface F7F8FA
+
+outline AEB2B8
+outlineVariant CCD0D6
+
 shadow 000000
 scrim 000000
-surfaceTint 6674ac
-primary 6674ac
-onPrimary ffffff
-primaryContainer b7c4ff
-onPrimaryContainer 1e2d60
-inversePrimary b7c4ff
-secondary 71768e
-onSecondary ffffff
-secondaryContainer c1c5e0
-onSecondaryContainer 2a2f44
-tertiary 9a6593
-onTertiary ffffff
-tertiaryContainer f1b3e6
-onTertiaryContainer 4c1f49
-error ff6b6b
-onError ffffff
-errorContainer ffb4ab
+
+# === Primary (NEUTRAL BLUE) ===
+surfaceTint 4C8EDA
+primary 4C8EDA
+onPrimary 0E2A46
+primaryContainer D6E6FA
+onPrimaryContainer 1E3A5A
+inversePrimary 2F6FB5
+
+# === Secondary (SOFT GRAY) ===
+secondary 7A8A99
+onSecondary 1E2A33
+secondaryContainer E4EBF1
+onSecondaryContainer 344654
+
+# === Tertiary (SOFT LAVENDER) ===
+tertiary B39DDB
+onTertiary 2A1A3A
+tertiaryContainer EDE6F8
+onTertiaryContainer 3F345A
+
+# === Error ===
+error D95C5C
+onError 4A0B0B
+errorContainer FFDAD6
 onErrorContainer 690005
-primaryFixed b7c4ff
-primaryFixedDim 6674ac
-onPrimaryFixed ffffff
-onPrimaryFixedVariant 1e2d60
-secondaryFixed c1c5e0
-secondaryFixedDim 71768e
-onSecondaryFixed ffffff
-onSecondaryFixedVariant 2a2f44
-tertiaryFixed ffd7f5
-tertiaryFixedDim f1b3e6
-onTertiaryFixed 4c1f49
-onTertiaryFixedVariant 330832
-term0 ffffff
-term1 6674ac
-term2 44def5
-term3 ffdcf2
-term4 92acd6
-term5 a9a2ed
-term6 9dceff
-term7 e8d3de
-term8 ac9fa9
-term9 b299ff
-term10 89ecff
-term11 fff0f6
-term12 b1c2db
-term13 c1b7f7
-term14 bae0ff
-term15 131317
-rosewater fdf0f9
-flamingo fcecf8
-pink f8e6ff
-mauve e7e9ff
-red ffa3a3
-maroon e0c2f9
-peach ffe0f9
-yellow fff6ec
-green d1f0dc
-teal d6f1e3
-sky d3f0ff
-sapphire bfe0ff
-blue cae0ff
-lavender dce0ff
-klink 6685d1
-klinkSelection 6585d1
-kvisited 7276dd
-kvisitedSelection 7276dd
-knegative ff8e70
-knegativeSelection ff8e70
-kneutral c794ff
-kneutralSelection c794ff
-kpositive 54afff
-kpositiveSelection 54afff
-text 131317
-subtext1 4a4a52
-subtext0 7d7d86
-overlay2 d0d0d6
-overlay1 e0e0e5
-overlay0 f0f0f2
-surface2 e5e5ea
-surface1 f0f0f2
-surface0 f8f8fa
-base ffffff
-mantle ffffff
-crust ffffff
-success 3a6b4d
-onSuccess ffffff
-successContainer B5CCBA
-onSuccessContainer 213528
+
+# === Fixed tones ===
+primaryFixed D6E6FA
+primaryFixedDim 4C8EDA
+onPrimaryFixed 0E2A46
+onPrimaryFixedVariant 1E3A5A
+
+secondaryFixed E4EBF1
+secondaryFixedDim 7A8A99
+onSecondaryFixed 1E2A33
+onSecondaryFixedVariant 344654
+
+tertiaryFixed EDE6F8
+tertiaryFixedDim B39DDB
+onTertiaryFixed 2A1A3A
+onTertiaryFixedVariant 3F345A
+
+# === Terminal colors (light normal) ===
+term0 F7F8FA
+term1 D95C5C
+term2 4FAE6E
+term3 E0AF68
+term4 4C8EDA
+term5 B39DDB
+term6 5FA8A0
+term7 1E1E1E
+
+term8 AEB2B8
+term9 E57373
+term10 7BD389
+term11 F2C97D
+term12 82AAFF
+term13 D6BFFF
+term14 8BE9FD
+term15 0E0E0E
+
+# === Accents ===
+rosewater EDEFF2
+flamingo E3E6EB
+pink F2A2B8
+mauve B39DDB
+red D95C5C
+maroon B14A4A
+peach F78C6C
+yellow E0AF68
+green 4FAE6E
+teal 5FA8A0
+sky 8BE9FD
+sapphire 4C78A8
+blue 4C8EDA
+lavender D6BFFF
+
+# === KDE / UI states ===
+klink 4C8EDA
+klinkSelection 2F6FB5
+kvisited B39DDB
+kvisitedSelection B39DDB
+
+knegative D95C5C
+knegativeSelection D95C5C
+
+kneutral E0AF68
+kneutralSelection E0AF68
+
+kpositive 4FAE6E
+kpositiveSelection 4FAE6E
+
+# === Text hierarchy ===
+text 1E1E1E
+subtext1 4E545B
+subtext0 AEB2B8
+
+overlay2 C4C7CC
+overlay1 CCD0D6
+overlay0 DDE1E6
+
+surface2 E6E9EE
+surface1 F2F4F7
+surface0 F7F8FA
+
+base F7F8FA
+mantle EDEFF2
+crust E6E9EE
+
+# === Success ===
+success 4FAE6E
+onSuccess 213528
+successContainer D6EFD1
+onSuccessContainer 2A3A22

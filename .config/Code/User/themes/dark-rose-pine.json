@@ -1,0 +1,166 @@
+{
+  "workbench.colorTheme": "dark-rose-pine",
+
+  "editor.semanticHighlighting.enabled": true,
+
+  "workbench.colorCustomizations": {
+    "breadcrumb.foreground": "#d4c9e2",
+    "editor.background": "#191724",
+    "editor.foreground": "#e6e0f0",
+    "editorCursor.foreground": "#f5e0dc",
+
+    "editor.selectionBackground": "#908CAA",
+    "editor.inactiveSelectionBackground": "#7F849C",
+    "editor.lineHighlightBackground": "#2A273F",
+
+    "editor.wordHighlightBackground": "#908CAA",
+    "editor.wordHighlightStrongBackground": "#988BA2",
+
+    "editorLineNumber.foreground": "#A6ADC8",
+    "editorLineNumber.activeForeground": "#F5E0DC",
+
+    "activityBar.background": "#1F1D2E",
+    "activityBar.foreground": "#E6E0F0",
+    "activityBarBadge.background": "#F5E0DC",
+    "activityBarBadge.foreground": "#191724",
+
+    "sideBar.background": "#1F1D2E",
+    "sideBar.foreground": "#D4C9E2",
+    "sideBarSectionHeader.background": "#191724",
+    "sideBarSectionHeader.foreground": "#F5E0DC",
+
+    "statusBar.background": "#1F1D2E",
+    "statusBar.foreground": "#D4C9E2",
+    "statusBar.noFolderBackground": "#1F1D2E",
+    "statusBar.debuggingBackground": "#DDB6F2",
+
+    "titleBar.activeBackground": "#1F1D2E",
+    "titleBar.activeForeground": "#F5E0DC",
+    "titleBar.inactiveBackground": "#191724",
+    "titleBar.inactiveForeground": "#A6ADC8",
+
+    "panel.background": "#1F1D2E",
+    "panel.border": "#2A273F",
+    "panelTitle.activeForeground": "#F5E0DC",
+    "panelTitle.inactiveForeground": "#A6ADC8",
+
+    "tab.activeBackground": "#191724",
+    "tab.activeForeground": "#E6E0F0",
+    "tab.inactiveBackground": "#1F1D2E",
+    "tab.inactiveForeground": "#A6ADC8",
+    "tab.border": "#2A273F",
+
+    "input.background": "#191724",
+    "input.foreground": "#E6E0F0",
+    "input.border": "#2A273F",
+
+    "list.activeSelectionBackground": "#908CAA",
+    "list.activeSelectionForeground": "#F5E0DC",
+    "list.hoverBackground": "#2A273F",
+    "list.focusBackground": "#908CAA"
+  },
+
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "support.type.property-name.json",
+          "entity.name.tag.json"
+        ],
+        "settings": {
+          "foreground": "#F5E0DC"
+        }
+      },
+      {
+        "scope": [
+          "string.json"
+        ],
+        "settings": {
+          "foreground": "#A6E3A1"
+        }
+      },
+      {
+        "scope": [
+          "string",
+          "string.quoted",
+          "string.template"
+        ],
+        "settings": {
+          "foreground": "#A6E3A1"
+        }
+      },
+      {
+        "scope": [
+          "keyword",
+          "storage",
+          "storage.type"
+        ],
+        "settings": {
+          "foreground": "#F5C2E7"
+        }
+      },
+      {
+        "scope": [
+          "entity.name.type",
+          "support.type",
+          "entity.name.class",
+          "support.class"
+        ],
+        "settings": {
+          "foreground": "#F5E0DC"
+        }
+      },
+      {
+        "scope": [
+          "entity.name.function",
+          "support.function"
+        ],
+        "settings": {
+          "foreground": "#F2CDCD"
+        }
+      },
+      {
+        "scope": [
+          "constant",
+          "constant.language",
+          "constant.numeric"
+        ],
+        "settings": {
+          "foreground": "#F9E2AF"
+        }
+      },
+      {
+        "scope": [
+          "punctuation",
+          "meta.brace"
+        ],
+        "settings": {
+          "foreground": "#D4C9E2"
+        }
+      }
+    ]
+  },
+
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "property": "#F5E0DC",
+      "propertyKey": "#F5E0DC",
+
+      "type": "#F5E0DC",
+      "class": "#F5E0DC",
+      "interface": "#F5E0DC",
+      "enum": "#F5E0DC",
+
+      "function": "#F2CDCD",
+      "method": "#F2CDCD",
+
+      "parameter": "#D4C9E2",
+      "property.readonly": "#F5E0DC",
+
+      "keyword": "#F5C2E7",
+      "string": "#A6E3A1",
+      "number": "#F9E2AF"
+    }
+  }
+}

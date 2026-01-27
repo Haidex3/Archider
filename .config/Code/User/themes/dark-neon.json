@@ -1,122 +1,65 @@
 {
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-17",
-      "path": "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/17"
-    },
-    {
-      "name": "JavaSE-21",
-      "path": "/usr/lib/jvm/java-21-openjdk"
-    },
-    {
-      "name": "JavaSE-25",
-      "path": "/usr/lib/jvm/java-25-openjdk",
-      "default": true
-    }
-  ],
-  "terminal.integrated.profiles.linux": {
-    "bash": {
-      "path": "bash",
-      "env": {
-        "JAVA_HOME": "/usr/lib/jvm/java-25-openjdk"
-      },
-      "args": [
-        "--rcfile",
-        "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
-      ]
-    },
-    "JavaSE-17 LTS": {
-      "overrideName": true,
-      "env": {
-        "JAVA_HOME": "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/17"
-      },
-      "path": "bash",
-      "args": [
-        "--rcfile",
-        "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
-      ]
-    },
-    "JavaSE-21 LTS": {
-      "overrideName": true,
-      "env": {
-        "JAVA_HOME": "/usr/lib/jvm/java-21-openjdk"
-      },
-      "path": "bash",
-      "args": [
-        "--rcfile",
-        "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
-      ]
-    },
-    "JavaSE-25 LTS": {
-      "overrideName": true,
-      "env": {
-        "JAVA_HOME": "/usr/lib/jvm/java-25-openjdk"
-      },
-      "path": "bash",
-      "args": [
-        "--rcfile",
-        "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
-      ]
-    }
-  },
-  "terminal.integrated.defaultProfile.linux": "JavaSE-25 LTS",
-  "maven.terminal.customEnv": [
-    {
-      "environmentVariable": "JAVA_HOME",
-      "value": "/usr/lib/jvm/java-25-openjdk"
-    }
-  ],
-  "java.import.gradle.java.home": "/usr/lib/jvm/java-25-openjdk",
-  "maven.executable.path": "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/bin/mvn",
-  "java.import.gradle.home": "/home/Haider/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/gradle/latest",
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.semanticHighlighting.enabled": true,
   "workbench.colorTheme": "dark-neon",
+
+  "editor.semanticHighlighting.enabled": true,
+
   "workbench.colorCustomizations": {
     "breadcrumb.foreground": "#b9b3d6",
     "editor.background": "#0b0612",
     "editor.foreground": "#ede9fe",
     "editorCursor.foreground": "#d946ef",
+
     "editor.selectionBackground": "#2a1b3d",
     "editor.inactiveSelectionBackground": "#1b122a",
     "editor.lineHighlightBackground": "#140a1f",
+
     "editor.wordHighlightBackground": "#2a1b3d",
     "editor.wordHighlightStrongBackground": "#3a2a52",
+
     "editorLineNumber.foreground": "#6b6f85",
     "editorLineNumber.activeForeground": "#d946ef",
+
     "activityBar.background": "#0f0818",
     "activityBar.foreground": "#ede9fe",
     "activityBarBadge.background": "#d946ef",
     "activityBarBadge.foreground": "#0b0612",
+
     "sideBar.background": "#0f0818",
     "sideBar.foreground": "#d6d1f0",
     "sideBarSectionHeader.background": "#0b0612",
     "sideBarSectionHeader.foreground": "#d946ef",
+
     "statusBar.background": "#0f0818",
     "statusBar.foreground": "#d6d1f0",
     "statusBar.noFolderBackground": "#0f0818",
     "statusBar.debuggingBackground": "#a855f7",
+
     "titleBar.activeBackground": "#0f0818",
     "titleBar.activeForeground": "#d946ef",
     "titleBar.inactiveBackground": "#0b0612",
     "titleBar.inactiveForeground": "#8b8fa3",
+
     "panel.background": "#0f0818",
     "panel.border": "#1b122a",
     "panelTitle.activeForeground": "#d946ef",
     "panelTitle.inactiveForeground": "#8b8fa3",
+
     "tab.activeBackground": "#0b0612",
     "tab.activeForeground": "#ede9fe",
     "tab.inactiveBackground": "#0f0818",
     "tab.inactiveForeground": "#8b8fa3",
     "tab.border": "#1b122a",
+
     "input.background": "#0b0612",
     "input.foreground": "#ede9fe",
     "input.border": "#1b122a",
+
     "list.activeSelectionBackground": "#2a1b3d",
     "list.activeSelectionForeground": "#d946ef",
     "list.hoverBackground": "#140a1f",
     "list.focusBackground": "#2a1b3d"
   },
+
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -197,19 +140,24 @@
       }
     ]
   },
+
   "editor.semanticTokenColorCustomizations": {
     "enabled": true,
     "rules": {
       "property": "#d946ef",
       "propertyKey": "#d946ef",
+
       "type": "#d946ef",
       "class": "#d946ef",
       "interface": "#d946ef",
       "enum": "#d946ef",
+
       "function": "#22d3ee",
       "method": "#22d3ee",
+
       "parameter": "#b9b3d6",
       "property.readonly": "#d946ef",
+
       "keyword": "#f472b6",
       "string": "#4ade80",
       "number": "#facc15"

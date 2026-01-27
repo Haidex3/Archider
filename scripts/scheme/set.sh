@@ -102,7 +102,7 @@ cat > "$GTK_SETTINGS" <<EOF
 gtk-theme-name=$SELECTED
 gtk-icon-theme-name=Papirus-Dark
 gtk-font-name=Sans 10
-gtk-application-prefer-dark-theme=1
+gtk-application-prefer-dark-theme=0
 EOF
 else
     # Reemplazos seguros
@@ -115,8 +115,8 @@ else
     sed -i "s/^gtk-font-name=.*/gtk-font-name=Sans 10/" "$GTK_SETTINGS" \
         || echo "gtk-font-name=Sans 10" >> "$GTK_SETTINGS"
 
-    sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=1/" "$GTK_SETTINGS" \
-        || echo "gtk-application-prefer-dark-theme=1" >> "$GTK_SETTINGS"
+    sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=0/" "$GTK_SETTINGS" \
+        || echo "gtk-application-prefer-dark-theme=0" >> "$GTK_SETTINGS"
 fi
 # =====================
 # Aplicar tema VS Code SIN heredar valores

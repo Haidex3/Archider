@@ -1,9 +1,0 @@
-* {
-    bg: #12100E;
-    fg: #E0AF68;
-    selected-bg: #FF9E64;
-    selected-fg: #E0AF68;
-    urgent-bg: #E06C75
-#7A1E1E;
-    urgent-fg: #E0AF68;
-}

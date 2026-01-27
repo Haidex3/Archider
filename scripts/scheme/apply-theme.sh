@@ -9,8 +9,6 @@ COLOR_FILE="$HOME/.local/state/hatheme/scheme/colors.txt"
 ALACRITTY_CONFIG="$HOME/.config/alacritty/colors.toml"
 # Kitty
 KITTY_CONFIG="$HOME/.config/kitty/kitty.conf"
-# Rofi
-ROFI_CONFIG="$HOME/.config/rofi/colors.rasi"
 # VS Code (Code)
 #VSCODE_CONFIG="$HOME/.config/Code/User/settings.json"
 # Yazi terminal (ejemplo)
@@ -59,20 +57,6 @@ color4 $info
 color5 $primary
 color6 $secondary
 color7 $foreground
-EOF
-
-# ----------------------------
-# Generar Rofi colors
-# ----------------------------
-cat > "$ROFI_CONFIG" <<EOF
-* {
-    bg: $background;
-    fg: $foreground;
-    selected-bg: $primary;
-    selected-fg: $foreground;
-    urgent-bg: $error;
-    urgent-fg: $foreground;
-}
 EOF
 
 # ----------------------------

@@ -1,0 +1,164 @@
+#----------------------------------------------------------
+#--  THEME: Light Neon
+#----------------------------------------------------------
+
+[mgr]
+cwd = { fg = "#C026D3", bold = true }
+
+# Hovered
+hovered = { bg = "#E8E1F1", bold = true }
+preview_hovered = { underline = true }
+
+# Find
+find_symbol = " Finding: "
+find_keyword  = { fg = "#EC4899", bold = true, underline = true }
+find_position = { fg = "#06B6D4", bold = true }
+
+# Symlink
+symlink_target = { fg = "#06B6D4", italic = true }
+
+# Marker
+marker_copied   = { fg = "#FAF7FF", bg = "#22C55E" }
+marker_cut      = { fg = "#FAF7FF", bg = "#E11D48" }
+marker_marked   = { fg = "#FAF7FF", bg = "#C026D3" }
+marker_selected = { fg = "#FAF7FF", bg = "#EC4899" }
+
+# Count
+count_copied   = { fg = "#FAF7FF", bg = "#22C55E" }
+count_cut      = { fg = "#FAF7FF", bg = "#E11D48" }
+count_selected = { fg = "#FAF7FF", bg = "#FACC15" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#8C88A3" }
+
+# Tabs
+[tabs]
+active   = { fg = "#FAF7FF", bg = "#C026D3", bold = true }
+inactive = { fg = "#C026D3", bg = "#FAF7FF" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# Modes
+[mode]
+normal_main = { fg = "#FAF7FF", bg = "#C026D3", bold = true }
+normal_alt  = { fg = "#C026D3", bg = "#F0EBF8" }
+
+select_main = { fg = "#FAF7FF", bg = "#06B6D4", bold = true }
+select_alt  = { fg = "#06B6D4", bg = "#CFFAFE" }
+
+unset_main = { fg = "#FAF7FF", bg = "#E11D48", bold = true }
+unset_alt  = { fg = "#E11D48", bg = "#FFDADD" }
+
+# Status bar
+[status]
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#8C88A3" }
+perm_type  = { fg = "#22C55E" }
+perm_read  = { fg = "#FACC15" }
+perm_write = { fg = "#E11D48" }
+perm_exec  = { fg = "#06B6D4" }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#C026D3", bg = "#F0EBF8" }
+progress_error  = { fg = "#E11D48", bg = "#F0EBF8" }
+
+# Which
+[which]
+cols = 3
+mask = { bg = "#F0EBF8" }
+cand = { fg = "#C026D3" }
+rest = { fg = "#CFC7DD" }
+desc = { fg = "#06B6D4" }
+separator = "  "
+separator_style = { fg = "#CFC7DD" }
+
+# Confirmation
+[confirm]
+border  = { fg = "#C026D3" }
+title   = { fg = "#C026D3", bold = true }
+content = {}
+list    = {}
+btn_yes = { reversed = true }
+btn_no  = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
+
+# Spotter
+[spot]
+border = { fg = "#06B6D4" }
+title  = { fg = "#06B6D4" }
+
+# Table
+tbl_col  = { fg = "#06B6D4" }
+tbl_cell = { fg = "#FAF7FF", bg = "#FACC15" }
+
+# Notifications
+[notify]
+title_info  = { fg = "#22C55E" }
+title_warn  = { fg = "#FACC15" }
+title_error = { fg = "#E11D48" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# Picker
+[pick]
+border   = { fg = "#06B6D4" }
+active   = { fg = "#C026D3", bold = true }
+inactive = {}
+
+# Input
+[input]
+border   = { fg = "#06B6D4" }
+title    = {}
+value    = { fg = "#2B163A" }
+selected = { reversed = true }
+
+# Completion
+[cmp]
+border   = { fg = "#06B6D4" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# Task manager
+[tasks]
+border  = { fg = "#06B6D4" }
+title   = {}
+hovered = { fg = "#C026D3", underline = true }
+
+# Help menu
+[help]
+on      = { fg = "#06B6D4" }
+run     = { fg = "#C026D3" }
+desc    = { fg = "#2B163A" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#FAF7FF", bg = "#2B163A" }
+
+# File-specific styles
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#EC4899" },
+  { mime = "{audio,video}/*", fg = "#22C55E" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd}", fg = "#E11D48" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#06B6D4" },
+  { mime = "inode/empty", fg = "#CFC7DD" },
+  { name = "*", is = "orphan", bg = "#E11D48" },
+  { name = "*", is = "exec", fg = "#22C55E", bold = true },
+  { name = "*", is = "dummy", bg = "#E11D48" },
+  { name = "*/", is = "dummy", bg = "#E11D48" },
+  { url = "*/", fg = "#C026D3", bold = true },
+]

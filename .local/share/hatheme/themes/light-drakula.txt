@@ -1,0 +1,148 @@
+# === Palette keys (light drakula) ===
+primary_paletteKeyColor BD93F9
+secondary_paletteKeyColor FF79C6
+tertiary_paletteKeyColor 8BE9FD
+neutral_paletteKeyColor B9B9CC
+neutral_variant_paletteKeyColor 9A9AB0
+
+# === Backgrounds ===
+background F6F6FB
+onBackground 2B2B3C
+surface F6F6FB
+surfaceDim EEEEF6
+surfaceBright FFFFFF
+
+surfaceContainerLowest FFFFFF
+surfaceContainerLow F1F1FA
+surfaceContainer F6F6FB
+surfaceContainerHigh E8E8F2
+surfaceContainerHighest DDDDEA
+
+# === Surface text ===
+onSurface 2B2B3C
+surfaceVariant E3E3F0
+onSurfaceVariant 5F637A
+
+inverseSurface 2B2B3C
+inverseOnSurface F6F6FB
+
+outline 9A9AB0
+outlineVariant CCCCCF
+
+shadow 000000
+scrim 000000
+
+# === Primary (DRACULA PURPLE) ===
+surfaceTint BD93F9
+primary BD93F9
+onPrimary 2A1A3A
+primaryContainer E6DCFF
+onPrimaryContainer 3A2A5E
+inversePrimary 7A5CCB
+
+# === Secondary (DRACULA PINK) ===
+secondary FF79C6
+onSecondary 3A0020
+secondaryContainer FFD6EC
+onSecondaryContainer 5A2342
+
+# === Tertiary (CYAN) ===
+tertiary 8BE9FD
+onTertiary 00323A
+tertiaryContainer D6F7FF
+onTertiaryContainer 1E4F5E
+
+# === Error ===
+error D95C5C
+onError 4A0B0B
+errorContainer FFDAD6
+onErrorContainer 690005
+
+# === Fixed tones ===
+primaryFixed E6DCFF
+primaryFixedDim BD93F9
+onPrimaryFixed 2A1A3A
+onPrimaryFixedVariant 3A2A5E
+
+secondaryFixed FFD6EC
+secondaryFixedDim FF79C6
+onSecondaryFixed 3A0020
+onSecondaryFixedVariant 5A2342
+
+tertiaryFixed D6F7FF
+tertiaryFixedDim 8BE9FD
+onTertiaryFixed 00323A
+onTertiaryFixedVariant 1E4F5E
+
+# === Terminal colors (light drakula) ===
+term0 F6F6FB
+term1 D95C5C
+term2 4FAE6E
+term3 E0D561
+term4 BD93F9
+term5 FF79C6
+term6 5ECBE0
+term7 2B2B3C
+
+term8 9A9AB0
+term9 E57373
+term10 7BD389
+term11 F1E88C
+term12 D6ACFF
+term13 FF9AD5
+term14 8BE9FD
+term15 1E1E2E
+
+# === Accents ===
+rosewater F2D5CF
+flamingo EEBEBE
+pink FF79C6
+mauve BD93F9
+red D95C5C
+maroon B14A4A
+peach FF6E6E
+yellow E0D561
+green 4FAE6E
+teal 5ECBE0
+sky 8BE9FD
+sapphire 6C79B8
+blue BD93F9
+lavender D6ACFF
+
+# === KDE / UI states ===
+klink BD93F9
+klinkSelection 7A5CCB
+kvisited FF79C6
+kvisitedSelection FF79C6
+
+knegative D95C5C
+knegativeSelection D95C5C
+
+kneutral E0D561
+kneutralSelection E0D561
+
+kpositive 4FAE6E
+kpositiveSelection 4FAE6E
+
+# === Text hierarchy ===
+text 2B2B3C
+subtext1 5F637A
+subtext0 9A9AB0
+
+overlay2 B9B9CC
+overlay1 CCCCCF
+overlay0 DDDDEA
+
+surface2 E8E8F2
+surface1 F1F1FA
+surface0 F6F6FB
+
+base F6F6FB
+mantle EEEEF6
+crust E8E8F2
+
+# === Success ===
+success 4FAE6E
+onSuccess 213528
+successContainer D6EFD1
+onSuccessContainer 2A3A22

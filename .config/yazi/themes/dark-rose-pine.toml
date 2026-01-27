@@ -1,0 +1,164 @@
+#----------------------------------------------------------
+#--  THEME: Dark Rose Pine
+#----------------------------------------------------------
+
+[mgr]
+cwd = { fg = "#F5E0DC", bold = true }
+
+# Hovered
+hovered = { bg = "#2A273F", bold = true }
+preview_hovered = { underline = true }
+
+# Find
+find_symbol = " Finding: "
+find_keyword  = { fg = "#F5C2E7", bold = true, underline = true }
+find_position = { fg = "#F2CDCD", bold = true }
+
+# Symlink
+symlink_target = { fg = "#F2CDCD", italic = true }
+
+# Marker
+marker_copied   = { fg = "#191724", bg = "#A6E3A1" }
+marker_cut      = { fg = "#191724", bg = "#F38BA8" }
+marker_marked   = { fg = "#191724", bg = "#F5E0DC" }
+marker_selected = { fg = "#191724", bg = "#F5C2E7" }
+
+# Count
+count_copied   = { fg = "#191724", bg = "#A6E3A1" }
+count_cut      = { fg = "#191724", bg = "#F38BA8" }
+count_selected = { fg = "#191724", bg = "#F9E2AF" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#988BA2" }
+
+# Tabs
+[tabs]
+active   = { fg = "#191724", bg = "#F5E0DC", bold = true }
+inactive = { fg = "#F5E0DC", bg = "#191724" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# Modes
+[mode]
+normal_main = { fg = "#191724", bg = "#F5E0DC", bold = true }
+normal_alt  = { fg = "#F5E0DC", bg = "#2A273F" }
+
+select_main = { fg = "#191724", bg = "#F2CDCD", bold = true }
+select_alt  = { fg = "#F2CDCD", bg = "#2A273F" }
+
+unset_main = { fg = "#191724", bg = "#F38BA8", bold = true }
+unset_alt  = { fg = "#F38BA8", bg = "#2A273F" }
+
+# Status bar
+[status]
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#988BA2" }
+perm_type  = { fg = "#A6E3A1" }
+perm_read  = { fg = "#F9E2AF" }
+perm_write = { fg = "#F38BA8" }
+perm_exec  = { fg = "#F2CDCD" }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#F5E0DC", bg = "#2A273F" }
+progress_error  = { fg = "#F38BA8", bg = "#2A273F" }
+
+# Which
+[which]
+cols = 3
+mask = { bg = "#2A273F" }
+cand = { fg = "#F5E0DC" }
+rest = { fg = "#988BA2" }
+desc = { fg = "#F2CDCD" }
+separator = "  "
+separator_style = { fg = "#988BA2" }
+
+# Confirmation
+[confirm]
+border  = { fg = "#F5E0DC" }
+title   = { fg = "#F5E0DC", bold = true }
+content = {}
+list    = {}
+btn_yes = { reversed = true }
+btn_no  = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
+
+# Spotter
+[spot]
+border = { fg = "#F2CDCD" }
+title  = { fg = "#F2CDCD" }
+
+# Table
+tbl_col  = { fg = "#F2CDCD" }
+tbl_cell = { fg = "#191724", bg = "#F9E2AF" }
+
+# Notifications
+[notify]
+title_info  = { fg = "#A6E3A1" }
+title_warn  = { fg = "#F9E2AF" }
+title_error = { fg = "#F38BA8" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# Picker
+[pick]
+border   = { fg = "#F2CDCD" }
+active   = { fg = "#F5E0DC", bold = true }
+inactive = {}
+
+# Input
+[input]
+border   = { fg = "#F2CDCD" }
+title    = {}
+value    = { fg = "#E6E0F0" }
+selected = { reversed = true }
+
+# Completion
+[cmp]
+border   = { fg = "#F2CDCD" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# Task manager
+[tasks]
+border  = { fg = "#F2CDCD" }
+title   = {}
+hovered = { fg = "#F5E0DC", underline = true }
+
+# Help menu
+[help]
+on      = { fg = "#F2CDCD" }
+run     = { fg = "#F5E0DC" }
+desc    = { fg = "#E6E0F0" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#191724", bg = "#E6E0F0" }
+
+# File-specific styles
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#F5C2E7" },
+  { mime = "{audio,video}/*", fg = "#A6E3A1" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd}", fg = "#F38BA8" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#F2CDCD" },
+  { mime = "inode/empty", fg = "#988BA2" },
+  { name = "*", is = "orphan", bg = "#F38BA8" },
+  { name = "*", is = "exec", fg = "#A6E3A1", bold = true },
+  { name = "*", is = "dummy", bg = "#F38BA8" },
+  { name = "*/", is = "dummy", bg = "#F38BA8" },
+  { url = "*/", fg = "#F5E0DC", bold = true },
+]

@@ -1,0 +1,148 @@
+# === Palette keys (light neon) ===
+primary_paletteKeyColor C026D3
+secondary_paletteKeyColor 06B6D4
+tertiary_paletteKeyColor EC4899
+neutral_paletteKeyColor A8A4B8
+neutral_variant_paletteKeyColor 8C88A3
+
+# === Backgrounds ===
+background FAF7FF
+onBackground 2B163A
+surface FAF7FF
+surfaceDim F0EBF8
+surfaceBright FFFFFF
+
+surfaceContainerLowest FFFFFF
+surfaceContainerLow F6F1FB
+surfaceContainer F0EBF8
+surfaceContainerHigh E8E1F1
+surfaceContainerHighest E0D8EA
+
+# === Surface text ===
+onSurface 2B163A
+surfaceVariant E5DDF0
+onSurfaceVariant 5A4A6A
+
+inverseSurface 2B163A
+inverseOnSurface FAF7FF
+
+outline 8C88A3
+outlineVariant CFC7DD
+
+shadow 000000
+scrim 000000
+
+# === Primary (NEON PURPLE) ===
+surfaceTint C026D3
+primary C026D3
+onPrimary FFF4FF
+primaryContainer F2D9FA
+onPrimaryContainer 3A0045
+inversePrimary A21CAF
+
+# === Secondary (NEON CYAN) ===
+secondary 06B6D4
+onSecondary 002A33
+secondaryContainer CFFAFE
+onSecondaryContainer 00363F
+
+# === Tertiary (NEON PINK) ===
+tertiary EC4899
+onTertiary 3A001E
+tertiaryContainer FFD9EC
+onTertiaryContainer 5A0030
+
+# === Error ===
+error E11D48
+onError FFF5F7
+errorContainer FFDADD
+onErrorContainer 690005
+
+# === Fixed tones ===
+primaryFixed F2D9FA
+primaryFixedDim C026D3
+onPrimaryFixed 3A0045
+onPrimaryFixedVariant 6A0A7A
+
+secondaryFixed CFFAFE
+secondaryFixedDim 06B6D4
+onSecondaryFixed 002A33
+onSecondaryFixedVariant 005A66
+
+tertiaryFixed FFD9EC
+tertiaryFixedDim EC4899
+onTertiaryFixed 3A001E
+onTertiaryFixedVariant 7A0040
+
+# === Terminal colors (light neon) ===
+term0 F0EBF8
+term1 E11D48
+term2 22C55E
+term3 FACC15
+term4 C026D3
+term5 EC4899
+term6 06B6D4
+term7 2B163A
+
+term8 8C88A3
+term9 FB7185
+term10 4ADE80
+term11 FDE047
+term12 D946EF
+term13 F472B6
+term14 22D3EE
+term15 1E0A2A
+
+# === Accents ===
+rosewater F5E1FF
+flamingo FBCFE8
+pink EC4899
+mauve C026D3
+red E11D48
+maroon BE123C
+peach FB7185
+yellow FACC15
+green 22C55E
+teal 06B6D4
+sky 22D3EE
+sapphire 0EA5E9
+blue A855F7
+lavender E9D5FF
+
+# === KDE / UI states ===
+klink C026D3
+klinkSelection A21CAF
+kvisited A855F7
+kvisitedSelection A855F7
+
+knegative E11D48
+knegativeSelection E11D48
+
+kneutral FACC15
+kneutralSelection FACC15
+
+kpositive 22C55E
+kpositiveSelection 22C55E
+
+# === Text hierarchy ===
+text 2B163A
+subtext1 5A4A6A
+subtext0 8C88A3
+
+overlay2 A8A4B8
+overlay1 CFC7DD
+overlay0 E5DDF0
+
+surface2 E8E1F1
+surface1 F0EBF8
+surface0 F6F1FB
+
+base FAF7FF
+mantle F0EBF8
+crust E8E1F1
+
+# === Success ===
+success 22C55E
+onSuccess 0E2A18
+successContainer D1FAE5
+onSuccessContainer 14532D

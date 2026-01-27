@@ -1,0 +1,164 @@
+#----------------------------------------------------------
+#--  THEME: Light Ocean
+#----------------------------------------------------------
+
+[mgr]
+cwd = { fg = "#22D3EE", bold = true }
+
+# Hovered
+hovered = { bg = "#E8E1F1", bold = true }
+preview_hovered = { underline = true }
+
+# Find
+find_symbol = " Finding: "
+find_keyword  = { fg = "#D946EF", bold = true, underline = true }
+find_position = { fg = "#7FD6E8", bold = true }
+
+# Symlink
+symlink_target = { fg = "#7FD6E8", italic = true }
+
+# Marker
+marker_copied   = { fg = "#FAF7FF", bg = "#4ADE80" }
+marker_cut      = { fg = "#FAF7FF", bg = "#FB7185" }
+marker_marked   = { fg = "#FAF7FF", bg = "#22D3EE" }
+marker_selected = { fg = "#FAF7FF", bg = "#D946EF" }
+
+# Count
+count_copied   = { fg = "#FAF7FF", bg = "#4ADE80" }
+count_cut      = { fg = "#FAF7FF", bg = "#FB7185" }
+count_selected = { fg = "#FAF7FF", bg = "#FACC15" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#A8A4B8" }
+
+# Tabs
+[tabs]
+active   = { fg = "#FAF7FF", bg = "#22D3EE", bold = true }
+inactive = { fg = "#22D3EE", bg = "#FAF7FF" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# Modes
+[mode]
+normal_main = { fg = "#FAF7FF", bg = "#22D3EE", bold = true }
+normal_alt  = { fg = "#22D3EE", bg = "#E8E1F1" }
+
+select_main = { fg = "#FAF7FF", bg = "#06B6D4", bold = true }
+select_alt  = { fg = "#06B6D4", bg = "#E8E1F1" }
+
+unset_main = { fg = "#FAF7FF", bg = "#EC4899", bold = true }
+unset_alt  = { fg = "#EC4899", bg = "#FFD9EC" }
+
+# Status bar
+[status]
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#A8A4B8" }
+perm_type  = { fg = "#4ADE80" }
+perm_read  = { fg = "#FACC15" }
+perm_write = { fg = "#FB7185" }
+perm_exec  = { fg = "#06B6D4" }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#22D3EE", bg = "#E8E1F1" }
+progress_error  = { fg = "#FB7185", bg = "#E8E1F1" }
+
+# Which
+[which]
+cols = 3
+mask = { bg = "#E8E1F1" }
+cand = { fg = "#22D3EE" }
+rest = { fg = "#8C88A3" }
+desc = { fg = "#06B6D4" }
+separator = "  "
+separator_style = { fg = "#8C88A3" }
+
+# Confirmation
+[confirm]
+border  = { fg = "#22D3EE" }
+title   = { fg = "#22D3EE", bold = true }
+content = {}
+list    = {}
+btn_yes = { reversed = true }
+btn_no  = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
+
+# Spotter
+[spot]
+border = { fg = "#06B6D4" }
+title  = { fg = "#06B6D4" }
+
+# Table
+tbl_col  = { fg = "#06B6D4" }
+tbl_cell = { fg = "#FAF7FF", bg = "#FACC15" }
+
+# Notifications
+[notify]
+title_info  = { fg = "#4ADE80" }
+title_warn  = { fg = "#FACC15" }
+title_error = { fg = "#FB7185" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# Picker
+[pick]
+border   = { fg = "#06B6D4" }
+active   = { fg = "#22D3EE", bold = true }
+inactive = {}
+
+# Input
+[input]
+border   = { fg = "#06B6D4" }
+title    = {}
+value    = { fg = "#2B163A" }
+selected = { reversed = true }
+
+# Completion
+[cmp]
+border   = { fg = "#06B6D4" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# Task manager
+[tasks]
+border  = { fg = "#06B6D4" }
+title   = {}
+hovered = { fg = "#22D3EE", underline = true }
+
+# Help menu
+[help]
+on      = { fg = "#06B6D4" }
+run     = { fg = "#22D3EE" }
+desc    = { fg = "#2B163A" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#FAF7FF", bg = "#2B163A" }
+
+# File-specific styles
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#EC4899" },
+  { mime = "{audio,video}/*", fg = "#4ADE80" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd}", fg = "#FB7185" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#06B6D4" },
+  { mime = "inode/empty", fg = "#8C88A3" },
+  { name = "*", is = "orphan", bg = "#FB7185" },
+  { name = "*", is = "exec", fg = "#4ADE80", bold = true },
+  { name = "*", is = "dummy", bg = "#FB7185" },
+  { name = "*/", is = "dummy", bg = "#FB7185" },
+  { url = "*/", fg = "#22D3EE", bold = true },
+]

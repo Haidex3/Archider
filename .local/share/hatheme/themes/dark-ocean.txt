@@ -1,0 +1,148 @@
+# === Palette keys (dark ocean) ===
+primary_paletteKeyColor 4FB6C6
+secondary_paletteKeyColor 5FA8A0
+tertiary_paletteKeyColor 7A8FD4
+neutral_paletteKeyColor 8A8F95
+neutral_variant_paletteKeyColor 6F757B
+
+# === Backgrounds ===
+background 0E1A22
+onBackground D6E3EA
+surface 0E1A22
+surfaceDim 0B141B
+surfaceBright 162733
+
+surfaceContainerLowest 071017
+surfaceContainerLow 101E28
+surfaceContainer 162733
+surfaceContainerHigh 1C3240
+surfaceContainerHighest 233C4D
+
+# === Surface text ===
+onSurface D6E3EA
+surfaceVariant 243A48
+onSurfaceVariant AEBECB
+
+inverseSurface D6E3EA
+inverseOnSurface 0E1A22
+
+outline 5F6F7C
+outlineVariant 3A4A56
+
+shadow 000000
+scrim 000000
+
+# === Primary (OCEAN CYAN) ===
+surfaceTint 4FB6C6
+primary 4FB6C6
+onPrimary 002A30
+primaryContainer 1F4F5A
+onPrimaryContainer CBEFF5
+inversePrimary 2A8F9F
+
+# === Secondary (SEA TEAL) ===
+secondary 5FA8A0
+onSecondary 002E2A
+secondaryContainer 244E4A
+onSecondaryContainer CEEDEA
+
+# === Tertiary (DEEP BLUE) ===
+tertiary 7A8FD4
+onTertiary 0E1A3A
+tertiaryContainer 2C3F73
+onTertiaryContainer E0E6FF
+
+# === Error ===
+error F07178
+onError 3A0006
+errorContainer 5A1A1F
+onErrorContainer FFDAD6
+
+# === Fixed tones ===
+primaryFixed CBEFF5
+primaryFixedDim 4FB6C6
+onPrimaryFixed 002A30
+onPrimaryFixedVariant 1F4F5A
+
+secondaryFixed CEEDEA
+secondaryFixedDim 5FA8A0
+onSecondaryFixed 002E2A
+onSecondaryFixedVariant 244E4A
+
+tertiaryFixed E0E6FF
+tertiaryFixedDim 7A8FD4
+onTertiaryFixed 0E1A3A
+onTertiaryFixedVariant 2C3F73
+
+# === Terminal colors (dark ocean) ===
+term0 0E1A22
+term1 F07178
+term2 7BD389
+term3 E0AF68
+term4 4FB6C6
+term5 C792EA
+term6 5FA8A0
+term7 D6E3EA
+
+term8 5F6F7C
+term9 F78C6C
+term10 9ECE6A
+term11 F2C97D
+term12 82AAFF
+term13 DDB6F2
+term14 8BE9FD
+term15 F8FAFC
+
+# === Accents ===
+rosewater F2D5CF
+flamingo EEBEBE
+pink F5A6C8
+mauve C792EA
+red F07178
+maroon B14A4A
+peach F78C6C
+yellow E0AF68
+green 7BD389
+teal 5FA8A0
+sky 8BE9FD
+sapphire 4C7D9E
+blue 82AAFF
+lavender B4BEFE
+
+# === KDE / UI states ===
+klink 4FB6C6
+klinkSelection 2A8F9F
+kvisited 7A8FD4
+kvisitedSelection 7A8FD4
+
+knegative F07178
+knegativeSelection F07178
+
+kneutral E0AF68
+kneutralSelection E0AF68
+
+kpositive 7BD389
+kpositiveSelection 7BD389
+
+# === Text hierarchy ===
+text D6E3EA
+subtext1 AEBECB
+subtext0 8A9AA6
+
+overlay2 5F6F7C
+overlay1 4A5A66
+overlay0 3A4A56
+
+surface2 1C3240
+surface1 162733
+surface0 101E28
+
+base 0E1A22
+mantle 0B141B
+crust 071017
+
+# === Success ===
+success 7BD389
+onSuccess 0E2A18
+successContainer 244F34
+onSuccessContainer CFF5DD

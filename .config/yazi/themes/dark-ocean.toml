@@ -1,0 +1,164 @@
+#----------------------------------------------------------
+#--  THEME: Dark Ocean
+#----------------------------------------------------------
+
+[mgr]
+cwd = { fg = "#22d3ee", bold = true }
+
+# Hovered
+hovered = { bg = "#1b0f2a", bold = true }
+preview_hovered = { underline = true }
+
+# Find
+find_symbol = " Finding: "
+find_keyword  = { fg = "#d946ef", bold = true, underline = true }
+find_position = { fg = "#7fd6e8", bold = true }
+
+# Symlink
+symlink_target = { fg = "#7fd6e8", italic = true }
+
+# Marker
+marker_copied   = { fg = "#0b0612", bg = "#4ade80" }
+marker_cut      = { fg = "#0b0612", bg = "#f472b6" }
+marker_marked   = { fg = "#0b0612", bg = "#d946ef" }
+marker_selected = { fg = "#0b0612", bg = "#f472b6" }
+
+# Count
+count_copied   = { fg = "#0b0612", bg = "#4ade80" }
+count_cut      = { fg = "#0b0612", bg = "#f472b6" }
+count_selected = { fg = "#0b0612", bg = "#facc15" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#8b8fa3" }
+
+# Tabs
+[tabs]
+active   = { fg = "#0b0612", bg = "#22d3ee", bold = true }
+inactive = { fg = "#22d3ee", bg = "#0b0612" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# Modes
+[mode]
+normal_main = { fg = "#0b0612", bg = "#22d3ee", bold = true }
+normal_alt  = { fg = "#22d3ee", bg = "#1b0f2a" }
+
+select_main = { fg = "#0b0612", bg = "#7fd6e8", bold = true }
+select_alt  = { fg = "#7fd6e8", bg = "#1b0f2a" }
+
+unset_main = { fg = "#0b0612", bg = "#f472b6", bold = true }
+unset_alt  = { fg = "#f472b6", bg = "#1b0f2a" }
+
+# Status bar
+[status]
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#8b8fa3" }
+perm_type  = { fg = "#4ade80" }
+perm_read  = { fg = "#facc15" }
+perm_write = { fg = "#f472b6" }
+perm_exec  = { fg = "#7fd6e8" }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#22d3ee", bg = "#1b0f2a" }
+progress_error  = { fg = "#f472b6", bg = "#1b0f2a" }
+
+# Which
+[which]
+cols = 3
+mask = { bg = "#1b0f2a" }
+cand = { fg = "#22d3ee" }
+rest = { fg = "#8b8fa3" }
+desc = { fg = "#7fd6e8" }
+separator = "  "
+separator_style = { fg = "#8b8fa3" }
+
+# Confirmation
+[confirm]
+border  = { fg = "#22d3ee" }
+title   = { fg = "#22d3ee", bold = true }
+content = {}
+list    = {}
+btn_yes = { reversed = true }
+btn_no  = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
+
+# Spotter
+[spot]
+border = { fg = "#7fd6e8" }
+title  = { fg = "#7fd6e8" }
+
+# Table
+tbl_col  = { fg = "#7fd6e8" }
+tbl_cell = { fg = "#0b0612", bg = "#facc15" }
+
+# Notifications
+[notify]
+title_info  = { fg = "#4ade80" }
+title_warn  = { fg = "#facc15" }
+title_error = { fg = "#f472b6" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# Picker
+[pick]
+border   = { fg = "#7fd6e8" }
+active   = { fg = "#d946ef", bold = true }
+inactive = {}
+
+# Input
+[input]
+border   = { fg = "#7fd6e8" }
+title    = {}
+value    = { fg = "#ede9fe" }
+selected = { reversed = true }
+
+# Completion
+[cmp]
+border   = { fg = "#7fd6e8" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# Task manager
+[tasks]
+border  = { fg = "#7fd6e8" }
+title   = {}
+hovered = { fg = "#d946ef", underline = true }
+
+# Help menu
+[help]
+on      = { fg = "#7fd6e8" }
+run     = { fg = "#d946ef" }
+desc    = { fg = "#ede9fe" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#0b0612", bg = "#ede9fe" }
+
+# File-specific styles
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#f472b6" },
+  { mime = "{audio,video}/*", fg = "#4ade80" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd}", fg = "#f472b6" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#7fd6e8" },
+  { mime = "inode/empty", fg = "#8b8fa3" },
+  { name = "*", is = "orphan", bg = "#f472b6" },
+  { name = "*", is = "exec", fg = "#4ade80", bold = true },
+  { name = "*", is = "dummy", bg = "#f472b6" },
+  { name = "*/", is = "dummy", bg = "#f472b6" },
+  { url = "*/", fg = "#d946ef", bold = true },
+]

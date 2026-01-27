@@ -157,7 +157,18 @@
         "settings": {
           "foreground": "#5c6470"
         }
-      }
+      },
+      {
+        "scope": [
+            "meta.selector.css",
+            "entity.other.attribute-name.css",
+            "support.type.property-name.css",
+            "keyword.control.pseudo-class.css"
+        ],
+        "settings": {
+            "foreground": "#18428b"   
+        }
+        }
     ]
   },
 

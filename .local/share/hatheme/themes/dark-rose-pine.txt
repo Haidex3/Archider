@@ -1,0 +1,148 @@
+# === Palette keys (dark rose-pine) ===
+primary_paletteKeyColor F5E0DC
+secondary_paletteKeyColor F2CDCD
+tertiary_paletteKeyColor F5C2E7
+neutral_paletteKeyColor A6ADC8
+neutral_variant_paletteKeyColor 7F849C
+
+# === Backgrounds ===
+background 191724
+onBackground E6E0F0
+surface 1F1D2E
+surfaceDim 232136
+surfaceBright 2A273F
+
+surfaceContainerLowest 1B182C
+surfaceContainerLow 1F1D2E
+surfaceContainer 232136
+surfaceContainerHigh 2A273F
+surfaceContainerHighest 363050
+
+# === Surface text ===
+onSurface E6E0F0
+surfaceVariant 908CAA
+onSurfaceVariant D4C9E2
+
+inverseSurface E6E0F0
+inverseOnSurface 191724
+
+outline 988BA2
+outlineVariant 6E6A86
+
+shadow 000000
+scrim 000000
+
+# === Primary (ROSE) ===
+surfaceTint F5E0DC
+primary F5E0DC
+onPrimary 332932
+primaryContainer 513545
+onPrimaryContainer FCD7E3
+inversePrimary DDB6F2
+
+# === Secondary (MUTED PINK) ===
+secondary F2CDCD
+onSecondary 2B1C1F
+secondaryContainer 5C3D46
+onSecondaryContainer FCD7D7
+
+# === Tertiary (MAGENTA) ===
+tertiary F5C2E7
+onTertiary 3A192D
+tertiaryContainer 6C4174
+onTertiaryContainer FFD9FC
+
+# === Error ===
+error F38BA8
+onError 2C0B12
+errorContainer 63202A
+onErrorContainer FFD8E5
+
+# === Fixed tones ===
+primaryFixed FCD7E3
+primaryFixedDim F5E0DC
+onPrimaryFixed 332932
+onPrimaryFixedVariant 513545
+
+secondaryFixed FCD7D7
+secondaryFixedDim F2CDCD
+onSecondaryFixed 2B1C1F
+onSecondaryFixedVariant 5C3D46
+
+tertiaryFixed FFD9FC
+tertiaryFixedDim F5C2E7
+onTertiaryFixed 3A192D
+onTertiaryFixedVariant 6C4174
+
+# === Terminal colors (dark rose-pine) ===
+term0 191724
+term1 F38BA8
+term2 A6E3A1
+term3 F9E2AF
+term4 F5E0DC
+term5 F5C2E7
+term6 F2CDCD
+term7 E6E0F0
+
+term8 988BA2
+term9 F38BA8
+term10 A6E3A1
+term11 F9E2AF
+term12 F5C2E7
+term13 F5C2E7
+term14 F2A2E8
+term15 E6E0F0
+
+# === Accents ===
+rosewater F5E0DC
+flamingo F2CDCD
+pink F5C2E7
+mauve DDB6F2
+red F38BA8
+maroon EBA0AC
+peach FFD6E0
+yellow F9E2AF
+green A6E3A1
+teal F5C2E7
+sky F5C2E7
+sapphire DDB6F2
+blue DDB6F2
+lavender DDB6F2
+
+# === KDE / UI states ===
+klink F5E0DC
+klinkSelection DDB6F2
+kvisited B4BEFE
+kvisitedSelection B4BEFE
+
+knegative F38BA8
+knegativeSelection F38BA8
+
+kneutral F9E2AF
+kneutralSelection F9E2AF
+
+kpositive A6E3A1
+kpositiveSelection A6E3A1
+
+# === Text hierarchy ===
+text E6E0F0
+subtext1 D4C9E2
+subtext0 A6ADC8
+
+overlay2 988BA2
+overlay1 7F849C
+overlay0 6E6A86
+
+surface2 2A273F
+surface1 232136
+surface0 1F1D2E
+
+base 191724
+mantle 1B182C
+crust 161320
+
+# === Success ===
+success A6E3A1
+onSuccess 112116
+successContainer 21372A
+onSuccessContainer D1FAE5
