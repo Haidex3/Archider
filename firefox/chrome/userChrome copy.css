@@ -1,43 +1,46 @@
 @-moz-document url("about:home"), url("about:newtab") {
     :root {
         --hatheme-theme: dark;
-        --wallpaper-dark1: url("images/dark1.png");
-        --tr-dark1: color-mix(in srgb, #77aacb 15%, transparent);
-        --tx-dark1: #ccddef;
-        --wallpaper-dark2: url("images/dark2.png");
-        --tr-dark2: color-mix(in srgb, #6699cb 5%, transparent);
-        --tx-dark2: #bbeeef;
-        --wallpaper-dark3: url("images/dark3.png");
-        --tr-dark3: color-mix(in srgb, #88aebc 8%, transparent);
-        --tx-dark3: #88aaff;
-        --wallpaper-dark4: url("images/dark4.png");
-        --tr-dark4: color-mix(in srgb, #bcbccc 10%, transparent);
-        --tx-dark4: #dedebb;
-        --wallpaper-dark5: url("images/dark5.png");
-        --tr-dark5: color-mix(in srgb, #bcbcee 12%, transparent);
-        --tx-dark5: #dedeee;
-        --wallpaper-dark6: url("images/dark6.png");
-        --tr-dark6: color-mix(in srgb, #bcbcee 12%, transparent);
-        --tx-dark6: #dedeee;
+        --wallpaper-dark: url("images/dark1.png");
+        --tr-dark: color-mix(in srgb, #77aacb 15%, transparent);
+        --tx-dark: #ccddef;
+        --wallpaper-dark-drakula: url("images/dark1.png");
+        --tr-dark-drakula: color-mix(in srgb, #77aacb 15%, transparent);
+        --tx-dark-drakula: #ccddef;
+        --wallpaper-dark-neon: url("images/dark2.png");
+        --tr-dark-neon: color-mix(in srgb, #6699cb 5%, transparent);
+        --tx-dark-neon: #bbeeef;
+        --wallpaper-dark-ocean: url("images/dark3.png");
+        --tr-dark-ocean: color-mix(in srgb, #88aebc 8%, transparent);
+        --tx-dark-ocean: #88aaff;
+        --wallpaper-dark-rose-pine: url("images/dark4.png");
+        --tr-dark-rose-pine: color-mix(in srgb, #bcbccc 10%, transparent);
+        --tx-dark-rose-pine: #dedebb;
+        --wallpaper-dark-sunrise: url("images/dark5.png");
+        --tr-dark-sunrise: color-mix(in srgb, #bcbcee 12%, transparent);
+        --tx-dark-sunrise: #dedeee;
+        --wallpaper-default: url("images/dark6.png");
+        --tr-default: color-mix(in srgb, #bcbcee 12%, transparent);
+        --tx-default: #dedeee;
 
-        --wallpaper-light1: url("images/light1.png");
-        --tr-light1: color-mix(in srgb, #cbcb99 35%, transparent);
-        --tx-light1: #202000;
-        --wallpaper-light2: url("images/light2.png");
-        --tr-light2: color-mix(in srgb, #8899bc 20%, transparent);
-        --tx-light2: #ffffff;
-        --wallpaper-light3: url("images/light3.png");
-        --tr-light3: color-mix(in srgb, #aaaa50 20%, transparent);
-        --tx-light3: #000111;
-        --wallpaper-light4: url("images/light4.png");
-        --tr-light4: color-mix(in srgb, #cccc55 20%, transparent);
-        --tx-light4: #000222;
-        --wallpaper-light5: url("images/light5.png");
-        --tr-light5: color-mix(in srgb, #557755 15%, transparent);
-        --tx-light5: #000333;
-        --wallpaper-light6: url("images/light6.png");
-        --tr-light6: color-mix(in srgb, #cbcbaa 40%, transparent);
-        --tx-light6: #202020;
+        --wallpaper-light: url("images/light1.png");
+        --tr-light: color-mix(in srgb, #cbcb99 35%, transparent);
+        --tx-light: #202000;
+        --wallpaper-light-drakula: url("images/light1.png");
+        --tr-light-drakula: color-mix(in srgb, #cbcb99 35%, transparent);
+        --tx-light-drakula: #202000;
+        --wallpaper-light-neon: url("images/light2.png");
+        --tr-light-neon: color-mix(in srgb, #8899bc 20%, transparent);
+        --tx-light-neon: #ffffff;
+        --wallpaper-light-ocean: url("images/light3.png");
+        --tr-light-ocean: color-mix(in srgb, #aaaa50 20%, transparent);
+        --tx-light-ocean: #000111;
+        --wallpaper-light-rose-pine: url("images/light4.png");
+        --tr-light-rose-pine: color-mix(in srgb, #cccc55 20%, transparent);
+        --tx-light-rose-pine: #000222;
+        --wallpaper-light-sunrise: url("images/light5.png");
+        --tr-light-sunrise: color-mix(in srgb, #557755 15%, transparent);
+        --tx-light-sunrise: #000333;
         --tr-col: color-mix(in srgb, #999999 20%, transparent);
         --rounding: 10px;
         --big-rounding: 15px;
@@ -226,21 +229,81 @@
     }
 
     :root[data-hatheme-theme="dark"] {
-        --wallpaper-current: var(--wallpaper-dark1);
-        --tr-col: var(--tr-dark1);
-        --newtab-text-primary-color: var(--tx-dark1);
+        --wallpaper-current: var(--wallpaper-dark);
+        --tr-col: var(--tr-dark);
+        --newtab-text-primary-color: var(--tx-dark);
     }
 
     :root[data-hatheme-theme="dark-drakula"] {
-        --wallpaper-current: var(--wallpaper-dark3);
-        --tr-col: var(--tr-dark3);
-        --newtab-text-primary-color: var(--tx-dark3);
+        --wallpaper-current: var(--wallpaper-dark-drakula);
+        --tr-col: var(--tr-dark-drakula);
+        --newtab-text-primary-color: var(--tx-dark-drakula);
+    }
+
+    :root[data-hatheme-theme="dark-neon"] {
+        --wallpaper-current: var(--wallpaper-dark-neon);
+        --tr-col: var(--tr-dark-neon);
+        --newtab-text-primary-color: var(--tx-dark-neon);
+    }
+
+    :root[data-hatheme-theme="dark-ocean"] {
+        --wallpaper-current: var(--wallpaper-dark-ocean);
+        --tr-col: var(--tr-dark-ocean);
+        --newtab-text-primary-color: var(--tx-dark-ocean);
+    }
+
+    :root[data-hatheme-theme="dark-rose-pine"] {
+        --wallpaper-current: var(--wallpaper-dark-rose-pine);
+        --tr-col: var(--tr-dark-rose-pine);
+        --newtab-text-primary-color: var(--tx-dark-rose-pine);
+    }
+
+    :root[data-hatheme-theme="dark-sunrise"] {
+        --wallpaper-current: var(--wallpaper-dark-sunrise);
+        --tr-col: var(--tr-dark-sunrise);
+        --newtab-text-primary-color: var(--tx-dark-sunrise);
+    }
+
+    :root[data-hatheme-theme="default"] {
+        --wallpaper-current: var(--wallpaper-default);
+        --tr-col: var(--tr-default);
+        --newtab-text-primary-color: var(--tx-default);
+    }
+
+    :root[data-hatheme-theme="light-neon"] {
+        --wallpaper-current: var(--wallpaper-light-neon);
+        --tr-col: var(--tr-light-neon);
+        --newtab-text-primary-color: var(--tx-light-neon);
+    }
+
+    :root[data-hatheme-theme="light-rose-pine"] {
+        --wallpaper-current: var(--wallpaper-light-rose-pine);
+        --tr-col: var(--tr-light-rose-pine);
+        --newtab-text-primary-color: var(--tx-light-rose-pine);
+    }
+
+    :root[data-hatheme-theme="light-sunrise"] {
+        --wallpaper-current: var(--wallpaper-light-sunrise);
+        --tr-col: var(--tr-light-sunrise);
+        --newtab-text-primary-color: var(--tx-light-sunrise);
+    }
+
+    :root[data-hatheme-theme="light-ocean"] {
+        --wallpaper-current: var(--wallpaper-light-ocean);
+        --tr-col: var(--tr-light-ocean);
+        --newtab-text-primary-color: var(--tx-light-ocean);
+    }
+
+    :root[data-hatheme-theme="light-drakula"] {
+        --wallpaper-current: var(--wallpaper-light-drakula);
+        --tr-col: var(--tr-light-drakula);
+        --newtab-text-primary-color: var(--tx-light-drakula);
     }
 
     :root[data-hatheme-theme="light"] {
-        --wallpaper-current: var(--wallpaper-light1);
-        --tr-col: var(--tr-light1);
-        --newtab-text-primary-color: var(--tx-light1);
+        --wallpaper-current: var(--wallpaper-light);
+        --tr-col: var(--tr-light);
+        --newtab-text-primary-color: var(--tx-light);
     }
 
 

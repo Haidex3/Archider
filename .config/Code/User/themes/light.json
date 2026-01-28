@@ -133,7 +133,10 @@
         "scope": [
           "variable",
           "variable.other",
-          "variable.parameter"
+          "variable.parameter",
+          "variable.css",
+          "support.type.custom-property.css",
+          "meta.property-name.css"
         ],
         "settings": {
           "foreground": "#18428b"
