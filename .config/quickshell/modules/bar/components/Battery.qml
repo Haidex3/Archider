@@ -20,9 +20,9 @@ RowLayout {
             visible: Services.BatteryService.battery !== null
             text: Services.BatteryService.getBatteryIcon()
             color: Services.BatteryService.isCritical()
-                ? Theme.ThemeManager.currentPalette.color4
-                : Theme.ThemeManager.currentPalette.text
-            font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize + 2
+                ? Theme.ThemeManager.color4
+                : Theme.ThemeManager.text
+            font.pixelSize: Theme.ThemeManager.baseFontSize + 2
             font.family: "Symbols Nerd Font"
             
             // Animation for critical battery
@@ -41,9 +41,9 @@ RowLayout {
                 ? Math.round(Services.BatteryService.batteryLevel) + "%" 
                 : "N/A"
             color: Services.BatteryService.isCritical()
-                ? Theme.ThemeManager.currentPalette.color4
-                : Theme.ThemeManager.currentPalette.text
-            font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
+                ? Theme.ThemeManager.color4
+                : Theme.ThemeManager.text
+            font.pixelSize: Theme.ThemeManager.baseFontSize
             font.bold: Services.BatteryService.isCritical()
         }
     }

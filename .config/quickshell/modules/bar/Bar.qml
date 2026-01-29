@@ -38,24 +38,24 @@ PanelWindow {
             
             Rectangle {
                 Layout.fillHeight: true
-                Layout.preferredWidth: leftContent.implicitWidth + (Theme.ThemeManager.currentPalette.margin * 2)
-                color: Theme.ThemeManager.currentPalette.base
+                Layout.preferredWidth: leftContent.implicitWidth + (Theme.ThemeManager.margin * 2)
+                color: Theme.ThemeManager.base
                 
                 // Border
                 Rectangle {
                     anchors { left: parent.left; bottom: parent.bottom; right: parent.right }
                     height: 1.5
-                    color: Theme.ThemeManager.currentPalette.color12
+                    color: Theme.ThemeManager.color12
                 }
 
                 RowLayout {
                     id: leftContent
                     anchors {
                         fill: parent
-                        leftMargin: Theme.ThemeManager.currentPalette.margin
-                        rightMargin: Theme.ThemeManager.currentPalette.margin
+                        leftMargin: Theme.ThemeManager.margin
+                        rightMargin: Theme.ThemeManager.margin
                     }
-                    spacing: Theme.ThemeManager.currentPalette.spacing
+                    spacing: Theme.ThemeManager.spacing
 
                     Item { Layout.preferredWidth: 4 }
 
@@ -103,14 +103,14 @@ PanelWindow {
             
             Rectangle {
                 Layout.fillHeight: true
-                Layout.preferredWidth: Math.max(100, workspacesRow.implicitWidth + (Theme.ThemeManager.currentPalette.spacing * 4))
-                color: Theme.ThemeManager.currentPalette.base
+                Layout.preferredWidth: Math.max(100, workspacesRow.implicitWidth + (Theme.ThemeManager.spacing * 4))
+                color: Theme.ThemeManager.base
 
                 // Border
                 Rectangle {
                     anchors { left: parent.left; bottom: parent.bottom; right: parent.right }
                     height: 1.5
-                    color: Theme.ThemeManager.currentPalette.color12
+                    color: Theme.ThemeManager.color12
                 }
                 
                 RowLayout {
@@ -146,14 +146,14 @@ PanelWindow {
             
             Rectangle {
                 Layout.fillHeight: true
-                Layout.preferredWidth: rightContent.implicitWidth + (Theme.ThemeManager.currentPalette.margin * 2)
-                color: Theme.ThemeManager.currentPalette.base
+                Layout.preferredWidth: rightContent.implicitWidth + (Theme.ThemeManager.margin * 2)
+                color: Theme.ThemeManager.base
 
                 // Border
                 Rectangle {
                     anchors { left: parent.left; bottom: parent.bottom; right: parent.right }
                     height: 1.5
-                    color: Theme.ThemeManager.currentPalette.color12
+                    color: Theme.ThemeManager.color12
                 }
                 
 
@@ -164,7 +164,7 @@ PanelWindow {
                         leftMargin: 0
                         rightMargin: 0
                     }
-                    spacing: Theme.ThemeManager.currentPalette.spacing
+                    spacing: Theme.ThemeManager.spacing
 
                     Item { Layout.preferredWidth: 4 }
 

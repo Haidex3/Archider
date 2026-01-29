@@ -18,7 +18,7 @@ Canvas {
     onPaint: {
         var ctx = getContext("2d")
         ctx.reset()
-        ctx.fillStyle = Theme.ThemeManager.currentPalette.base
+        ctx.fillStyle = Theme.ThemeManager.base
         
         ctx.beginPath()
         if (mirrored) {
@@ -34,7 +34,7 @@ Canvas {
         ctx.fill()
         
         // Draw border on diagonal
-        ctx.strokeStyle = Theme.ThemeManager.currentPalette.color12
+        ctx.strokeStyle = Theme.ThemeManager.color12
         ctx.lineWidth = 3
         ctx.beginPath()
         if (mirrored) {

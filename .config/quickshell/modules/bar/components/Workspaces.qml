@@ -58,15 +58,15 @@ Item {
                     // This is for multiple monitors
                     color: {
                         if (modelData.focused) {
-                            return Theme.ThemeManager.currentPalette.color8 // focus
+                            return Theme.ThemeManager.color8 // focus
                         } else if (modelData.active) {
-                            return Theme.ThemeManager.currentPalette.color6 // no-focus
+                            return Theme.ThemeManager.color6 // no-focus
                         } else {
-                            return Theme.ThemeManager.currentPalette.color2
+                            return Theme.ThemeManager.color2
                         }
                     }
                     
-                    font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
+                    font.pixelSize: Theme.ThemeManager.baseFontSize
                     
                 }
                 
@@ -82,9 +82,9 @@ Item {
                     // This is for multiple monitors
                     color: {
                         if (modelData.focused) {
-                            return Theme.ThemeManager.currentPalette.color8 // focus
+                            return Theme.ThemeManager.color8 // focus
                         } else if (modelData.active) {
-                            return Theme.ThemeManager.currentPalette.color6 // no-focus
+                            return Theme.ThemeManager.color6 // no-focus
                         } else {
                             return "transparent"
                         }

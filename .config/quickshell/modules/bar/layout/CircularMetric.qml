@@ -18,8 +18,8 @@ Item {
     property real lineWidth: 2
     property string tooltip: ""
     readonly property color effectiveColor: value >= 75 
-        ? Theme.ThemeManager.currentPalette.color4
-        : Theme.ThemeManager.currentPalette.color8
+        ? Theme.ThemeManager.color4
+        : Theme.ThemeManager.color8
     
     // Cirlce with progress
     Canvas {

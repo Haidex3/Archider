@@ -13,10 +13,10 @@ Rectangle {
     implicitHeight: 25
     // Visuals
     color: expanded
-        ? Theme.ThemeManager.currentPalette.color1
+        ? Theme.ThemeManager.color1
         : "transparent"
     radius: 4
-    border.color: Theme.ThemeManager.currentPalette.color1
+    border.color: Theme.ThemeManager.color1
     border.width: 1
 
     // Values to show
@@ -42,9 +42,9 @@ Rectangle {
         Text {
             text: icon
             color: expanded
-                ? Theme.ThemeManager.currentPalette.color6
-                : Theme.ThemeManager.currentPalette.text
-            font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize + 2
+                ? Theme.ThemeManager.color6
+                : Theme.ThemeManager.text
+            font.pixelSize: Theme.ThemeManager.baseFontSize + 2
             font.family: "Symbols Nerd Font"
             Layout.alignment: Qt.AlignCenter
 
@@ -60,9 +60,9 @@ Rectangle {
             visible: label !== ""
             text: label
             color: expanded
-                ? Theme.ThemeManager.currentPalette.base
-                : Theme.ThemeManager.currentPalette.text
-            font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
+                ? Theme.ThemeManager.base
+                : Theme.ThemeManager.text
+            font.pixelSize: Theme.ThemeManager.baseFontSize
             Layout.alignment: Qt.AlignCenter
 
             Behavior on color {

@@ -16,9 +16,9 @@ Item {
         Return color to indicate warning levels
     */
     function getTempColor(temp) {
-        if (temp >= 80) return Theme.ThemeManager.currentPalette.color4
-        if (temp >= 70) return Theme.ThemeManager.currentPalette.color5
-        return Theme.ThemeManager.currentPalette.text
+        if (temp >= 80) return Theme.ThemeManager.color4
+        if (temp >= 70) return Theme.ThemeManager.color5
+        return Theme.ThemeManager.text
     }
     
     RowLayout {
@@ -39,14 +39,14 @@ Item {
             Text {
                 text: "󰍛"
                 color: root.getTempColor(Services.TemperatureService.cpuTemp)
-                font.pixelSize: Theme.ThemeManager.currentPalette.titleFontSize
+                font.pixelSize: Theme.ThemeManager.titleFontSize
                 font.family: "Symbols Nerd Font"
             }
             
             Text {
                 text: `${Math.round(Services.TemperatureService.cpuTemp)}°`
                 color: root.getTempColor(Services.TemperatureService.cpuTemp)
-                font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
+                font.pixelSize: Theme.ThemeManager.baseFontSize
             }
         }
         
@@ -57,14 +57,14 @@ Item {
             Text {
                 text: "󰾲"
                 color: root.getTempColor(Services.TemperatureService.gpuTemp)
-                font.pixelSize: Theme.ThemeManager.currentPalette.titleFontSize
+                font.pixelSize: Theme.ThemeManager.titleFontSize
                 font.family: "Symbols Nerd Font"
             }
             
             Text {
                 text: `${Math.round(Services.TemperatureService.gpuTemp)}°`
                 color: root.getTempColor(Services.TemperatureService.gpuTemp)
-                font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
+                font.pixelSize: Theme.ThemeManager.baseFontSize
             }
         }
     }

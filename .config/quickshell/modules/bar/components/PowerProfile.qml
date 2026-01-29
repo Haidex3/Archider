@@ -14,9 +14,9 @@ Item {
     
     // Profile color mapping
     readonly property var profileColors: ({
-        "power-saver": Theme.ThemeManager.currentPalette.color9,
-        "balanced": Theme.ThemeManager.currentPalette.color5,
-        "performance": Theme.ThemeManager.currentPalette.color4
+        "power-saver": Theme.ThemeManager.color9,
+        "balanced": Theme.ThemeManager.color5,
+        "performance": Theme.ThemeManager.color4
     })
     
     RowLayout {
@@ -32,7 +32,7 @@ Item {
                 Layout.preferredHeight: buttonContent.implicitHeight
                 
                 property bool isActive: modelData.id === Services.PowerService.currentProfile
-                property color profileColor: root.profileColors[modelData.id] || Theme.ThemeManager.currentPalette.text
+                property color profileColor: root.profileColors[modelData.id] || Theme.ThemeManager.text
                 
                 ColumnLayout {
                     id: buttonContent
@@ -44,8 +44,8 @@ Item {
                         text: modelData.icon
                         color: profileButton.isActive 
                             ? profileButton.profileColor
-                            : Theme.ThemeManager.currentPalette.text
-                        font.pixelSize: Theme.ThemeManager.currentPalette.titleFontSize
+                            : Theme.ThemeManager.text
+                        font.pixelSize: Theme.ThemeManager.titleFontSize
                         font.family: "Symbols Nerd Font"
                         Layout.alignment: Qt.AlignHCenter
                         

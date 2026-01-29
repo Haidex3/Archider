@@ -15,7 +15,7 @@ Item {
     RowLayout {
         id: controlsRow
         anchors.centerIn: parent
-        spacing: Theme.ThemeManager.currentPalette.spacing - 5
+        spacing: Theme.ThemeManager.spacing - 5
         opacity: root.visible ? 1 : 0
         
         Behavior on opacity {
@@ -34,9 +34,9 @@ Item {
                       (Services.NetworkService.wifiEnabled ? "󰖩" : "󰖪")
                 color: (Services.NetworkService.ethernetEnabled || 
                         Services.NetworkService.wifiEnabled)
-                    ? Theme.ThemeManager.currentPalette.color7
-                    : Theme.ThemeManager.currentPalette.color4
-                font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize + 4
+                    ? Theme.ThemeManager.color7
+                    : Theme.ThemeManager.color4
+                font.pixelSize: Theme.ThemeManager.baseFontSize + 4
                 font.family: "Symbols Nerd Font"
             }
             
@@ -62,9 +62,9 @@ Item {
                 anchors.centerIn: parent
                 text: Services.BluetoothService.enabled ? "󰂯" : "󰂲"
                 color: Services.BluetoothService.enabled
-                    ? Theme.ThemeManager.currentPalette.color7
-                    : Theme.ThemeManager.currentPalette.color4
-                font.pixelSize: Theme.ThemeManager.currentPalette.titleFontSize
+                    ? Theme.ThemeManager.color7
+                    : Theme.ThemeManager.color4
+                font.pixelSize: Theme.ThemeManager.titleFontSize
                 font.family: "Symbols Nerd Font"
             }
             
@@ -95,16 +95,16 @@ Item {
                     text: Services.AudioService.muted ? " 󰖁" : 
                           Services.AudioService.volume > 50 ? " 󰕾" : " 󰖀"
                     color: Services.AudioService.muted
-                        ? Theme.ThemeManager.currentPalette.color4
-                        : Theme.ThemeManager.currentPalette.color7
-                    font.pixelSize: Theme.ThemeManager.currentPalette.titleFontSize + 2
+                        ? Theme.ThemeManager.color4
+                        : Theme.ThemeManager.color7
+                    font.pixelSize: Theme.ThemeManager.titleFontSize + 2
                     font.family: "Symbols Nerd Font"
                 }
                 
                 Text {
                     text: `${Services.AudioService.volume}%`
-                    color: Theme.ThemeManager.currentPalette.text
-                    font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
+                    color: Theme.ThemeManager.text
+                    font.pixelSize: Theme.ThemeManager.baseFontSize
                 }
             }
             

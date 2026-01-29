@@ -40,8 +40,8 @@ Item {
         id: clockText
         anchors.centerIn: parent
         font.bold: true
-        font.pixelSize: Theme.ThemeManager.currentPalette.baseFontSize
-        color: Theme.ThemeManager.currentPalette.text
+        font.pixelSize: Theme.ThemeManager.baseFontSize
+        color: Theme.ThemeManager.text
     }
     
     Component.onCompleted: updateTime()
