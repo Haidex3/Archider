@@ -52,7 +52,7 @@ Item {
                 Text {
                     text: Services.MetricsService.ramUsedGB.toFixed(1) + "GB"
                     font.pixelSize: 14
-                    color: "#89dceb"
+                    color: Theme.ThemeManager.color8
                     anchors.verticalCenter: parent.verticalCenter
                 }
 

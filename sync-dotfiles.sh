@@ -63,7 +63,7 @@ for dir in "${DIRS[@]}"; do
             --exclude='cache/' \
             "$SOURCE/$dir/" "$TARGET/$dir/"
     else
-        echo "⚠️  $dir no existe en ~/.config"
+        echo " $dir no existe en ~/.config"
     fi
 done
 
@@ -78,7 +78,7 @@ if [ -d "$FIREFOX_CHROME_SOURCE" ]; then
         --exclude='*.log' \
         "$FIREFOX_CHROME_SOURCE/" "$FIREFOX_CHROME_TARGET/"
 else
-    echo "⚠️  No se encontró la carpeta chrome de Firefox"
+    echo " No se encontró la carpeta chrome de Firefox"
 fi
 
 # =========================
@@ -92,7 +92,7 @@ if [ -d "$THEMES_SHARE_SOURCE" ]; then
         --exclude='*.log' \
         "$THEMES_SHARE_SOURCE/" "$THEMES_SHARE_TARGET/"
 else
-    echo "⚠️  No existe .local/share/themes"
+    echo " No existe .local/share/themes"
 fi
 
 
@@ -107,7 +107,7 @@ if [ -d "$HATHEME_SHARE_SOURCE" ]; then
         --exclude='*.log' \
         "$HATHEME_SHARE_SOURCE/" "$HATHEME_SHARE_TARGET/"
 else
-    echo "⚠️  No existe .local/share/hatheme"
+    echo " No existe .local/share/hatheme"
 fi
 
 # =========================
@@ -121,7 +121,7 @@ if [ -d "$HATHEME_STATE_SOURCE" ]; then
         --exclude='*.log' \
         "$HATHEME_STATE_SOURCE/" "$HATHEME_STATE_TARGET/"
 else
-    echo "⚠️  No existe .local/state/hatheme"
+    echo " No existe .local/state/hatheme"
 fi
 
 # =========================
@@ -135,7 +135,7 @@ if [ -d "$SCRIPTS_SOURCE" ]; then
         --exclude='*.log' \
         "$SCRIPTS_SOURCE/" "$SCRIPTS_TARGET/"
 else
-    echo "⚠️  No existe ~/scripts"
+    echo " No existe ~/scripts"
 fi
 
 # =========================
@@ -149,7 +149,7 @@ if [ -d "$VSCODE_USER_SOURCE/themes" ]; then
         --exclude='*.log' \
         "$VSCODE_USER_SOURCE/themes/" "$VSCODE_USER_TARGET/themes/"
 else
-    echo "⚠️  No existe ~/.config/code/user/themes"
+    echo " No existe ~/.config/code/user/themes"
 fi
 
 
@@ -161,8 +161,8 @@ if [ -f "$VSCODE_USER_SOURCE/settings.json" ]; then
     mkdir -p "$VSCODE_USER_TARGET"
     rsync -av "$VSCODE_USER_SOURCE/settings.json" "$VSCODE_USER_TARGET/settings.json"
 else
-    echo "⚠️  No existe ~/.config/code/user/settings.json"
+    echo " No existe ~/.config/code/user/settings.json"
 fi
 
 
-echo "✅ Sincronización completa"
+echo "Sincronización completa"
