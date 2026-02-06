@@ -45,6 +45,7 @@ DIRS=(
     yazi
     fastfetch
     quickshell
+    spicetify
 )
 
 echo "🔄 Sincronizando dotfiles..."

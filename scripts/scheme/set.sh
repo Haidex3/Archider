@@ -190,3 +190,14 @@ gsettings set org.gnome.desktop.interface gtk-theme "$SELECTED"
 gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 gsettings set org.gnome.desktop.interface font-name "Sans 10"
 
+# =====================
+# Spicetify (sin abrir Spotify)
+# =====================
+
+SPOTIFY_RUNNING=$(pgrep -x spotify)
+
+spicetify config current_theme "$SELECTED"
+spicetify config color_scheme "$SELECTED"
+
+spicetify apply --no-restart
+

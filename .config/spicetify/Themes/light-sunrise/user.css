@@ -1,0 +1,56 @@
+/* ================================
+    Light Sunrise Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #F8E7D4 !important;
+  box-shadow: inset -1px 0 0 #FFD3AE;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #F1E6DA !important;
+  box-shadow: 0 0 0 1px #FFD3AE;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #F19762;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(241, 151, 98, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(241, 151, 98, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #F28C8C !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #D8C8BA;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F19762;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #E0AF68 !important;
+  text-shadow: 0 0 6px rgba(224, 175, 104, 0.5);
+}

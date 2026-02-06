@@ -1,0 +1,56 @@
+/* ================================
+    Dark Sunrise Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #12100E !important;
+  box-shadow: inset -1px 0 0 #5A2B10;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #1C1815 !important;
+  box-shadow: 0 0 0 1px #5A2B10;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #FF9E64;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(255, 158, 100, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(255, 158, 100, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #F7768E !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #4F4742;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9E64;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #E0AF68 !important;
+  text-shadow: 0 0 6px rgba(224, 175, 104, 0.5);
+}

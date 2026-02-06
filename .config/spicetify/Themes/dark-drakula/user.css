@@ -1,0 +1,56 @@
+/* ================================
+    Dark Dracula Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #0F0F14 !important;
+  box-shadow: inset -1px 0 0 #3A2A5E;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #191A22 !important;
+  box-shadow: 0 0 0 1px #3A2A5E;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #BD93F9;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(189, 147, 249, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(189, 147, 249, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #8BE9FD !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #3A3D4F;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BD93F9;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #FF79C6 !important;
+  text-shadow: 0 0 6px rgba(255, 121, 198, 0.5);
+}

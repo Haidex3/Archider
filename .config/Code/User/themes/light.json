@@ -56,6 +56,8 @@
 
     "list.activeSelectionBackground": "#dbeafe",
     "list.activeSelectionForeground": "#3b82f6",
+    "list.inactiveSelectionBackground": "#dbeafe",
+    "list.inactiveSelectionForeground": "#3b82f6",
     "list.hoverBackground": "#eef2f7",
     "list.focusBackground": "#dbeafe"
   },
@@ -136,7 +138,12 @@
           "variable.parameter",
           "variable.css",
           "support.type.custom-property.css",
-          "meta.property-name.css"
+          "meta.property-name.css",
+          "variable.argument.css",
+          "meta.function.variable.css",
+          "meta.property-value.css",
+          "meta.property-list.css",
+          "source.css"
         ],
         "settings": {
           "foreground": "#18428b"

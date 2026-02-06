@@ -1,0 +1,56 @@
+/* ================================
+    Dark Neon Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #07040C !important;
+  box-shadow: inset -1px 0 0 #2A1B3D;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #140A1F !important;
+  box-shadow: 0 0 0 1px #2A1B3D;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #D946EF;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(217, 70, 239, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(217, 70, 239, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #22D3EE !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #3A2D52;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D946EF;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #F472B6 !important;
+  text-shadow: 0 0 6px rgba(244, 114, 182, 0.5);
+}

@@ -1,0 +1,56 @@
+/* ================================
+    Light Ocean Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #F3FAFC !important;
+  box-shadow: inset -1px 0 0 #D6F1F6;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #F3FAFC !important;
+  box-shadow: 0 0 0 1px #D6F1F6;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #4FB6C6;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(79, 182, 198, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(79, 182, 198, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #7A8FD4 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #C6D7DE;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4FB6C6;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #5FA8A0 !important;
+  text-shadow: 0 0 6px rgba(95, 168, 160, 0.5);
+}

@@ -1,0 +1,56 @@
+/* ================================
+    Dark Normal Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #121212 !important;
+  box-shadow: inset -1px 0 0 #2A3F5F;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #1E1E1E !important;
+  box-shadow: 0 0 0 1px #2A3F5F;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #8AB4F8;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(138, 180, 248, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(138, 180, 248, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #C3B1E1 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #3A3A3A;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8AB4F8;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #AEC6CF !important;
+  text-shadow: 0 0 6px rgba(174, 198, 207, 0.5);
+}

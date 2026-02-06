@@ -24,3 +24,10 @@ gsettings set org.gnome.desktop.interface font-name "Sans 10"
 
 chown -R $USER:$USER ~/.local/share/themes
 instalar jq
+
+spicetify backup
+
+
+sudo chown -R $USER:$USER /opt/spotify
+
+spicetify apply

@@ -85,12 +85,3 @@
 .urlbarView-body-inner {
     border: none !important;
 }
-
-@-moz-document url("about:privatebrowsing") {
-    .search-handoff-button {
-        border-radius: 100px !important;
-    }
-    .info {
-        border-radius: var(--big-rounding) !important;
-    }
-}

@@ -56,6 +56,8 @@
 
     "list.activeSelectionBackground": "#1e293b",
     "list.activeSelectionForeground": "#7dd3fc",
+    "list.inactiveSelectionBackground": "#1e293b",
+    "list.inactiveSelectionForeground": "#7dd3fc",
     "list.hoverBackground": "#131c2f",
     "list.focusBackground": "#1e293b"
   },

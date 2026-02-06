@@ -1,0 +1,56 @@
+/* ================================
+    Dark Rose Pine Theme
+   ================================ */
+
+/* Smooth UI */
+* {
+  border-radius: 8px !important;
+}
+
+/* Sidebar glow */
+.Root__nav-bar {
+  background: #191724 !important;
+  box-shadow: inset -1px 0 0 #513545;
+}
+
+/* Cards */
+.main-card-card {
+  background-color: #232136 !important;
+  box-shadow: 0 0 0 1px #513545;
+}
+
+/* Hover neon accent */
+.main-card-card:hover {
+  box-shadow: 0 0 0 1px #F5E0DC;
+}
+
+/* Play button neon glow */
+.control-button--circled {
+  box-shadow: 0 0 12px rgba(245, 224, 220, 0.6);
+}
+
+/* Progress bar glow */
+.progress-bar__fg {
+  box-shadow: 0 0 8px rgba(245, 224, 220, 0.7);
+}
+
+/* Active tab underline */
+.x-tabBar-tab[aria-selected="true"] {
+  border-bottom: 2px solid #F5C2E7 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #6E6A86;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F5E0DC;
+}
+
+/* Lyrics emphasis */
+.lyrics-lyricsContent-active {
+  color: #F2CDCD !important;
+  text-shadow: 0 0 6px rgba(242, 205, 205, 0.5);
+}
