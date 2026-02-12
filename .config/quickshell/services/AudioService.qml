@@ -21,7 +21,9 @@ Singleton {
         stdout: SplitParser {
             onRead: data => {
                 const vol = parseInt(data.trim())
-                if (!isNaN(vol)) root.volume = vol
+                if (!isNaN(vol)) {
+                    root.volume = Math.min(vol, 100)
+                }
             }
         }
     }
@@ -65,17 +67,22 @@ Singleton {
     /*!
         Allow change volume level from 0 to 150 or the default value of the device
     */
-    function changeVolume(step) {
+    function changeVolume(percent) {
+        percent = Math.max(0, Math.min(percent, 100))
+
         Qt.createQmlObject(`
             import Quickshell.Io
             Process {
                 running: true
-                command: ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "${step}"]
+                command: ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "${percent}%"]
                 onExited: destroy()
             }
         `, root)
+
         _scheduleRefresh()
     }
+
+
     
     /*!
         Allow to update all data from volume to show real time modifications

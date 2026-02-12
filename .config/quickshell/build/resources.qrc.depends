@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>icons/previous.svg</file>
+        <file>icons/play.svg</file>
+        <file>icons/pause.svg</file>
+        <file>icons/next.svg</file>
+        <file>images/placeholder_album.png</file>
+    </qresource>
+</RCC>

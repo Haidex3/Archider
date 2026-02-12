@@ -82,7 +82,7 @@ Item {
         
         // Audio
         Item {
-            Layout.preferredWidth: audioRow.implicitWidth
+            Layout.preferredWidth: 50
             Layout.preferredHeight: 24
             
             RowLayout {
@@ -93,7 +93,7 @@ Item {
                 Text {
                     id: aIconText
                     text: Services.AudioService.muted ? " 󰖁" : 
-                          Services.AudioService.volume > 50 ? " 󰕾" : " 󰖀"
+                            Services.AudioService.volume > 50 ? " 󰕾" : " 󰖀"
                     color: Services.AudioService.muted
                         ? Theme.ThemeManager.color4
                         : Theme.ThemeManager.color7
@@ -102,10 +102,13 @@ Item {
                 }
                 
                 Text {
-                    text: `${Services.AudioService.volume}%`
-                    color: Theme.ThemeManager.text
-                    font.pixelSize: Theme.ThemeManager.baseFontSize
-                }
+                        text: `${Services.AudioService.volume}%`
+                        color: Theme.ThemeManager.text
+                        font.pixelSize: Theme.ThemeManager.baseFontSize
+
+                        horizontalAlignment: Text.AlignRight
+                        width: font.pixelSize * 3.4
+                    }
             }
             
             MouseArea {

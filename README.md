@@ -31,3 +31,5 @@ spicetify backup
 sudo chown -R $USER:$USER /opt/spotify
 
 spicetify apply
+
+sudo pacman -S fftw
