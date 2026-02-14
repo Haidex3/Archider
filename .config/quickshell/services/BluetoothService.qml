@@ -39,7 +39,12 @@ Singleton {
             import Quickshell.Io
             Process {
                 running: true
-                command: ["kitty", "-e", "bluetui"]
+                command: [
+                    "alacritty",
+                    "--class", "qs-bluetui",
+                    "--title", "Bluetooth Manager",
+                    "-e", "bluetui"
+                ]
                 onExited: destroy()
             }
         `, root)

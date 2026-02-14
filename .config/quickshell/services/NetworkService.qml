@@ -63,9 +63,14 @@ Singleton {
             import Quickshell.Io
             Process {
                 running: true
-                command: ["kitty", "-e", "nmtui"]
+                command: [
+                    "sh", "-c",
+                    "alacritty --class qs-nmtui --title 'Network Manager' -e nmtui & ../scripts/nmtui_focus_guard.sh"
+                ]
                 onExited: destroy()
             }
         `, root)
     }
+
+
 }

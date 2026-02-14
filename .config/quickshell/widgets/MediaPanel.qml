@@ -9,12 +9,15 @@ import "../theme" as Theme
 import "../services/media" 1.0
 import "../modules/"
 import "../services/"
+import "../modules/bar/components"
 
 PanelWindow {
     id: mediaPanel
 
     property bool open: false
     property var targetScreen
+
+    signal requestClose()
 
     screen: targetScreen
     visible: open
@@ -33,8 +36,9 @@ PanelWindow {
     MouseArea {
         anchors.fill: parent
         enabled: open
-        onClicked: mediaPanel.open = false
+        onClicked: mediaPanel.requestClose()
     }
+
 
     // =========================
     // PANEL
@@ -78,47 +82,6 @@ PanelWindow {
                 width: 160
                 height: 160
                 Layout.alignment: Qt.AlignVCenter
-
-                // 🌟 Visualizador radial (CAVA)
-                Shape {
-                    id: visualiser
-                    anchors.fill: parent
-                    asynchronous: true
-                    preferredRendererType: Shape.CurveRenderer
-                    readonly property real centerX: width / 2
-                    readonly property real centerY: height / 2
-                    data: visualiserBars.instances
-                }
-
-                Variants {
-                    id: visualiserBars
-                    model: Array.from({ length: 32 }, (_, i) => i)
-
-                    ShapePath {
-                        required property int modelData
-                        readonly property real angle: modelData * 2 * Math.PI / 32
-                        readonly property real magnitude: value * 20
-                        readonly property real value: {
-                            const cavaValues = AudioService.values || []
-                            console.log("AudioService.values[", modelData, "] =", cavaValues[modelData])
-                            return Math.max(0.01, Math.min(1, cavaValues[modelData] || 0))
-                        }
-
-
-
-                        capStyle: ShapePath.RoundCap
-                        strokeWidth: 4
-                        strokeColor: Theme.ThemeManager.color7
-
-                        startX: visualiser.centerX + Math.cos(angle) * 60
-                        startY: visualiser.centerY + Math.sin(angle) * 60
-
-                        PathLine {
-                            x: visualiser.centerX + Math.cos(angle) * (60 + magnitude)
-                            y: visualiser.centerY + Math.sin(angle) * (60 + magnitude)
-                        }
-                    }
-                }
 
                 // Imagen de portada centrada
                 StyledClippingRect {
@@ -321,21 +284,85 @@ PanelWindow {
                         }
                     }
                 }
+
+
+                RowLayout {
+                    spacing: 9
+                    Layout.fillWidth: true
+                    Layout.topMargin: 8
+
+                    // =========================
+                    // ICONO IZQUIERDA
+                    // =========================
+                    Item {
+                        Layout.preferredWidth: 15
+                        Layout.preferredHeight: 20
+                        Layout.alignment: Qt.AlignVCenter
+                        Text {
+                            id: aIconText
+                            anchors.centerIn: parent
+                            text: AudioService.muted ? "󰖁" :
+                                AudioService.volume > 50 ? "󰕾" : "󰖀"
+
+                            color: AudioService.muted
+                                ? Theme.ThemeManager.color4
+                                : Theme.ThemeManager.color7
+
+                            font.pixelSize: Theme.ThemeManager.titleFontSize + 2
+                            font.family: "Symbols Nerd Font"
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
+
+                            onEntered: aIconText.scale = 1.1
+                            onExited: aIconText.scale = 1.0
+                            onClicked: AudioService.toggleMute()
+                        }
+                    }
+
+                    // =========================
+                    // SLIDER CENTRO
+                    // =========================
+                    VolumeSlider {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
+                    }
+
+                    // =========================
+                    // PORCENTAJE DERECHA
+                    // =========================
+                    Item {
+                        Layout.preferredWidth: 25
+                        Text {
+                            anchors.centerIn: parent
+                            text: `${AudioService.volume}%`
+                            color: Theme.ThemeManager.color7
+                            font.pixelSize: Theme.ThemeManager.baseFontSize
+                            horizontalAlignment: Text.AlignRight
+                        }
+                    }
+                }
+
             }
 
             // =========================
             // DERECHA: GIF animado
             // =========================
             AnimatedImage {
-                width: 100
-                height: 100
+                Layout.preferredWidth: 160
+                Layout.preferredHeight: 160
+                Layout.alignment: Qt.AlignVCenter
+
                 playing: Players.isPlaying
                 speed: 1.0
                 source: "../assets/gifs/bongocat.gif"
-                fillMode: AnimatedImage.PreserveAspectFit
+                fillMode: Image.PreserveAspectFit
                 asynchronous: true
-                Layout.alignment: Qt.AlignVCenter
             }
+
         }
     }
 }

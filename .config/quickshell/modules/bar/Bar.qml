@@ -75,7 +75,7 @@ PanelWindow {
                         icon: "󰒓"
                     }
 
-                    // 🔥 MEDIA BUTTON
+                    // MEDIA BUTTON
                     ToggleIndicator {
                         id: mediaToggle
                         icon: "󰎆"
@@ -87,10 +87,6 @@ PanelWindow {
                     }
 
                     SystemControls {
-                        visible: controlsToggle.expanded
-                    }
-
-                    VolumeSlider {
                         visible: controlsToggle.expanded
                     }
 
@@ -225,5 +221,11 @@ PanelWindow {
         id: mediaPanel
         targetScreen: bar.screen
         open: bar.mediaOpen
+
+        onRequestClose: {
+            bar.mediaOpen = false
+            mediaToggle.expanded = false
+        }
     }
+
 }

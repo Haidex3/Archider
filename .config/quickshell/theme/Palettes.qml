@@ -27,11 +27,11 @@ QtObject {
 
         "light-rose-pine": {
             base: "#FDF0F5",
-            surface: "#FFEAF8",
-            text: "#F5E0DC",
-            color1: "#FFF8FB",
-            color2: "#FFF0F5",
-            color3: "#FFEAF8",
+            surface: "#c47db1f",
+            text: "#F5C2E7",
+            color1: "#a5a5ef",
+            color2: "#cefa5f",
+            color3: "#cefa5f",
             color4: "#B4637A",
             color5: "#F9E2AF",
             color6: "#FFD6E0",
@@ -40,7 +40,7 @@ QtObject {
             color9: "#DDB6F2",
             color10: "#FFF0F5",
             color11: "#FFEAF8",
-            color12: "#F5E0DC"
+            color12: "#a5a5ef"
         },
 
         // =========================================================
@@ -113,7 +113,7 @@ QtObject {
             color4: "#F28C8C",
             color5: "#E0AF68",
             color6: "#F28C8C",
-            color7: "#F19762",
+            color7: "#E0AF68",
             color8: "#FFBD8A",
             color9: "#F43F5E",
             color10: "#F8E7D4",
@@ -134,7 +134,7 @@ QtObject {
             color4: "#38BDF8",
             color5: "#22D3EE",
             color6: "#06B6D4",
-            color7: "#4FB6C6",
+            color7: "#5FA8A0",
             color8: "#7A8FD4",
             color9: "#5FA8A0",
             color10: "#0B1623",
@@ -152,7 +152,7 @@ QtObject {
             color4: "#0284C7",
             color5: "#06B6D4",
             color6: "#5FA8A0",
-            color7: "#4FB6C6",
+            color7: "#5FA8A0",
             color8: "#7A8FD4",
             color9: "#5FA8A0",
             color10: "#F3FAFC",
@@ -191,7 +191,7 @@ QtObject {
             color4: "#D95C5C",
             color5: "#E0D561",
             color6: "#4FAE6E",
-            color7: "#BD93F9",
+            color7: "#4FAE6E",
             color8: "#8BE9FD",
             color9: "#FF79C6",
             color10: "#F6F6FB",
