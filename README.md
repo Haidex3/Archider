@@ -38,3 +38,9 @@ spicetify apply
 sudo pacman -S fftw
 
 sudo pacman -S jq
+
+sudo pacman -S ddcutil
+
+sudo pacman -S qt5ct
+
+export QT_QPA_PLATFORMTHEME=qt5ct

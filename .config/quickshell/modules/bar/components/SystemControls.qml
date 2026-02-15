@@ -77,25 +77,48 @@ Item {
         // AUDIO
         // ==========================
         Item {
-            Layout.preferredWidth: 50
+            Layout.preferredWidth: 24
             Layout.preferredHeight: 24
+
+            Text {
+                id: aIconText
+                anchors.centerIn: parent
+                text: Services.AudioService.muted ? "󰖁"
+                    : Services.AudioService.volume > 50 ? "󰕾" : "󰖀"
+                color: Services.AudioService.muted
+                    ? Theme.ThemeManager.color4
+                    : Theme.ThemeManager.color7
+                font.pixelSize: Theme.ThemeManager.titleFontSize + 2
+                font.family: "Symbols Nerd Font"
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: Services.AudioService.openPavuControl()
+            }
+        }
+
+        // ==========================
+        // BRIGHTNESS
+        // ==========================
+        Item {
+            Layout.preferredWidth: 60
+            Layout.preferredHeight: 24
+
             RowLayout {
                 anchors.centerIn: parent
                 spacing: 4
 
                 Text {
-                    id: aIconText
-                    text: Services.AudioService.muted ? "󰖁"
-                          : Services.AudioService.volume > 50 ? "󰕾" : "󰖀"
-                    color: Services.AudioService.muted
-                        ? Theme.ThemeManager.color4
-                        : Theme.ThemeManager.color7
-                    font.pixelSize: Theme.ThemeManager.titleFontSize + 2
+                    text: "󰃠"
                     font.family: "Symbols Nerd Font"
+                    font.pixelSize: Theme.ThemeManager.titleFontSize + 2
+                    color: Theme.ThemeManager.color7
                 }
 
                 Text {
-                    text: `${Services.AudioService.volume}%`
+                    text: `${Services.BrightnessService.brightness}%`
                     color: Theme.ThemeManager.text
                     font.pixelSize: Theme.ThemeManager.baseFontSize
                     width: font.pixelSize * 3.4
@@ -105,32 +128,10 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-                onClicked: Services.AudioService.toggleMute()
-            }
-        }
-
-        // ==========================
-        // BRIGHTNESS ICON
-        // ==========================
-        Item {
-            Layout.preferredWidth: 24
-            Layout.preferredHeight: 24
-
-            Text {
-                id: brightnessIcon
-                anchors.centerIn: parent
-                text: "󰃠"
-                font.family: "Symbols Nerd Font"
-                font.pixelSize: Theme.ThemeManager.titleFontSize + 2
-                color: Theme.ThemeManager.color7
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
                 onClicked: root.brightnessVisible = !root.brightnessVisible
             }
         }
+
 
         // ==========================
         // BRIGHTNESS SLIDER CONTAINER

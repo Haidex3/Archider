@@ -14,18 +14,16 @@ Scope {
     }
 
     function updateBrightness() {
-        const cmd = "/home/Haider/scripts/brightness-ddc.sh get"
-        log("Executing GET")
-
-        getProc.command = ["/bin/bash", "-c", cmd]
+        getProc.command = ["/bin/bash", "-c",
+            "/home/Haider/scripts/brightness-ddc.sh get"]
         getProc.running = true
     }
 
     function setBrightness(value) {
-        const cmd = "/home/Haider/scripts/brightness-ddc.sh set " + value
-        log("Executing SET")
+        root.brightness = value // actualización inmediata
 
-        setProc.command = ["/bin/bash", "-c", cmd]
+        setProc.command = ["/bin/bash", "-c",
+            "/home/Haider/scripts/brightness-ddc.sh set " + value]
         setProc.running = true
     }
 
@@ -33,12 +31,14 @@ Scope {
         id: getProc
 
         onExited: function(exitCode) {
-            if (exitCode !== 0) {
-                log("GET failed")
+            if (exitCode !== 0)
                 return
-            }
 
-            fileView.reload()
+            const output = getProc.readAllStandardOutput().trim()
+            const parsed = parseInt(output)
+
+            if (!isNaN(parsed))
+                root.brightness = parsed
         }
     }
 
@@ -47,36 +47,17 @@ Scope {
 
         onExited: function(exitCode) {
             if (exitCode !== 0) {
-                log("SET failed")
+                updateBrightness()
                 return
             }
 
-            fileView.reload()
-        }
-    }
+            const output = setProc.readAllStandardOutput().trim()
+            const parsed = parseInt(output)
 
-    FileView {
-        id: fileView
-        path: "/tmp/brightness-value"
-
-        onLoaded: {
-            const raw = fileView.text()
-            const content = raw ? raw.trim() : ""
-
-            log("File content → [" + content + "]")
-
-            const parsed = parseInt(content)
-
-            if (!isNaN(parsed)) {
+            if (!isNaN(parsed))
                 root.brightness = parsed
-                log("Brightness updated → " + parsed)
-            }
         }
     }
 
-
-    Component.onCompleted: {
-        log("Service initialized")
-        updateBrightness()
-    }
+    Component.onCompleted: updateBrightness()
 }

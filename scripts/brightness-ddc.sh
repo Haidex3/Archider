@@ -1,24 +1,15 @@
 #!/usr/bin/env bash
 
-# =========================
-# CONFIG
-# =========================
-BUS="9"          # <-- cambia si detect cambia
+BUS="9"
 STEP=10
 MAX=100
 
 export PATH=/usr/bin:/bin
 
-# =========================
-# GET CURRENT BRIGHTNESS
-# =========================
 get_brightness() {
     ddcutil getvcp 10 --bus=$BUS --terse 2>/dev/null | awk '{print $4}'
 }
 
-# =========================
-# MAIN
-# =========================
 current=$(get_brightness)
 
 if [[ -z "$current" ]]; then
@@ -36,10 +27,9 @@ case "$1" in
         new=$2
         ;;
     get)
-        echo "$current" > /tmp/brightness-value
+        echo "$current"
         exit 0
         ;;
-
     *)
         exit 1
         ;;
@@ -50,4 +40,5 @@ if (( new > MAX )); then new=$MAX; fi
 if (( new < 0 )); then new=0; fi
 
 ddcutil setvcp 10 "$new" --bus=$BUS >/dev/null 2>&1
+
 echo "$new"

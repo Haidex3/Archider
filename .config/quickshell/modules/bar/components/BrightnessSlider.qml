@@ -11,6 +11,8 @@ Item {
     Slider {
         id: slider
         anchors.fill: parent
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
 
         from: 0
         to: 100
@@ -64,7 +66,7 @@ Item {
         // =====================================
         handle: Item {
             width: 16
-            height: 16
+            height: 10
 
             x: slider.leftPadding
                + slider.visualPosition * slider.availableWidth

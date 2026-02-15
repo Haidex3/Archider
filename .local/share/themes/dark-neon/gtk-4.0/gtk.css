@@ -1,0 +1,346 @@
+/***************************
+ * Check and Radio buttons *
+ ***************************/
+* {
+  padding: 0;
+  outline-color: rgba(217, 70, 239, 0.4); /* primary neon */
+  outline-style: dashed;
+}
+
+/***************
+ * Base States *
+ ***************/
+.background {
+  color: #EDE9FE; /* Texto general: onBackground */
+  background-color: #0B0612; /* background */
+}
+
+.background:backdrop {
+  color: #C7BFEA; /* onSurfaceVariant */
+  background-color: #0B0612; /* background */
+}
+
+.background.csd {
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(217, 70, 239, 0.5); /* primary neon */
+}
+
+*:disabled {
+  opacity: 0.5;
+}
+
+.view,
+iconview,
+textview text {
+  color: #D946EF; /* primary */
+  background-color: #07040C; /* surfaceDim */
+}
+
+.view:backdrop,
+iconview:backdrop,
+textview text:backdrop {
+  color: #C7BFEA; /* onSurfaceVariant */
+  background-color: #0F0818; /* surfaceContainerLow */
+}
+
+.view:backdrop:disabled,
+iconview:backdrop:disabled,
+textview text:backdrop:disabled {
+  color: #5E547A; /* outline */
+}
+
+.view:disabled,
+iconview:disabled,
+textview text:disabled {
+  color: #8B8FA3; /* neutral */
+  background-color: #140A1F; /* surfaceContainer */
+}
+
+.view:selected,
+iconview:selected,
+textview text:selected {
+  background-color: rgba(217, 70, 239, 0.25); /* primary neon translucent */
+  border: 1px solid #D946EF;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(217, 70, 239, 0.7);
+}
+
+textview border {
+  background-color: #0B0612;
+}
+
+rubberband {
+  border: 1px solid #D946EF;
+  background-color: rgba(217, 70, 239, 0.1);
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+}
+
+flowbox flowboxchild {
+  padding: 3px;
+}
+
+flowbox flowboxchild:selected {
+  outline-offset: -2px;
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.7);
+}
+
+.content-view .tile {
+  margin: 2px;
+  background-color: #05020A; /* surfaceContainerLowest */
+  border-radius: 0;
+  padding: 0;
+}
+
+.content-view .tile:backdrop {
+  background-color: #0F0818; /* surfaceContainerLow */
+}
+
+/***********************
+ * Sliders / Volume Bars *
+ ***********************/
+scale {
+  min-height: 16px;
+}
+
+scale trough {
+  background-color: #1B0F2A; /* surfaceContainerHigh */
+  border-radius: 8px;
+  min-height: 12px;
+  border: 1px solid rgba(217, 70, 239, 0.3);
+}
+
+scale trough highlight {
+  background-color: #D946EF; /* primary neon */
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(217, 70, 239, 0.6);
+}
+
+scale.horizontal trough highlight {
+  background-image: linear-gradient(to right, #D946EF, #F472B6); /* primary -> tertiary neon */
+}
+
+scale slider {
+  background-color: #F472B6; /* tertiary */
+  border-radius: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  margin: -6px;
+  border: 2px solid #D946EF;
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.8);
+}
+
+scale slider:hover {
+  background-color: #FFD9EC; /* onTertiaryContainer */
+  border-color: #D946EF;
+  box-shadow: 0 0 15px rgba(217, 70, 239, 0.9);
+}
+
+scale slider:active {
+  background-color: #D946EF;
+  border-color: #FFFFFF;
+}
+
+scale.vertical trough highlight {
+  background-image: linear-gradient(to top, #D946EF, #F472B6);
+}
+
+scale marks {
+  color: #C7BFEA; /* onSurfaceVariant */
+}
+
+scale value {
+  color: #D946EF; /* primary */
+  font-weight: bold;
+}
+
+/**********************************
+ * Level Bars / VU Meters (Decibeles) *
+ **********************************/
+levelbar {
+  min-height: 8px;
+  margin: 4px 0;
+}
+
+levelbar trough {
+  background-color: #140A1F; /* surfaceContainer */
+  border-radius: 4px;
+  border: 1px solid rgba(217, 70, 239, 0.3);
+  min-height: 8px;
+}
+
+levelbar block {
+  min-width: 2px;
+  border-radius: 2px;
+  margin: 1px;
+}
+
+levelbar block.filled {
+  background-image: linear-gradient(to top, #22D3EE, #F472B6); /* success -> yellow -> error */
+  box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+levelbar block.empty {
+  background-color: #1B0F2A; /* surfaceContainerHigh */
+}
+
+.entry levelbar block.filled {
+  animation: pulse 1.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/**********************
+ * Progress bars *
+ **********************/
+progressbar {
+  min-height: 8px;
+}
+
+progressbar trough {
+  background-color: #07040C; /* surfaceDim */
+  border-radius: 4px;
+  border: 1px solid rgba(217, 70, 239, 0.3);
+  min-height: 8px;
+}
+
+progressbar progress {
+  background-image: linear-gradient(to right, #4ADE80, #FACC15, #FF4D6D);
+  border-radius: 4px;
+  min-height: 8px;
+}
+
+/* Texto dentro de labels */
+label, text, entry {
+  color: #D946EF; /* primary */
+}
+
+/* Menus y popovers */
+menu,
+menuitem {
+  background-color: #140A1F; /* surfaceContainer */
+  color: #22D3EE; /* secondary para títulos */
+}
+
+menu:hover,
+menuitem:hover {
+  background-color: #1B0F2A;
+  color: #EDE9FE; /* onBackground para texto normal */
+}
+
+menu:backdrop,
+menuitem:backdrop {
+  background-color: #0B0612;
+  color: #C7BFEA; /* onSurfaceVariant */
+}
+
+/* Tooltips */
+tooltip {
+  background-color: #1B0F2A;
+  color: #EDE9FE;
+  border: 1px solid #D946EF;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.6);
+}
+
+/* Headerbars y titlebars */
+headerbar,
+.titlebar {
+  background: linear-gradient(145deg, #1B0F2A, #140A1F);
+  color: #22D3EE; /* secondary */
+  border-bottom: 2px solid #D946EF;
+  box-shadow: 0 5px 20px rgba(217, 70, 239, 0.3);
+}
+
+headerbar:backdrop,
+.titlebar:backdrop {
+  background: linear-gradient(145deg, #0F0818, #0B0612);
+  color: #C7BFEA; /* onSurfaceVariant */
+}
+
+/* Notebook tabs */
+notebook > header > tabs > tab {
+  background: linear-gradient(145deg, #1B0F2A, #140A1F);
+  color: #22D3EE; /* secondary */
+  border: 1px solid #05020A;
+  padding: 4px 8px;
+}
+
+notebook > header > tabs > tab:hover {
+  background: linear-gradient(145deg, #24143A, #1B0F2A);
+  color: #EDE9FE;
+}
+
+notebook > header > tabs > tab:checked {
+  background: linear-gradient(145deg, #B026CC, #B026CC);
+  color: #FFFFFF;
+  box-shadow: 0 0 15px rgba(217, 70, 239, 0.5);
+}
+
+/*********
+ * Lists *
+ *********/
+list {
+  color: #EDE9FE;
+  background-color: #140A1F;
+  border-color: #1B0F2A;
+}
+
+list:backdrop {
+  color: #22D3EE;
+  background-color: #1B0F2A;
+  border-color: #1B0F2A;
+}
+
+list row {
+  padding: 1px;
+}
+
+row {
+  transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+row:hover {
+  transition: none;
+}
+
+row:backdrop {
+  transition: 200ms ease-out;
+}
+
+row.activatable:hover {
+  background-color: rgba(34, 211, 238, 0.05); /* secondary neon */
+}
+
+row.activatable:active {
+  box-shadow: inset 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+row.activatable:selected:hover {
+  background-color: rgba(34, 211, 238, 0.3);
+}
+
+/*********************
+ * App Notifications *
+ *********************/
+.app-notification {
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  background-color: rgba(20, 10, 31, 0.95);
+  background-image: linear-gradient(to bottom, rgba(34, 211, 238, 0.2), transparent 2px); /* secondary accent */
+  background-clip: padding-box;
+  color: #EDE9FE;
+}
+
+.app-notification:backdrop {
+  background-image: none;
+  transition: 200ms ease-out;
+}
+
+.app-notification border {
+  border: none;
+}
+

@@ -17,25 +17,25 @@ Singleton {
     // Get actual value from the default device
     property Process _volumeProcess: Process {
         running: false
-        command: ["sh", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'"]
+        command: ["sh", "-c", "pamixer --get-volume"]
         stdout: SplitParser {
             onRead: data => {
                 const vol = parseInt(data.trim())
-                if (!isNaN(vol)) {
-                    root.volume = Math.min(vol, 100)
-                }
+                if (!isNaN(vol)) root.volume = Math.min(vol, 100)
             }
         }
     }
+
     
     // Get mute status from the default device
     property Process _muteProcess: Process {
         running: false
-        command: ["sh", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo true || echo false"]
+        command: ["sh", "-c", "pamixer --get-mute"]
         stdout: SplitParser {
             onRead: data => root.muted = data.trim() === "true"
         }
     }
+
     
     // Updates the values all the time to show the actions over the volumen component
     property Timer _pollTimer: Timer {
@@ -57,32 +57,28 @@ Singleton {
             import Quickshell.Io
             Process {
                 running: true
-                command: ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"]
+                command: ["pamixer", "-t"]
                 onExited: destroy()
             }
         `, root)
         _scheduleRefresh()
     }
-    
+        
     /*!
         Allow change volume level from 0 to 150 or the default value of the device
     */
     function changeVolume(percent) {
         percent = Math.max(0, Math.min(percent, 100))
-
         Qt.createQmlObject(`
             import Quickshell.Io
             Process {
                 running: true
-                command: ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "${percent}%"]
+                command: ["pamixer", "--set-volume", "${percent}"]
                 onExited: destroy()
             }
         `, root)
-
         _scheduleRefresh()
     }
-
-
     
     /*!
         Allow to update all data from volume to show real time modifications
@@ -102,4 +98,16 @@ Singleton {
             }
         `, root)
     }
+
+    function openPavuControl() {
+        Qt.createQmlObject(`
+            import Quickshell.Io
+            Process {
+                running: true
+                command: ["/home/Haider/.config/quickshell/scripts/pavucontrol_focus.sh"]
+                onExited: destroy()
+            }
+        `, root)
+    }
+
 }
