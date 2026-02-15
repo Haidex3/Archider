@@ -2,6 +2,9 @@
 
 ```
 ./sync-dotfiles.sh
+
+./sync-dotfiles.sh --pull
+
 ```
 
 ```

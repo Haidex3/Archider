@@ -1,6 +1,33 @@
 #!/usr/bin/env bash
-
 set -e
+
+MODE="push"  # push = sistema -> repo, pull = repo -> sistema
+if [ "$1" == "--pull" ]; then
+    MODE="pull"
+fi
+
+echo "Modo de sincronización: $MODE"
+
+# =========================
+# Función de sincronización
+# =========================
+sync_dir() {
+    local SRC="$1"
+    local DST="$2"
+    local DESC="$3"
+
+    if [ -e "$SRC" ]; then
+        echo "➡️  Sync $DESC"
+        mkdir -p "$DST"
+        rsync -av --delete \
+            --exclude='.git/' \
+            --exclude='*.log' \
+            --exclude='cache/' \
+            "$SRC/" "$DST/"
+    else
+        echo " ❌ No existe $DESC ($SRC)"
+    fi
+}
 
 # =========================
 # Rutas principales
@@ -8,30 +35,23 @@ set -e
 SOURCE="$HOME/.config"
 TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.config"
 
-# Firefox chrome
-FIREFOX_CHROME_SOURCE="$HOME/.mozilla/firefox/s21rhd6v.default-release-1760989103541/chrome"
+FIREFOX_CHROME_SOURCE="$HOME/.mozilla/firefox/lg6xv97x.default-release/chrome"
 FIREFOX_CHROME_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/firefox/chrome"
 
-# HaTheme paths
 HATHEME_SHARE_SOURCE="$HOME/.local/share/hatheme"
 HATHEME_SHARE_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.local/share/hatheme"
 
-# System themes (.local/share/themes)
 THEMES_SHARE_SOURCE="$HOME/.local/share/themes"
 THEMES_SHARE_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.local/share/themes"
 
 HATHEME_STATE_SOURCE="$HOME/.local/state/hatheme"
 HATHEME_STATE_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.local/state/hatheme"
 
-# Scripts
 SCRIPTS_SOURCE="$HOME/scripts"
 SCRIPTS_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/scripts"
 
-# VS Code
 VSCODE_USER_SOURCE="$HOME/.config/Code/User"
 VSCODE_USER_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.config/Code/User"
-
-
 
 # Carpetas a sincronizar desde ~/.config
 DIRS=(
@@ -48,122 +68,75 @@ DIRS=(
     spicetify
 )
 
-echo "🔄 Sincronizando dotfiles..."
+# =========================
+# Decide la dirección
+# =========================
+if [ "$MODE" == "pull" ]; then
+    echo "⬇️ Actualizando sistema desde el repo..."
+    SRC_CONFIG="$TARGET"
+    DST_CONFIG="$SOURCE"
 
-mkdir -p "$TARGET"
+    SRC_FIREFOX="$FIREFOX_CHROME_TARGET"
+    DST_FIREFOX="$FIREFOX_CHROME_SOURCE"
+
+    SRC_THEMES="$THEMES_SHARE_TARGET"
+    DST_THEMES="$THEMES_SHARE_SOURCE"
+
+    SRC_HATHEME_SHARE="$HATHEME_SHARE_TARGET"
+    DST_HATHEME_SHARE="$HATHEME_SHARE_SOURCE"
+
+    SRC_HATHEME_STATE="$HATHEME_STATE_TARGET"
+    DST_HATHEME_STATE="$HATHEME_STATE_SOURCE"
+
+    SRC_SCRIPTS="$SCRIPTS_TARGET"
+    DST_SCRIPTS="$SCRIPTS_SOURCE"
+
+    SRC_VSCODE="$VSCODE_USER_TARGET"
+    DST_VSCODE="$VSCODE_USER_SOURCE"
+else
+    echo "⬆️ Sincronizando sistema hacia el repo..."
+    SRC_CONFIG="$SOURCE"
+    DST_CONFIG="$TARGET"
+
+    SRC_FIREFOX="$FIREFOX_CHROME_SOURCE"
+    DST_FIREFOX="$FIREFOX_CHROME_TARGET"
+
+    SRC_THEMES="$THEMES_SHARE_SOURCE"
+    DST_THEMES="$THEMES_SHARE_TARGET"
+
+    SRC_HATHEME_SHARE="$HATHEME_SHARE_SOURCE"
+    DST_HATHEME_SHARE="$HATHEME_SHARE_TARGET"
+
+    SRC_HATHEME_STATE="$HATHEME_STATE_SOURCE"
+    DST_HATHEME_STATE="$HATHEME_STATE_TARGET"
+
+    SRC_SCRIPTS="$SCRIPTS_SOURCE"
+    DST_SCRIPTS="$SCRIPTS_TARGET"
+
+    SRC_VSCODE="$VSCODE_USER_SOURCE"
+    DST_VSCODE="$VSCODE_USER_TARGET"
+fi
 
 # =========================
-# Sync ~/.config/*
+# Sync dirs
 # =========================
 for dir in "${DIRS[@]}"; do
-    if [ -d "$SOURCE/$dir" ]; then
-        echo "➡️  Sync ~/.config/$dir"
-        rsync -av --delete \
-            --exclude='.git/' \
-            --exclude='*.log' \
-            --exclude='cache/' \
-            "$SOURCE/$dir/" "$TARGET/$dir/"
-    else
-        echo " $dir no existe en ~/.config"
-    fi
+    sync_dir "$SRC_CONFIG/$dir" "$DST_CONFIG/$dir" "~/.config/$dir"
 done
 
-# =========================
-# Sync Firefox chrome
-# =========================
-if [ -d "$FIREFOX_CHROME_SOURCE" ]; then
-    echo "➡️  Sync Firefox chrome"
-    mkdir -p "$FIREFOX_CHROME_TARGET"
-    rsync -av --delete \
-        --exclude='.git/' \
-        --exclude='*.log' \
-        "$FIREFOX_CHROME_SOURCE/" "$FIREFOX_CHROME_TARGET/"
-else
-    echo " No se encontró la carpeta chrome de Firefox"
-fi
+sync_dir "$SRC_FIREFOX" "$DST_FIREFOX" "Firefox chrome"
+sync_dir "$SRC_THEMES" "$DST_THEMES" ".local/share/themes"
+sync_dir "$SRC_HATHEME_SHARE" "$DST_HATHEME_SHARE" ".local/share/hatheme"
+sync_dir "$SRC_HATHEME_STATE" "$DST_HATHEME_STATE" ".local/state/hatheme"
+sync_dir "$SRC_SCRIPTS" "$DST_SCRIPTS" "~/scripts"
 
-# =========================
-# Sync .local/share/themes
-# =========================
-if [ -d "$THEMES_SHARE_SOURCE" ]; then
-    echo "➡️  Sync .local/share/themes"
-    mkdir -p "$THEMES_SHARE_TARGET"
-    rsync -av --delete \
-        --exclude='.git/' \
-        --exclude='*.log' \
-        "$THEMES_SHARE_SOURCE/" "$THEMES_SHARE_TARGET/"
-else
-    echo " No existe .local/share/themes"
-fi
+# VS Code
+sync_dir "$SRC_VSCODE/themes" "$DST_VSCODE/themes" "VS Code themes"
 
-
-# =========================
-# Sync HaTheme (.local/share)
-# =========================
-if [ -d "$HATHEME_SHARE_SOURCE" ]; then
-    echo "➡️  Sync .local/share/hatheme"
-    mkdir -p "$HATHEME_SHARE_TARGET"
-    rsync -av --delete \
-        --exclude='.git/' \
-        --exclude='*.log' \
-        "$HATHEME_SHARE_SOURCE/" "$HATHEME_SHARE_TARGET/"
-else
-    echo " No existe .local/share/hatheme"
-fi
-
-# =========================
-# Sync HaTheme (.local/state)
-# =========================
-if [ -d "$HATHEME_STATE_SOURCE" ]; then
-    echo "➡️  Sync .local/state/hatheme"
-    mkdir -p "$HATHEME_STATE_TARGET"
-    rsync -av --delete \
-        --exclude='.git/' \
-        --exclude='*.log' \
-        "$HATHEME_STATE_SOURCE/" "$HATHEME_STATE_TARGET/"
-else
-    echo " No existe .local/state/hatheme"
-fi
-
-# =========================
-# Sync ~/scripts
-# =========================
-if [ -d "$SCRIPTS_SOURCE" ]; then
-    echo "➡️  Sync ~/scripts"
-    mkdir -p "$SCRIPTS_TARGET"
-    rsync -av --delete \
-        --exclude='.git/' \
-        --exclude='*.log' \
-        "$SCRIPTS_SOURCE/" "$SCRIPTS_TARGET/"
-else
-    echo " No existe ~/scripts"
-fi
-
-# =========================
-# Sync VS Code themes
-# =========================
-if [ -d "$VSCODE_USER_SOURCE/themes" ]; then
-    echo "➡️  Sync VS Code themes"
-    mkdir -p "$VSCODE_USER_TARGET/themes"
-    rsync -av --delete \
-        --exclude='.git/' \
-        --exclude='*.log' \
-        "$VSCODE_USER_SOURCE/themes/" "$VSCODE_USER_TARGET/themes/"
-else
-    echo " No existe ~/.config/code/user/themes"
-fi
-
-
-# =========================
-# Sync VS Code settings.json
-# =========================
-if [ -f "$VSCODE_USER_SOURCE/settings.json" ]; then
+if [ -f "$SRC_VSCODE/settings.json" ]; then
     echo "➡️  Sync VS Code settings.json"
-    mkdir -p "$VSCODE_USER_TARGET"
-    rsync -av "$VSCODE_USER_SOURCE/settings.json" "$VSCODE_USER_TARGET/settings.json"
-else
-    echo " No existe ~/.config/code/user/settings.json"
+    mkdir -p "$DST_VSCODE"
+    rsync -av "$SRC_VSCODE/settings.json" "$DST_VSCODE/settings.json"
 fi
 
-
-echo "Sincronización completa"
+echo "✅ Sincronización completa"

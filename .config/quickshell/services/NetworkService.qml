@@ -63,14 +63,14 @@ Singleton {
             import Quickshell.Io
             Process {
                 running: true
-                command: [
-                    "sh", "-c",
-                    "alacritty --class qs-nmtui --title 'Network Manager' -e nmtui & ../scripts/nmtui_focus_guard.sh"
-                ]
+                // Ejecuta directamente el script sin abrir terminal
+                command: ["/home/Haider/.config/quickshell/scripts/nmtui_focus.sh"]
+                // Opcional: captura stdout y stderr para debug
+                stdout: SplitParser { onRead: data => console.log("OUT:", data.trim()) }
+                stderr: SplitParser { onRead: data => console.error("ERR:", data.trim()) }
                 onExited: destroy()
             }
         `, root)
     }
-
 
 }

@@ -39,14 +39,14 @@ Singleton {
             import Quickshell.Io
             Process {
                 running: true
-                command: [
-                    "alacritty",
-                    "--class", "qs-bluetui",
-                    "--title", "Bluetooth Manager",
-                    "-e", "bluetui"
-                ]
+                command: ["/home/Haider/.config/quickshell/scripts/bluetui_focus.sh"]
+
+                stdout: SplitParser { onRead: data => console.log("OUT:", data.trim()) }
+                stderr: SplitParser { onRead: data => console.error("ERR:", data.trim()) }
+
                 onExited: destroy()
             }
         `, root)
     }
+
 }

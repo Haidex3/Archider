@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
+# Clase para Hyprland
 CLASS="qs-nmtui"
 
-# Esperar a que la ventana aparezca
+# Lanzar nmtui en alacritty con título y clase
+alacritty --class "$CLASS" --title "Network Manager" -e nmtui &
+
+# Guardar PID de nmtui
+NMTUI_PID=$!
+
+# Esperar a que aparezca la ventana (opcional)
 sleep 1
 
+# Loop de enfoque
 while true; do
-    # Ventana activa en Hyprland
     ACTIVE_CLASS=$(hyprctl activewindow -j | jq -r '.class' 2>/dev/null)
-
     if [[ "$ACTIVE_CLASS" != "$CLASS" ]]; then
-        # Si perdió foco → matar nmtui
-        pkill -f "alacritty.*$CLASS"
+        # Si pierde foco, matar nmtui
+        kill "$NMTUI_PID"
         exit 0
     fi
-
     sleep 0.2
 done
