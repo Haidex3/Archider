@@ -7,6 +7,8 @@ COLOR_FILE="$HOME/.local/state/hatheme/scheme/colors.txt"
 
 # Alacritty
 ALACRITTY_CONFIG="$HOME/.config/alacritty/colors.toml"
+ALACRITTY_NMTUI_CONFIG="$HOME/.config/alacritty/nmtui.toml"
+ALACRITTY_BLUETUI_CONFIG="$HOME/.config/alacritty/bluetui.toml"
 
 # Kitty
 KITTY_CONFIG="$HOME/.config/kitty/kitty.conf"
@@ -35,6 +37,7 @@ success=$(get_color "success")
 error=$(get_color "error")
 warning=$(get_color "yellow")
 info=$(get_color "blue")
+primaryContainer=$(get_color "primaryContainer")
 
 # Colores para Hyprland
 active_border=$(to_rgba "$primary")
@@ -50,6 +53,43 @@ cat > "$ALACRITTY_CONFIG" <<EOF
 [colors.primary]
 background = "$background"
 foreground = "$foreground"
+EOF
+
+
+# ----------------------------
+# Generar Alacritty config para nmtui
+# ----------------------------
+mkdir -p "$(dirname "$ALACRITTY_NMTUI_CONFIG")"
+
+cat > "$ALACRITTY_NMTUI_CONFIG" <<EOF
+[colors.normal]
+black = "$primary"
+red = "$secondary"
+blue = "$background"
+white = "$background"
+
+EOF
+
+# ----------------------------
+# Generar Alacritty config para bluetui
+# ----------------------------
+mkdir -p "$(dirname "$ALACRITTY_BLUETUI_CONFIG")"
+
+cat > "$ALACRITTY_BLUETUI_CONFIG" <<EOF
+[colors.normal]
+black   = "$background"
+green   = "$primary"
+yellow  = "$secondary"
+blue    = "$secondary"
+
+[colors.primary]
+foreground = "$primary"
+background = "$background"
+
+[colors.bright]
+white   = "$primary"
+black   = "$primaryContainer"
+
 EOF
 
 # ----------------------------

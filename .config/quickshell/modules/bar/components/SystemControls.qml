@@ -1,64 +1,63 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 import "../../../theme" as Theme
 import "../../../services" as Services
+import "../../../services"
 
 /*!
-    Group of controlls to manage PC's components like network or volume
+    Group of controls to manage PC's components like network or volume
 */
 Item {
     id: root
+
+    property bool brightnessVisible: false
+
     implicitWidth: visible ? controlsRow.implicitWidth : 0
     implicitHeight: parent.height
     clip: true
-    
+
     RowLayout {
         id: controlsRow
         anchors.centerIn: parent
         spacing: Theme.ThemeManager.spacing - 5
         opacity: root.visible ? 1 : 0
-        
+
         Behavior on opacity {
             NumberAnimation { duration: 200 }
         }
-        
-        // Network
+
+        // ==========================
+        // NETWORK
+        // ==========================
         Item {
             Layout.preferredWidth: 24
             Layout.preferredHeight: 24
-            
             Text {
-                id: btIconText
                 anchors.centerIn: parent
-                text: Services.NetworkService.ethernetEnabled ? "󰈀" : 
-                      (Services.NetworkService.wifiEnabled ? "󰖩" : "󰖪")
-                color: (Services.NetworkService.ethernetEnabled || 
+                text: Services.NetworkService.ethernetEnabled ? "󰈀"
+                        : (Services.NetworkService.wifiEnabled ? "󰖩" : "󰖪")
+                color: (Services.NetworkService.ethernetEnabled ||
                         Services.NetworkService.wifiEnabled)
                     ? Theme.ThemeManager.color7
                     : Theme.ThemeManager.color4
                 font.pixelSize: Theme.ThemeManager.baseFontSize + 4
                 font.family: "Symbols Nerd Font"
             }
-            
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: Services.NetworkService.openNetworkManager()
-
-                // Hover animation each icon
-                hoverEnabled: true
-                onEntered: btIconText.scale = 1.1
-                onExited: btIconText.scale = 1.0
             }
         }
-        
-        // Bluetooth
+
+        // ==========================
+        // BLUETOOTH
+        // ==========================
         Item {
             Layout.preferredWidth: 24
             Layout.preferredHeight: 24
-            
             Text {
-                id: ntIconText
                 anchors.centerIn: parent
                 text: Services.BluetoothService.enabled ? "󰂯" : "󰂲"
                 color: Services.BluetoothService.enabled
@@ -67,82 +66,99 @@ Item {
                 font.pixelSize: Theme.ThemeManager.titleFontSize
                 font.family: "Symbols Nerd Font"
             }
-            
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: Services.BluetoothService.openBluetoothManager()
-                
-                // Hover animation each icon
-                hoverEnabled: true
-                onEntered: ntIconText.scale = 1.1
-                onExited: ntIconText.scale = 1.0
             }
         }
-        
-        // Audio
+
+        // ==========================
+        // AUDIO
+        // ==========================
         Item {
             Layout.preferredWidth: 50
             Layout.preferredHeight: 24
-            
             RowLayout {
-                id: audioRow
                 anchors.centerIn: parent
                 spacing: 4
-                
+
                 Text {
                     id: aIconText
-                    text: Services.AudioService.muted ? " 󰖁" : 
-                            Services.AudioService.volume > 50 ? " 󰕾" : " 󰖀"
+                    text: Services.AudioService.muted ? "󰖁"
+                          : Services.AudioService.volume > 50 ? "󰕾" : "󰖀"
                     color: Services.AudioService.muted
                         ? Theme.ThemeManager.color4
                         : Theme.ThemeManager.color7
                     font.pixelSize: Theme.ThemeManager.titleFontSize + 2
                     font.family: "Symbols Nerd Font"
                 }
-                
-                Text {
-                        text: `${Services.AudioService.volume}%`
-                        color: Theme.ThemeManager.text
-                        font.pixelSize: Theme.ThemeManager.baseFontSize
 
-                        horizontalAlignment: Text.AlignRight
-                        width: font.pixelSize * 3.4
-                    }
+                Text {
+                    text: `${Services.AudioService.volume}%`
+                    color: Theme.ThemeManager.text
+                    font.pixelSize: Theme.ThemeManager.baseFontSize
+                    width: font.pixelSize * 3.4
+                }
             }
-            
+
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-
-                // Hover animation each icon
-                hoverEnabled: true
-                onEntered: aIconText.scale = 1.1
-                onExited: aIconText.scale = 1.0
-                
-                // Scroll set values
-                property int wheelAccumulator: 0
                 onClicked: Services.AudioService.toggleMute()
-                onWheel: wheel => {
-                    wheelAccumulator += wheel.angleDelta.y
-                    const stepThreshold = 120
-                    
-                    while (wheelAccumulator >= stepThreshold) {
-                        Services.AudioService.changeVolume("1%+")
-                        wheelAccumulator -= stepThreshold
-                    }
-                    while (wheelAccumulator <= -stepThreshold) {
-                        Services.AudioService.changeVolume("1%-")
-                        wheelAccumulator += stepThreshold
-                    }
+            }
+        }
+
+        // ==========================
+        // BRIGHTNESS ICON
+        // ==========================
+        Item {
+            Layout.preferredWidth: 24
+            Layout.preferredHeight: 24
+
+            Text {
+                id: brightnessIcon
+                anchors.centerIn: parent
+                text: "󰃠"
+                font.family: "Symbols Nerd Font"
+                font.pixelSize: Theme.ThemeManager.titleFontSize + 2
+                color: Theme.ThemeManager.color7
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: root.brightnessVisible = !root.brightnessVisible
+            }
+        }
+
+        // ==========================
+        // BRIGHTNESS SLIDER CONTAINER
+        // ==========================
+        Item {
+            id: brightnessContainer
+            Layout.preferredWidth: root.brightnessVisible ? 140 : 0
+            Layout.preferredHeight: 28
+            clip: true
+
+            Behavior on Layout.preferredWidth {
+                NumberAnimation {
+                    duration: 220
+                    easing.type: Easing.OutCubic
                 }
+            }
+
+            BrightnessSlider{
+                anchors.fill: parent
             }
         }
     }
-    
-    // Animation to toggle
+
+    // ==========================
+    // ROOT WIDTH ANIMATION
+    // ==========================
     Behavior on implicitWidth {
-        NumberAnimation { 
+        NumberAnimation {
             duration: 200
             easing.type: Easing.OutCubic
         }

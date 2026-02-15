@@ -3,8 +3,11 @@
 # Clase para Hyprland
 CLASS="qs-nmtui"
 
-# Lanzar nmtui en alacritty con título y clase
-alacritty --class "$CLASS" --title "Network Manager" -e nmtui &
+# Ruta al config personalizado
+ALACRITTY_CONFIG="$HOME/.config/alacritty/nmtui.toml"
+
+# Lanzar nmtui en alacritty con título, clase y config personalizada
+alacritty --config-file "$ALACRITTY_CONFIG" --class "$CLASS" --title "Network Manager" -e nmtui &
 
 # Guardar PID de nmtui
 NMTUI_PID=$!

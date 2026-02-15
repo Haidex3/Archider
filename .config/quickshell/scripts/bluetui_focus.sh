@@ -3,8 +3,11 @@
 # Clase para Hyprland
 CLASS="qs-bluetui"
 
-# Lanzar bluetui en alacritty con título y clase
-alacritty --class "$CLASS" --title "Bluetooth Manager" -e bluetui &
+# Ruta al config personalizado de Alacritty para bluetui
+ALACRITTY_CONFIG="$HOME/.config/alacritty/bluetui.toml"
+
+# Lanzar bluetui en alacritty con título, clase y config personalizada
+alacritty --config-file "$ALACRITTY_CONFIG" --class "$CLASS" --title "Bluetooth Manager" -e bluetui &
 
 # Guardar PID de bluetui
 BLUETUI_PID=$!

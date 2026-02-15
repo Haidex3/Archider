@@ -1,26 +1,53 @@
 #!/usr/bin/env bash
 
-
-BUS="2"
+# =========================
+# CONFIG
+# =========================
+BUS="9"          # <-- cambia si detect cambia
 STEP=10
 MAX=100
 
-current=$(ddcutil getvcp 10 --bus=$BUS | grep -oP 'current value =\s*\K[0-9]+')
+export PATH=/usr/bin:/bin
+
+# =========================
+# GET CURRENT BRIGHTNESS
+# =========================
+get_brightness() {
+    ddcutil getvcp 10 --bus=$BUS --terse 2>/dev/null | awk '{print $4}'
+}
+
+# =========================
+# MAIN
+# =========================
+current=$(get_brightness)
+
 if [[ -z "$current" ]]; then
-    echo "No se pudo obtener el brillo actual."
     exit 1
 fi
 
-if [[ "$1" == "up" ]]; then
-    new=$(( current + STEP ))
-elif [[ "$1" == "down" ]]; then
-    new=$(( current - STEP ))
-else
-    echo "Uso: $0 up|down"
-    exit 1
-fi
+case "$1" in
+    up)
+        new=$(( current + STEP ))
+        ;;
+    down)
+        new=$(( current - STEP ))
+        ;;
+    set)
+        new=$2
+        ;;
+    get)
+        echo "$current" > /tmp/brightness-value
+        exit 0
+        ;;
 
+    *)
+        exit 1
+        ;;
+esac
+
+# Clamp
 if (( new > MAX )); then new=$MAX; fi
 if (( new < 0 )); then new=0; fi
 
 ddcutil setvcp 10 "$new" --bus=$BUS >/dev/null 2>&1
+echo "$new"
