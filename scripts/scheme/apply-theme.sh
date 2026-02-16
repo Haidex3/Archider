@@ -117,9 +117,17 @@ EOF
 mkdir -p "$(dirname "$HYPR_COLORS")"
 
 cat > "$HYPR_COLORS" <<EOF
-# ~/.config/hypr/myColors.conf
+# ===============================================================================
+# myColors.conf
+#
+# DESCRIPTION:
+#   Custom color configuration for Hyprland.
+#   Defines general colors such as active window borders.
+# ===============================================================================
 
-# === Colores generales ===
+# -------------------------------------------------
+# General Colors
+# -------------------------------------------------
 general {
     col.active_border = $active_border
 }

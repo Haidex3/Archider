@@ -6,7 +6,7 @@
  *      |/__\||/__\||/__\||/__\||/__\||/__\||/__\|
  *
  *            .--. 
- *           |o_o |       RESUME: Rofi configuration for keyboard navigation
+ *           |o_o |       RESUME: Rofi config for application menu
  *           |:_/ |       Author: Haidex3
  *          //   \ \      
  *         (|     | )      URL: https://github.com/Haidex3/Archider
@@ -17,100 +17,141 @@
 
 /*------------------------------------------------------------------------------
  *  Theme import
- *-------------------------------------------------------------------------------*/
+-------------------------------------------------------------------------------*/
 @theme "current-theme"
 
 /*------------------------------------------------------------------------------
- *  Element cursor behavior
+ *  Cursor behavior
 -------------------------------------------------------------------------------*/
-element-icon, element-text {
-    cursor: default;  /* keyboard navigation only */
+element-icon, element-text, scrollbar {
+  cursor: pointer;  /* clickable with mouse */
 }
 
 /*------------------------------------------------------------------------------
- *  Window configuration
+ *  Window settings
 -------------------------------------------------------------------------------*/
 window {
-    location: center;
-    width: 300px;
-    background-color: @bg0;
-    border-radius: 4px;
+  location : northwest;
+  width    : 280px;
+  x-offset : 4px;
+  y-offset : 26px;
+
+  background-color: @bg1;
+  border: 1px;
+  border-color: @bg3;
+  border-radius: 6px;
+}
+
+/*------------------------------------------------------------------------------
+ *  Inputbar settings
+-------------------------------------------------------------------------------*/
+inputbar {
+  spacing  : 8px;
+  padding  : 4px 8px;
+  children : [ icon-search, entry ];
+
+  background-color: @bg0;
+}
+
+/*------------------------------------------------------------------------------
+ *  Search icon and text entry alignment
+-------------------------------------------------------------------------------*/
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand   : false;
+  filename : "search-symbolic";
+  size     : 14px;
+}
+
+textbox {
+  padding          : 4px 8px;
+  background-color : @bg2;
 }
 
 /*------------------------------------------------------------------------------
  *  Listview settings
 -------------------------------------------------------------------------------*/
 listview {
-    padding: 2px 0;
-    lines: 10;
-    columns: 1;
-    scrollbar: true;
-    dynamic: false;      /* fixed height */
-    fixed-height: true;  /* similar to nmtui */
-    background-color: @bg0;
+  padding      : 4px 0px;
+  lines        : 12;
+  columns      : 1;
+  scrollbar    : true;
+  fixed-height : false;
+  dynamic      : true;
+  background-color: @bg0;
 }
 
 /*------------------------------------------------------------------------------
- *  Elements styling
+ *  Element styling
 -------------------------------------------------------------------------------*/
 element {
-    background-color: @bg0;
-    text-color: @fg0;
-    padding: 6px 10px;  /* more space for selection */
-    spacing: 8px;
+  background-color: @bg0;
+  text-color: @fg0;
+  padding: 4px 8px;
+  spacing: 8px;
 }
 
 element normal {
-    background-color: @bg0;
-    text-color: @fg0;
+  background-color: @bg0;
+  text-color: @fg0;
+}
+
+element alternate normal {
+  background-color : @bg2;
+  text-color       : @fg0;
 }
 
 element normal urgent {
-    text-color: @urgent;
+  text-color: @urgent;
 }
 
 element normal active {
-    background-color: @bg2;
-    text-color: @accent;
+  background-color : @bg2;
+  text-color: @accent;
+}
+
+element alternate active {
+  text-color: @accent;
 }
 
 element selected {
-    background-color: @accent;
-    text-color: @bg0;
+  background-color : @accent;
+  text-color       : @bg0;
 }
 
 element selected urgent {
-    background-color: @urgent;
-    text-color: @bg0;
+  background-color: @urgent;
+  text-color      : @bg0;
 }
 
 element-icon {
-    background-color: transparent;
-    size: 0.8em;
+  background-color: transparent;
+  size: 0.8em;
 }
 
 element-text {
-    text-color: inherit;
-    background-color: transparent;
+  text-color: inherit;
+  background-color: transparent;
 }
 
 /*------------------------------------------------------------------------------
  *  Scrollbar styling
 -------------------------------------------------------------------------------*/
 scrollbar {
-    handle-width: 3px;
-    handle-color: @fg2;
-    padding: 0 2px;
-    border-radius: 2px;
+  handle-width : 4px;
+  handle-color : @fg2;
+  padding      : 0 4px;
 }
 
 /*------------------------------------------------------------------------------
  *  General configuration
 -------------------------------------------------------------------------------*/
 configuration {
-    modi: ["run"];
+    modi: ["drun", "window", "run"];
     icon-theme: "Papirus-Dark";
-    show-icons: false;
-    drun-display-format: "{name}";
-    prompt: "";  /* no prompt */
+    show-icons: true;
+    drun-display-format: "{icon} {name}";
 }

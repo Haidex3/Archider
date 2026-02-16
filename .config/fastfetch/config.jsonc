@@ -1,13 +1,26 @@
-//  by Haidrex3
-
-
+/*-------------------------------------------------------------------------------
+*     _    ____   ____ _   _ ___ ____  _____ ____  
+*    / \  |  _ \ / ___| | | |_ _|  _ \| ____|  _ \ 
+*   / _ \ | |_) | |   | |_| || || | | |  _| | |_) |
+*  / ___ \|  _ <| |___|  _  || || |_| | |___|  _ < 
+* /_/   \_\_| \_\\____|_| |_|___|____/|_____|_| \_\
+*
+*             .--. 
+*            |o_o |       RESUME: system info & modules display for fastfetch
+*            |:_/ |      
+*           //   \ \       
+*          (|     | )      AUTHOR: Haidex3
+*         /'\_   _/`\      URL: https://github.com/Haidex3/Archider
+*         \___)=(___/      
+*
+-------------------------------------------------------------------------------*/
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
         "type": "file",
-        //"type": "kitty-direct", //descomentar en caso de querer usar kitty
+        //"type": "kitty-direct", // uncomment if you want to use kitty
+        //"source": "~/.config/fastfetch/images/originalImage.png", // uncomment if you want to use kitty
         "source": "~/.config/fastfetch/logo.txt",
-        //"source": "~/.config/fastfetch/images/imageoriginal.png", //descomentar en caso de querer usar kitty
         "width": 2,
         "height": 8,
         "padding": {
