@@ -1,148 +1,148 @@
 # === Palette keys (light rose-pine) ===
-primary_paletteKeyColor F5E0DC
-secondary_paletteKeyColor F2CDCD
-tertiary_paletteKeyColor F5C2E7
-neutral_paletteKeyColor 6E6A86
-neutral_variant_paletteKeyColor 988BA2
+primary_paletteKeyColor C06A78
+secondary_paletteKeyColor B76A88
+tertiary_paletteKeyColor B76BB3
+neutral_paletteKeyColor 2E2A38
+neutral_variant_paletteKeyColor 3E384C
 
 # === Backgrounds ===
-background FDF0F5
-onBackground 191724
-surface FDF0F5
-surfaceDim FCEAF2
-surfaceBright FFEAF8
+background F8E6EE
+onBackground 0E0C12
+surface F8E6EE
+surfaceDim E8CFDA
+surfaceBright FFF0F6
 
 surfaceContainerLowest FFF8FB
-surfaceContainerLow FFF0F5
-surfaceContainer FFEAF8
-surfaceContainerHigh FFD6E8
-surfaceContainerHighest FFC0DC
+surfaceContainerLow FFEAF1
+surfaceContainer F2D2DF
+surfaceContainerHigh E6C1D2
+surfaceContainerHighest DBB0C6
 
 # === Surface text ===
-onSurface 191724
-surfaceVariant E6D9EC
-onSurfaceVariant 514657
+onSurface 0E0C12
+surfaceVariant C7B0D4
+onSurfaceVariant 1E1A26
 
-inverseSurface 191724
-inverseOnSurface FDF0F5
+inverseSurface 1A1622
+inverseOnSurface F8E6EE
 
-outline BBA1B8
-outlineVariant D4C2DD
+outline 6E5E82
+outlineVariant A78DBF
 
 shadow 000000
 scrim 000000
 
-# === Primary (ROSE) ===
-surfaceTint F5E0DC
-primary F5E0DC
-onPrimary FDF0F5
-primaryContainer FFD6E0
-onPrimaryContainer 191724
-inversePrimary DDB6F2
+# === Primary (deepened for contrast) ===
+surfaceTint C06A78
+primary C06A78
+onPrimary FFFFFF
+primaryContainer E6A3B4
+onPrimaryContainer 1A0F14
+inversePrimary B57EDC
 
-# === Secondary (MUTED PINK) ===
-secondary F2CDCD
-onSecondary FDF0F5
-secondaryContainer FFD6D6
-onSecondaryContainer 191724
+# === Secondary (deepened) ===
+secondary B76A88
+onSecondary FFFFFF
+secondaryContainer E3A3BB
+onSecondaryContainer 1A0F14
 
-# === Tertiary (MAGENTA) ===
-tertiary F5C2E7
-onTertiary FDF0F5
-tertiaryContainer FFD9FC
-onTertiaryContainer 191724
+# === Tertiary (deepened magenta) ===
+tertiary B76BB3
+onTertiary FFFFFF
+tertiaryContainer E2A8E2
+onTertiaryContainer 1A0F1A
 
 # === Error ===
-error F38BA8
-onError FDF0F5
-errorContainer FFD8E5
-onErrorContainer 191724
+error B3264A
+onError FFFFFF
+errorContainer F2A5B8
+onErrorContainer 1A0F14
 
 # === Fixed tones ===
-primaryFixed FFD6E0
-primaryFixedDim F5E0DC
-onPrimaryFixed FDF0F5
-onPrimaryFixedVariant FFD6E0
+primaryFixed E6A3B4
+primaryFixedDim C06A78
+onPrimaryFixed 1A0F14
+onPrimaryFixedVariant FFFFFF
 
-secondaryFixed FFD6D6
-secondaryFixedDim F2CDCD
-onSecondaryFixed FDF0F5
-onSecondaryFixedVariant FFD6D6
+secondaryFixed E3A3BB
+secondaryFixedDim B76A88
+onSecondaryFixed 1A0F14
+onSecondaryFixedVariant FFFFFF
 
-tertiaryFixed FFD9FC
-tertiaryFixedDim F5C2E7
-onTertiaryFixed FDF0F5
-onTertiaryFixedVariant FFD9FC
+tertiaryFixed E2A8E2
+tertiaryFixedDim B76BB3
+onTertiaryFixed 1A0F1A
+onTertiaryFixedVariant FFFFFF
 
-# === Terminal colors (light rose-pine) ===
-term0 FDF0F5
-term1 F38BA8
-term2 A6E3A1
-term3 F9E2AF
-term4 F5E0DC
-term5 F5C2E7
-term6 F2CDCD
-term7 191724
+# === Terminal colors (improved contrast further) ===
+term0 F8E6EE
+term1 B3264A
+term2 2E8F59
+term3 B8892F
+term4 9C5BC6
+term5 B76BB3
+term6 4FA3B3
+term7 0E0C12
 
-term8 BBA1B8
-term9 F38BA8
-term10 A6E3A1
-term11 F9E2AF
-term12 F5C2E7
-term13 F5C2E7
-term14 F2CDCD
-term15 191724
+term8 5C4E6E
+term9 9E1F3F
+term10 1F6F44
+term11 8F6A1F
+term12 7E42B3
+term13 944C91
+term14 3C8899
+term15 0E0C12
 
 # === Accents ===
-rosewater F5E0DC
-flamingo F2CDCD
-pink F5C2E7
-mauve DDB6F2
-red F38BA8
-maroon EBA0AC
-peach FFD6E0
-yellow F9E2AF
-green A6E3A1
-teal 89DCEB
-sky 89DCEB
-sapphire 74C7EC
-blue B4BEFE
-lavender DDB6F2
+rosewater C06A78
+flamingo B76A88
+pink B76BB3
+mauve 9C5BC6
+red B3264A
+maroon A84E63
+peach E6A3B4
+yellow B8892F
+green 2E8F59
+teal 4FA3B3
+sky 4FA3B3
+sapphire 3E84C4
+blue 6B78E6
+lavender 9C5BC6
 
 # === KDE / UI states ===
-klink F5E0DC
-klinkSelection DDB6F2
-kvisited B4BEFE
-kvisitedSelection B4BEFE
+klink 9C5BC6
+klinkSelection B76BB3
+kvisited 6B78E6
+kvisitedSelection 6B78E6
 
-knegative F38BA8
-knegativeSelection F38BA8
+knegative B3264A
+knegativeSelection B3264A
 
-kneutral F9E2AF
-kneutralSelection F9E2AF
+kneutral B8892F
+kneutralSelection B8892F
 
-kpositive A6E3A1
-kpositiveSelection A6E3A1
+kpositive 2E8F59
+kpositiveSelection 2E8F59
 
 # === Text hierarchy ===
-text 191724
-subtext1 514657
-subtext0 6E6A86
+text 0E0C12
+subtext1 1E1A26
+subtext0 2E283A
 
-overlay2 988BA2
-overlay1 BBA1B8
-overlay0 D4C2DD
+overlay2 3E384C
+overlay1 6E5E82
+overlay0 A78DBF
 
-surface2 FFD6E0
-surface1 FFEAF8
-surface0 FFF0F5
+surface2 E6A3B4
+surface1 F2D2DF
+surface0 FFEAF1
 
-base FDF0F5
+base F8E6EE
 mantle FFF8FB
-crust FFF8FF
+crust FFFFFF
 
 # === Success ===
-success A6E3A1
-onSuccess F0FDF8
-successContainer D1FAE5
-onSuccessContainer 191724
+success 2E8F59
+onSuccess FFFFFF
+successContainer B7E8D0
+onSuccessContainer 1A0F14

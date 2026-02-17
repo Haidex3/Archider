@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export DISPLAY=:0
-export XAUTHORITY=/home/Haider/.Xauthority
+export XAUTHORITY=~/.Xauthority
 
 sleep 10
 

@@ -26,21 +26,21 @@ QtObject {
         },
 
         "light-rose-pine": {
-            base: "#FDF0F5",
-            surface: "#c47db1f",
-            text: "#F5C2E7",
-            color1: "#a5a5ef",
-            color2: "#cefa5f",
-            color3: "#cefa5f",
-            color4: "#B4637A",
-            color5: "#F9E2AF",
-            color6: "#FFD6E0",
-            color7: "#286983",
-            color8: "#56949F",
-            color9: "#DDB6F2",
-            color10: "#FFF0F5",
-            color11: "#FFEAF8",
-            color12: "#a5a5ef"
+            base: "#F8E6EE",
+            surface: "#E8CFDA",
+            text: "#C06A78",
+            color1: "#6B78E6",
+            color2: "#2E8F59",
+            color3: "#B8892F",
+            color4: "#B3264A",
+            color5: "#B8892F",
+            color6: "#E6A3B4",
+            color7: "#3E84C4",
+            color8: "#4FA3B3",
+            color9: "#9C5BC6",
+            color10: "#FFEAF1",
+            color11: "#F2D2DF",
+            color12: "#C06A78"
         },
 
         // =========================================================

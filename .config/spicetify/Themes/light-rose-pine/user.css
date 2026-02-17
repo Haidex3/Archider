@@ -9,48 +9,48 @@
 
 /* Sidebar glow */
 .Root__nav-bar {
-  background: #FDF0F5 !important;
-  box-shadow: inset -1px 0 0 #FFD6E0;
+  background: #F8E6EE !important;
+  box-shadow: inset -1px 0 0 #E6A3B4;
 }
 
 /* Cards */
 .main-card-card {
-  background-color: #FFEAF8 !important;
-  box-shadow: 0 0 0 1px #FFD6E0;
+  background-color: #F2D2DF !important;
+  box-shadow: 0 0 0 1px #E6A3B4;
 }
 
 /* Hover neon accent */
 .main-card-card:hover {
-  box-shadow: 0 0 0 1px #F5E0DC;
+  box-shadow: 0 0 0 1px #C06A78;
 }
 
 /* Play button neon glow */
 .control-button--circled {
-  box-shadow: 0 0 12px rgba(245, 224, 220, 0.6);
+  box-shadow: 0 0 12px rgba(192, 106, 120, 0.6);
 }
 
 /* Progress bar glow */
 .progress-bar__fg {
-  box-shadow: 0 0 8px rgba(245, 224, 220, 0.7);
+  box-shadow: 0 0 8px rgba(192, 106, 120, 0.7);
 }
 
 /* Active tab underline */
 .x-tabBar-tab[aria-selected="true"] {
-  border-bottom: 2px solid #F5C2E7 !important;
+  border-bottom: 2px solid #B76BB3 !important;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar-thumb {
-  background: #D4C2DD;
+  background: #A78DBF;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F5E0DC;
+  background: #C06A78;
 }
 
 /* Lyrics emphasis */
 .lyrics-lyricsContent-active {
-  color: #F2CDCD !important;
-  text-shadow: 0 0 6px rgba(242, 205, 205, 0.5);
+  color: #B76A88 !important;
+  text-shadow: 0 0 6px rgba(183, 106, 136, 0.5);
 }
