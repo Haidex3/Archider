@@ -22,9 +22,15 @@ echo
 read -p "Hostname: " HOSTNAME
 read -p "Zona horaria (ej: America/Bogota): " TIMEZONE
 read -p "¿Teclado la-latin1? (s/n): " KEYBOARD_OPTION
-read -p "URL de tu repo de dotfiles: " DOTS_URL
+DOTS_URL="https://github.com/Haidex3/Archider"
 
 export USERNAME PASSWORD HOSTNAME TIMEZONE KEYBOARD_OPTION DOTS_URL SCRIPT_DIR
+
+
+echo
+echo "========================================"
+echo "   Ejecutando módulos..."
+echo "========================================"
 
 # =============================
 # EXECUTE MODULES
@@ -35,7 +41,8 @@ bash "$SCRIPT_DIR/modules/02-bootloader.sh"
 bash "$SCRIPT_DIR/modules/03-user.sh"
 bash "$SCRIPT_DIR/modules/04-packages.sh"
 bash "$SCRIPT_DIR/modules/05-yay.sh"
-bash "$SCRIPT_DIR/modules/06-dots.sh"
+bash "$SCRIPT_DIR/modules/06-hardware.sh"
+bash "$SCRIPT_DIR/modules/07-dots.sh"
 
 echo
 echo "========================================"
