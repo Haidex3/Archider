@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
-MODE="push"  # push = sistema -> repo, pull = repo -> sistema
+MODE="push"
 if [ "$1" == "--pull" ]; then
     MODE="pull"
 fi
 
 echo "Modo de sincronización: $MODE"
+
+# =========================
+# Detectar raíz del repo
+# =========================
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel 2>/dev/null || echo "$SCRIPT_DIR")"
+
+echo "Repo detectado en: $REPO_ROOT"
 
 # =========================
 # Función de sincronización
@@ -17,7 +25,7 @@ sync_dir() {
     local DESC="$3"
 
     if [ -e "$SRC" ]; then
-        echo "➡️  Sync $DESC"
+        echo "Sync $DESC"
         mkdir -p "$DST"
         rsync -av --delete \
             --exclude='.git/' \
@@ -25,33 +33,60 @@ sync_dir() {
             --exclude='cache/' \
             "$SRC/" "$DST/"
     else
-        echo " ❌ No existe $DESC ($SRC)"
+        echo " No existe $DESC ($SRC)"
     fi
 }
 
 # =========================
 # Rutas principales
 # =========================
-SOURCE="$HOME/.config"
-TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.config"
 
-FIREFOX_CHROME_SOURCE="$HOME/.mozilla/firefox/lg6xv97x.default-release/chrome"
-FIREFOX_CHROME_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/firefox/chrome"
+SOURCE="$HOME/.config"
+TARGET="$REPO_ROOT/.config"
+
+# =========================
+# Detectar perfil default de Firefox
+# =========================
+FIREFOX_DIR="$HOME/.mozilla/firefox"
+PROFILE_INI="$FIREFOX_DIR/profiles.ini"
+
+if [ -f "$PROFILE_INI" ]; then
+    DEFAULT_PROFILE=$(awk -F= '
+        $1=="Default" && $2=="1" { found=1 }
+        found && $1=="Path" { print $2; exit }
+    ' "$PROFILE_INI")
+
+    # Si no encuentra Default=1, toma el primer perfil disponible
+    if [ -z "$DEFAULT_PROFILE" ]; then
+        DEFAULT_PROFILE=$(grep -m1 "^Path=" "$PROFILE_INI" | cut -d= -f2)
+    fi
+else
+    DEFAULT_PROFILE=""
+fi
+
+if [ -n "$DEFAULT_PROFILE" ]; then
+    FIREFOX_CHROME_SOURCE="$FIREFOX_DIR/$DEFAULT_PROFILE/chrome"
+else
+    echo "No se pudo detectar perfil de Firefox"
+    FIREFOX_CHROME_SOURCE=""
+fi
+FIREFOX_CHROME_TARGET="$REPO_ROOT/firefox/chrome"
 
 HATHEME_SHARE_SOURCE="$HOME/.local/share/hatheme"
-HATHEME_SHARE_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.local/share/hatheme"
+HATHEME_SHARE_TARGET="$REPO_ROOT/.local/share/hatheme"
 
 THEMES_SHARE_SOURCE="$HOME/.local/share/themes"
-THEMES_SHARE_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.local/share/themes"
+THEMES_SHARE_TARGET="$REPO_ROOT/.local/share/themes"
 
 HATHEME_STATE_SOURCE="$HOME/.local/state/hatheme"
-HATHEME_STATE_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.local/state/hatheme"
+HATHEME_STATE_TARGET="$REPO_ROOT/.local/state/hatheme"
 
 SCRIPTS_SOURCE="$HOME/scripts"
-SCRIPTS_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/scripts"
+SCRIPTS_TARGET="$REPO_ROOT/scripts"
 
 VSCODE_USER_SOURCE="$HOME/.config/Code/User"
-VSCODE_USER_TARGET="$HOME/Documents/GitHub/ArchLinuxPublic/.config/Code/User"
+VSCODE_USER_TARGET="$REPO_ROOT/.config/Code/User"
+
 
 # Carpetas a sincronizar desde ~/.config
 DIRS=(
@@ -94,7 +129,7 @@ if [ "$MODE" == "pull" ]; then
     SRC_VSCODE="$VSCODE_USER_TARGET"
     DST_VSCODE="$VSCODE_USER_SOURCE"
 else
-    echo "⬆️ Sincronizando sistema hacia el repo..."
+    echo "Sincronizando sistema hacia el repo..."
     SRC_CONFIG="$SOURCE"
     DST_CONFIG="$TARGET"
 
@@ -134,9 +169,9 @@ sync_dir "$SRC_SCRIPTS" "$DST_SCRIPTS" "~/scripts"
 sync_dir "$SRC_VSCODE/themes" "$DST_VSCODE/themes" "VS Code themes"
 
 if [ -f "$SRC_VSCODE/settings.json" ]; then
-    echo "➡️  Sync VS Code settings.json"
+    echo "Sync VS Code settings.json"
     mkdir -p "$DST_VSCODE"
     rsync -av "$SRC_VSCODE/settings.json" "$DST_VSCODE/settings.json"
 fi
 
-echo "✅ Sincronización completa"
+echo "Sincronización completa"

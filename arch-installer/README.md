@@ -62,3 +62,34 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 *         \___)=(___/      
 *
 -------------------------------------------------------------------------------*/
+
+Guia de instalacion:
+
+Para empezar necesitamos tener lo minimo para copiar un repo de git 
+
+pacstrap /mnt base linux linux-firmware networkmanager grub git
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+
+pacman -S git
+git clone https://github.com/TU_USUARIO/TU_REPO.git
+cd TU_REPO
+chmod +x install.sh
+./install.sh
+exit
+reboot
+
+
+sudo nano ~/.bashrc
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+runbg() {
+    nohup "$@" > /dev/null 2>&1 &
+}
+
+eval "$(ssh-agent -s)" > /dev/null

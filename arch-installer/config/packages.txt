@@ -1,0 +1,27 @@
+vim
+neovim
+firefox
+kitty
+hyprland
+pipewire
+xdg-desktop-portal-hyprland
+waybar
+rofi
+alacritty
+wl-clipboard
+expect
+swww
+slurp
+grim
+wl-clipboard
+pamixer
+pavucontrol
+brightnessctl #para portatil
+lxappearance
+polkit
+network-manager-applet
+jq
+ddcutil #para pc
+fastfetch
+yazi
+quickshel
