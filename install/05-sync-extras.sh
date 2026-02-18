@@ -10,7 +10,12 @@ run_sync() {
     sync_dir "$SRC_THEMES" "$DST_THEMES" ".local/share/themes"
     sync_dir "$SRC_HATHEME_SHARE" "$DST_HATHEME_SHARE" ".local/share/hatheme"
     sync_dir "$SRC_HATHEME_STATE" "$DST_HATHEME_STATE" ".local/state/hatheme"
-    sync_dir "$SRC_SCRIPTS" "$DST_SCRIPTS" "~/scripts"
+
+    SCRIPTS_EXCLUDES=()
+    if [ "$MODE" != "pull" ] && [ "$IS_LAPTOP" == "true" ]; then
+        SCRIPTS_EXCLUDES+=(--exclude='brightness-ddc.sh')
+    fi
+    sync_dir "$SRC_SCRIPTS" "$DST_SCRIPTS" "~/scripts" "${SCRIPTS_EXCLUDES[@]}"
 
     sync_dir "$SRC_VSCODE/themes" "$DST_VSCODE/themes" "VS Code themes"
 

@@ -16,22 +16,17 @@ export MODE REPO_ROOT
 # Cargar módulos
 source "$REPO_ROOT/install/01-detect-hardware.sh"
 source "$REPO_ROOT/install/02-paths.sh"
-source "$REPO_ROOT/install/03-quickshell-profile.sh"
+source "$REPO_ROOT/install/03-hardware-profiles.sh"
 source "$REPO_ROOT/install/04-sync-core.sh"
 source "$REPO_ROOT/install/05-sync-extras.sh"
 
 detect_hardware
 setup_paths
 
-if [ "$MODE" == "pull" ]; then
-    SRC_CONFIG="$TARGET"
-    DST_CONFIG="$SOURCE"
-else
-    SRC_CONFIG="$SOURCE"
-    DST_CONFIG="$TARGET"
-fi
+source "$REPO_ROOT/install/06-direction.sh"
+setup_direction
 
-handle_quickshell_profile
 run_sync
+post_sync_adjustments
 
 echo "Sincronización completa"
