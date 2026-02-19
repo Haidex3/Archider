@@ -19,6 +19,8 @@ sync_dir() {
             EXCLUDES+=(
                 --exclude='quickshell/services/BrightnessPService.qml'
                 --exclude='quickshell/services/BrightnessService.qml'
+                --exclude='quickshell/modules/bar/components/SystemControls.qml'
+                --exclude='quickshell/modules/bar/components/SystemPControls.qml'
             )
         fi
 
