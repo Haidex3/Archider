@@ -3,7 +3,7 @@
 setup_direction() {
 
     if [ "$MODE" == "pull" ]; then
-        echo "⬇️ Actualizando sistema desde el repo..."
+        echo "Updating system from repository..."
 
         SRC_CONFIG="$TARGET"
         DST_CONFIG="$SOURCE"
@@ -27,7 +27,7 @@ setup_direction() {
         DST_VSCODE="$VSCODE_USER_SOURCE"
 
     else
-        echo "⬆️ Sincronizando sistema hacia el repo..."
+        echo "Synchronizing system to repository..."
 
         SRC_CONFIG="$SOURCE"
         DST_CONFIG="$TARGET"
@@ -52,10 +52,10 @@ setup_direction() {
     fi
 
     export SRC_CONFIG DST_CONFIG \
-           SRC_FIREFOX DST_FIREFOX \
-           SRC_THEMES DST_THEMES \
-           SRC_HATHEME_SHARE DST_HATHEME_SHARE \
-           SRC_HATHEME_STATE DST_HATHEME_STATE \
-           SRC_SCRIPTS DST_SCRIPTS \
-           SRC_VSCODE DST_VSCODE
+            SRC_FIREFOX DST_FIREFOX \
+            SRC_THEMES DST_THEMES \
+            SRC_HATHEME_SHARE DST_HATHEME_SHARE \
+            SRC_HATHEME_STATE DST_HATHEME_STATE \
+            SRC_SCRIPTS DST_SCRIPTS \
+            SRC_VSCODE DST_VSCODE
 }

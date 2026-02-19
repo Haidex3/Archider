@@ -27,6 +27,6 @@ sync_dir() {
         rsync -av --delete "${EXCLUDES[@]}" \
             "$SRC/" "$DST/"
     else
-        echo "No existe $DESC ($SRC)"
+        echo "$DESC does not exist ($SRC)"
     fi
 }

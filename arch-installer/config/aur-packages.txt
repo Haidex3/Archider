@@ -1,3 +1,0 @@
-visual-studio-code-bin
-spicetify-cli
-spotify

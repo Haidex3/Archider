@@ -6,14 +6,14 @@ if [ "$1" == "--pull" ]; then
     MODE="pull"
 fi
 
-echo "Modo de sincronización: $MODE"
+echo "Synchronization mode: $MODE"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel 2>/dev/null || echo "$SCRIPT_DIR")"
 
 export MODE REPO_ROOT
 
-# Cargar módulos
+# Load modules
 source "$REPO_ROOT/install/01-detect-hardware.sh"
 source "$REPO_ROOT/install/02-paths.sh"
 source "$REPO_ROOT/install/03-hardware-profiles.sh"
@@ -29,4 +29,13 @@ setup_direction
 run_sync
 post_sync_adjustments
 
-echo "Sincronización completa"
+echo "Running monitor configuration script..."
+
+# Execute monitors script if it exists and is executable
+if [ -x "$HOME/scripts/monitors.sh" ]; then
+    "$HOME/scripts/monitors.sh"
+else
+    echo "Warning: $HOME/scripts/monitors.sh not found or not executable."
+fi
+
+echo "Synchronization complete"

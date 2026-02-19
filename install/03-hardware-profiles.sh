@@ -7,17 +7,17 @@ post_sync_adjustments() {
     QS_CONF="$CONFIG_DIR/quickshell/modules/bar/components"
     SCRIPTS_DIR="$CONFIG_DIR/scripts"
 
-    echo "Aplicando ajustes post-sincronización..."
+    echo "Applying post-synchronization adjustments..."
 
     # =========================================
-    # Ajustes SOLO si es PULL
+    # Adjustments ONLY if mode is PULL
     # =========================================
     if [ "$MODE" == "pull" ]; then
 
         if [ "$IS_LAPTOP" == "true" ]; then
-            echo "Perfil portátil detectado (pull)"
+            echo "Laptop profile detected (pull)"
 
-            # Ajustar servicio brightness
+            # Adjust brightness service
             rm -f "$QS_DIR/BrightnessService.qml"
 
             if [ -f "$QS_DIR/BrightnessPService.qml" ]; then
@@ -32,11 +32,11 @@ post_sync_adjustments() {
                    "$QS_CONF/SystemControls.qml"
             fi
 
-            # Eliminar script ddc (no aplica en laptop)
+            # Remove ddc script (not applicable on laptop)
             rm -f "$SCRIPTS_DIR/brightness-ddc.sh"
 
         else
-            echo "Perfil escritorio detectado (pull)"
+            echo "Desktop profile detected (pull)"
 
             if [ -f "$SCRIPTS_DIR/brightness-ddc.sh" ]; then
                 chmod +x "$SCRIPTS_DIR/brightness-ddc.sh"
@@ -44,15 +44,15 @@ post_sync_adjustments() {
         fi
 
     else
-        echo "Modo push detectado — no se modifican archivos del perfil brightness"
+        echo "Push mode detected — no brightness profile files will be modified"
     fi
 
     # =========================================
-    # Siempre asegurar permisos ejecutables
+    # Always ensure executable permissions
     # =========================================
     if [ -d "$SCRIPTS_DIR" ]; then
         find "$SCRIPTS_DIR" -type f -exec chmod +x {} \;
     fi
 
-    echo "Ajustes post-sync completados"
+    echo "Post-sync adjustments completed"
 }
