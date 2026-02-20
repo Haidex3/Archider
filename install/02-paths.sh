@@ -58,6 +58,20 @@ setup_paths() {
         spicetify
     )
 
+    # ----------------------------
+    # GRUB configuration
+    # ----------------------------
+
+    GRUB_SOURCE="$REPO_ROOT/Grub/grub"
+    GRUB_TARGET="/etc/default/grub"
+
+    GRUB_THEME_SOURCE="$REPO_ROOT/Grub/minegrub-world-selection"
+    GRUB_THEME_TARGET="/boot/grub/themes/minegrub-world-selection"
+
+    # ----------------------------
+    # Unified export
+    # ----------------------------
+
     export SOURCE TARGET \
             FIREFOX_CHROME_SOURCE FIREFOX_CHROME_TARGET \
             HATHEME_SHARE_SOURCE HATHEME_SHARE_TARGET \
@@ -65,5 +79,7 @@ setup_paths() {
             HATHEME_STATE_SOURCE HATHEME_STATE_TARGET \
             SCRIPTS_SOURCE SCRIPTS_TARGET \
             VSCODE_USER_SOURCE VSCODE_USER_TARGET \
+            GRUB_SOURCE GRUB_TARGET \
+            GRUB_THEME_SOURCE GRUB_THEME_TARGET \
             DIRS
 }

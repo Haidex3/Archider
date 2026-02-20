@@ -23,4 +23,29 @@ run_sync() {
         mkdir -p "$DST_VSCODE"
         rsync -av "$SRC_VSCODE/settings.json" "$DST_VSCODE/settings.json"
     fi
+    
+    # ---------------------------------
+    # GRUB sync (push only)
+    # ---------------------------------
+
+    if [ "$MODE" == "push" ]; then
+        echo "Syncing GRUB configuration..."
+
+        if [ -f "$GRUB_SOURCE" ]; then
+            sudo cp "$GRUB_SOURCE" "$GRUB_TARGET"
+        else
+            echo "Warning: $GRUB_SOURCE not found."
+        fi
+
+        if [ -d "$GRUB_THEME_SOURCE" ]; then
+            sudo mkdir -p /boot/grub/themes
+            sudo rm -rf "$GRUB_THEME_TARGET"
+            sudo cp -r "$GRUB_THEME_SOURCE" "$GRUB_THEME_TARGET"
+        else
+            echo "Warning: $GRUB_THEME_SOURCE not found."
+        fi
+
+        echo "Regenerating GRUB configuration..."
+        sudo grub-mkconfig -o /boot/grub/grub.cfg
+    fi
 }
