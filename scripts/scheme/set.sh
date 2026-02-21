@@ -1,24 +1,23 @@
 #!/usr/bin/env bash
 
 # =====================
-# Directorios base
+# Base directories
 # =====================
 THEME_DIR="$HOME/.local/share/hatheme/themes"
 STATE_DIR="$HOME/.local/state/hatheme/scheme"
 IMG_DIR="$HOME/.local/share/hatheme/images"
 YAZI_CONFIG="$HOME/.config/yazi/theme.toml"
 
-
 FIREFOX_PROFILE="$HOME/.mozilla/firefox/s21rhd6v.default-release-1760989103541"
 CHROME_DIR="$FIREFOX_PROFILE/chrome"
 HATHEME_CSS="$CHROME_DIR/hatheme-state.css"
 
-# Crear carpetas necesarias
+# Create required directories
 mkdir -p "$STATE_DIR"
 mkdir -p "$CHROME_DIR"
 
 # =====================
-# Listar temas
+# List themes
 # =====================
 THEMES=($(ls "$THEME_DIR"/*.txt | xargs -n 1 basename | sed 's/\.txt$//'))
 
@@ -37,13 +36,13 @@ SELECTED=$(printf "%b\n" "${ENTRIES[@]}" | \
          -theme "$HOME/.config/rofi/scheme-selector.rasi" \
          -show-icons)
 
-# Cancelado
+# Cancelled
 [[ -z "$SELECTED" ]] && exit 0
 
 THEME_FILE="$THEME_DIR/$SELECTED.txt"
 
 # =====================
-# Estado interno
+# Internal state
 # =====================
 cp "$THEME_FILE" "$STATE_DIR/colors.txt"
 echo "$SELECTED" > "$STATE_DIR/current-theme.txt"
@@ -51,7 +50,6 @@ echo "$SELECTED" > "$STATE_DIR/current-theme.txt"
 MODE="dark"
 [[ "$SELECTED" == *"light"* ]] && MODE="light"
 echo "$MODE" > "$STATE_DIR/current-mode.txt"
-
 
 cat > "$HATHEME_CSS" <<EOF
 /* Auto-generated – DO NOT EDIT */
@@ -66,7 +64,7 @@ EOF
 echo "Firefox theme state written to hatheme-state.css"
 
 # =====================
-# Exportar variables del tema
+# Export theme variables
 # =====================
 while read -r line; do
     [[ -z "$line" || "$line" =~ ^# ]] && continue
@@ -75,27 +73,16 @@ while read -r line; do
     export "$key=$value"
 done < "$THEME_FILE"
 
-# =====================
-# Wallpaper (swww)
-# =====================
-WALLPAPER="$IMG_DIR/$SELECTED.png"
-WALLPAPER_M2="$IMG_DIR/$SELECTED-M2.png"
-
-if [[ -f "$WALLPAPER" ]]; then
-    swww img "$WALLPAPER" --outputs HDMI-A-1
-    [[ -f "$WALLPAPER_M2" ]] && swww img "$WALLPAPER_M2" --outputs HDMI-A-3
-fi
-
 echo "Theme '$SELECTED' applied successfully."
 
-
 scripts/scheme/apply-theme.sh
+scripts/scheme/set-wallpaper.sh "$SELECTED"
 
 GTK_SETTINGS="$HOME/.config/gtk-3.0/settings.ini"
 
 mkdir -p "$(dirname "$GTK_SETTINGS")"
 
-# Crear archivo si no existe
+# Create file if it does not exist
 if [[ ! -f "$GTK_SETTINGS" ]]; then
 cat > "$GTK_SETTINGS" <<EOF
 [Settings]
@@ -105,7 +92,7 @@ gtk-font-name=Sans 10
 gtk-application-prefer-dark-theme=0
 EOF
 else
-    # Reemplazos seguros
+    # Safe replacements
     sed -i "s/^gtk-theme-name=.*/gtk-theme-name=$SELECTED/" "$GTK_SETTINGS" \
         || echo "gtk-theme-name=$SELECTED" >> "$GTK_SETTINGS"
 
@@ -118,14 +105,15 @@ else
     sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=0/" "$GTK_SETTINGS" \
         || echo "gtk-application-prefer-dark-theme=0" >> "$GTK_SETTINGS"
 fi
+
 # =====================
-# Aplicar tema VS Code SIN heredar valores
+# Apply VS Code theme WITHOUT inheriting previous values
 # =====================
 
 VSCODE_SETTINGS="$HOME/.config/Code/User/settings.json"
 THEME_JSON="$HOME/.config/Code/User/themes/$SELECTED.json"
 
-# Crear settings.json si no existe
+# Create settings.json if it does not exist
 if [[ ! -f "$VSCODE_SETTINGS" ]]; then
     echo "{}" > "$VSCODE_SETTINGS"
 fi
@@ -134,20 +122,18 @@ TMP_FILE=$(mktemp)
 
 jq \
   --slurpfile theme "$THEME_JSON" '
-    # 1. Borrar TODO lo relacionado con temas
+    # 1. Remove ALL theme-related settings
     del(
       .["workbench.colorTheme"],
       .["workbench.colorCustomizations"],
       .["editor.tokenColorCustomizations"],
       .["editor.semanticTokenColorCustomizations"]
     )
-    # 2. Insertar el nuevo tema completo
+    # 2. Insert the full new theme
     * $theme[0]
   ' "$VSCODE_SETTINGS" > "$TMP_FILE" && mv "$TMP_FILE" "$VSCODE_SETTINGS"
 
-echo "VS Code theme set to '$SELECTED' ✅"
-
-
+echo "VS Code theme set to '$SELECTED'"
 
 # =====================
 # YAZI theme
@@ -163,7 +149,7 @@ if [[ -f "$YAZI_THEME_FILE" ]]; then
     cp "$YAZI_THEME_FILE" "$YAZI_CONFIG"
     echo "Yazi theme set to '$SELECTED'"
 else
-    echo "⚠️ Yazi theme '$SELECTED.toml' not found"
+    echo "Yazi theme '$SELECTED.toml' not found"
 fi
 
 # =====================
@@ -179,9 +165,8 @@ if [[ -f "$ROFI_SELECTED_THEME" ]]; then
     cp "$ROFI_SELECTED_THEME" "$ROFI_CURRENT_THEME"
     echo "Rofi theme set to '$SELECTED'"
 else
-    echo "⚠️ Rofi theme '$SELECTED.rasi' not found"
+    echo "Rofi theme '$SELECTED.rasi' not found"
 fi
-
 
 # =====================
 # GTK refresh
@@ -191,7 +176,7 @@ gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 gsettings set org.gnome.desktop.interface font-name "Sans 10"
 
 # =====================
-# Spicetify (sin abrir Spotify)
+# Spicetify (without opening Spotify)
 # =====================
 
 SPOTIFY_RUNNING=$(pgrep -x spotify)
@@ -200,4 +185,3 @@ spicetify config current_theme "$SELECTED"
 spicetify config color_scheme "$SELECTED"
 
 spicetify apply --no-restart
-
