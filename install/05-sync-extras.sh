@@ -25,26 +25,31 @@ run_sync() {
     fi
     
     # ---------------------------------
-    # GRUB sync (push only)
+    # GRUB sync (push & pull)
     # ---------------------------------
 
-    if [ "$MODE" == "push" ]; then
-        echo "Syncing GRUB configuration..."
+    echo "Syncing GRUB configuration..."
 
-        if [ -f "$GRUB_SOURCE" ]; then
-            sudo cp "$GRUB_SOURCE" "$GRUB_TARGET"
-        else
-            echo "Warning: $GRUB_SOURCE not found."
-        fi
+    # Sync grub main config
+    if [ -f "$SRC_GRUB" ]; then
+        echo "Copying $SRC_GRUB → $DST_GRUB"
+        sudo cp "$SRC_GRUB" "$DST_GRUB"
+    else
+        echo "Warning: $SRC_GRUB not found."
+    fi
 
-        if [ -d "$GRUB_THEME_SOURCE" ]; then
-            sudo mkdir -p /boot/grub/themes
-            sudo rm -rf "$GRUB_THEME_TARGET"
-            sudo cp -r "$GRUB_THEME_SOURCE" "$GRUB_THEME_TARGET"
-        else
-            echo "Warning: $GRUB_THEME_SOURCE not found."
-        fi
+    # Sync grub theme
+    if [ -d "$SRC_GRUB_THEME" ]; then
+        echo "Copying theme $SRC_GRUB_THEME → $DST_GRUB_THEME"
+        sudo mkdir -p "$(dirname "$DST_GRUB_THEME")"
+        sudo rm -rf "$DST_GRUB_THEME"
+        sudo cp -r "$SRC_GRUB_THEME" "$DST_GRUB_THEME"
+    else
+        echo "Warning: $SRC_GRUB_THEME not found."
+    fi
 
+    # Only regenerate grub when modifying system
+    if [ "$MODE" == "pull" ]; then
         echo "Regenerating GRUB configuration..."
         sudo grub-mkconfig -o /boot/grub/grub.cfg
     fi
