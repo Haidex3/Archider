@@ -38,6 +38,20 @@ if [[ -n "$SECONDARY" ]]; then
     echo "monitor=$SECONDARY,$SECONDARY_RES,${OFFSET_X}x0,1"
 fi
 
+echo ""
+echo "# -------------------------------------------------"
+echo "# Wallpapers (theme-aware)"
+echo "# -------------------------------------------------"
+
+echo "# Set wallpaper on primary monitor based on current theme"
+echo "exec-once = bash -c 'THEME=\$(cat ~/.local/state/hatheme/scheme/current-theme.txt 2>/dev/null || echo \"dark\") && swww img ~/.local/share/hatheme/images/\${THEME}.png --outputs $PRIMARY'"
+
+if [[ -n "$SECONDARY" ]]; then
+    echo ""
+    echo "# Set wallpaper on secondary monitor with variant M2"
+    echo "exec-once = bash -c 'THEME=\$(cat ~/.local/state/hatheme/scheme/current-theme.txt 2>/dev/null || echo \"dark\") && swww img ~/.local/share/hatheme/images/\${THEME}-M2.png --outputs $SECONDARY'"
+fi
+
 } > "$CONFIG"
 
-echo "Monitors config updated."
+echo "Monitors config + wallpapers updated."
