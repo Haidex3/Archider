@@ -63,6 +63,13 @@ setup_paths() {
 
     FIREFOX_CHROME_TARGET="$REPO_ROOT/firefox/chrome"
 
+    # ----------------------------
+    # Firefox native messaging
+    # ----------------------------
+
+    FIREFOX_NATIVE_SOURCE="$HOME/.mozilla/native-messaging-hosts"
+    FIREFOX_NATIVE_TARGET="$REPO_ROOT/.mozilla/native-messaging-hosts"
+
     HATHEME_SHARE_SOURCE="$HOME/.local/share/hatheme"
     HATHEME_SHARE_TARGET="$REPO_ROOT/.local/share/hatheme"
 
@@ -108,6 +115,7 @@ setup_paths() {
 
     export SOURCE TARGET \
         FIREFOX_CHROME_SOURCE FIREFOX_CHROME_TARGET \
+        FIREFOX_NATIVE_SOURCE FIREFOX_NATIVE_TARGET \
         HATHEME_SHARE_SOURCE HATHEME_SHARE_TARGET \
         THEMES_SHARE_SOURCE THEMES_SHARE_TARGET \
         HATHEME_STATE_SOURCE HATHEME_STATE_TARGET \

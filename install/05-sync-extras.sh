@@ -7,6 +7,7 @@ run_sync() {
     done
 
     sync_dir "$SRC_FIREFOX" "$DST_FIREFOX" "Firefox chrome"
+    sync_dir "$SRC_FIREFOX_NATIVE" "$DST_FIREFOX_NATIVE" "~/.mozilla/native-messaging-hosts"
     sync_dir "$SRC_THEMES" "$DST_THEMES" ".local/share/themes"
     sync_dir "$SRC_HATHEME_SHARE" "$DST_HATHEME_SHARE" ".local/share/hatheme"
     sync_dir "$SRC_HATHEME_STATE" "$DST_HATHEME_STATE" ".local/state/hatheme"
