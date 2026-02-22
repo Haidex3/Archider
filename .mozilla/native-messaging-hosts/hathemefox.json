@@ -1,0 +1,8 @@
+{
+    "name": "hathemefox",
+    "description": "HaTheme Native Host",
+    "path": "/home/Haider/scripts/firefox/app.fish",
+    "type": "stdio",
+    "allowed_extensions": ["hathemefox@Haidrex3.com"]
+}
+
