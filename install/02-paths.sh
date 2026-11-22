@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 setup_paths() {
@@ -108,6 +109,32 @@ setup_paths() {
 
     GRUB_THEME_SOURCE="$REPO_ROOT/Grub/minegrub-world-selection"
     GRUB_THEME_TARGET="/boot/grub/themes/minegrub-world-selection"
+
+    # ----------------------------
+    # Create missing directories
+    # ----------------------------
+
+    echo "Checking repository directories..."
+
+    mkdir -p \
+        "$REPO_ROOT/firefox/chrome" \
+        "$FIREFOX_NATIVE_TARGET" \
+        "$HATHEME_SHARE_TARGET" \
+        "$THEMES_SHARE_TARGET" \
+        "$HATHEME_STATE_TARGET" \
+        "$SCRIPTS_TARGET" \
+        "$VSCODE_USER_TARGET" \
+        "$REPO_ROOT/Grub"
+
+    for dir in "${DIRS[@]}"; do
+        mkdir -p "$REPO_ROOT/.config/$dir"
+    done
+
+    # Create GRUB theme directory if missing
+    if [ ! -d "$GRUB_THEME_TARGET" ]; then
+        echo "Creating GRUB theme directory..."
+        sudo mkdir -p "$GRUB_THEME_TARGET"
+    fi
 
     # ----------------------------
     # Unified export
