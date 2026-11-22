@@ -54,8 +54,8 @@ Singleton {
     // Get gpu usage
     property Process _gpuProcess: Process {
         running: false
-        command: ["sh", "-c", "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null || echo 0"]
-        
+        command: ["sh", "-c", "cat /sys/class/drm/card*/device/gpu_busy_percent 2>/dev/null | head -n 1 || echo 0"]
+
         stdout: SplitParser {
             onRead: data => {
                 const usage = parseFloat(data.trim())

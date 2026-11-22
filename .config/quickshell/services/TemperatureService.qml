@@ -1,58 +1,77 @@
+
 pragma Singleton
 
 import QtQuick
 import Quickshell
 import Quickshell.Io
 
-/*!
-    Temprature service gets info by Sensors and allow know real temps
-*/
 Singleton {
     id: root
-    
+
     // Public properties
     property real cpuTemp: 0
     property real gpuTemp: 0
-    
-    // Get CPU temperature
+    property real gpuUsage: -1
+
+    // CPU Temperature
     property Process _cpuProcess: Process {
         running: false
-        command: ["sh", "-c", "sensors | grep -Eo '\\+[0-9]+\\.[0-9]+°C' | head -n1 | grep -Eo '[0-9]+' | head -n1"]
-        
+
+        command: [
+            "sh", "-c",
+            "sensors | grep -Eo '\\+[0-9]+\\.[0-9]+°C' | head -n1 | grep -Eo '[0-9]+' | head -n1"
+        ]
+
         stdout: SplitParser {
             onRead: data => {
                 const temp = parseFloat(data.trim())
-                if (!isNaN(temp) && temp > 0) {
+
+                if (!isNaN(temp) && temp > 0)
                     root.cpuTemp = temp
-                }
             }
         }
     }
-    
-    // Get GPU temperature
-    property Process _gpuProcess: Process {
+
+    // AMD RX 9070 - Edge Temperature
+    property Process _gpuTempProcess: Process {
         running: false
-        command: ["sh", "-c", "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits 2>/dev/null || echo 0"]
-        
+
+        command: [
+            "sh", "-c",
+            "for hw in /sys/class/drm/card*/device/hwmon/hwmon*; do \
+                [ -r \"$hw/name\" ] || continue; \
+                [ \"$(cat \"$hw/name\")\" = \"amdgpu\" ] || continue; \
+                [ -r \"$hw/temp1_input\" ] || continue; \
+                [ \"$(cat \"$hw/temp1_label\" 2>/dev/null)\" = \"edge\" ] || continue; \
+                awk '{print $1 / 1000}' \"$hw/temp1_input\"; \
+                exit; \
+            done; \
+            echo 0"
+        ]
+
         stdout: SplitParser {
             onRead: data => {
                 const temp = parseFloat(data.trim())
-                if (!isNaN(temp)) {
+
+                if (!isNaN(temp) && temp > 0 && temp < 120)
                     root.gpuTemp = temp
-                }
             }
         }
     }
-    
-    // Timer to update all temp information almost in real time
+
+    // Refresh temperatures every 2 seconds
     property Timer _pollTimer: Timer {
-        interval: 5000
+        interval: 2000
         running: true
         repeat: true
         triggeredOnStart: true
+
         onTriggered: {
-            _cpuProcess.running = true
-            _gpuProcess.running = true
+            if (!root._cpuProcess.running)
+                root._cpuProcess.running = true
+
+            if (!root._gpuTempProcess.running)
+                root._gpuTempProcess.running = true
         }
     }
 }

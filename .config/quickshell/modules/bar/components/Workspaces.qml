@@ -1,22 +1,21 @@
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import "../../../theme" as Theme
 
-/*!
-    A dynamic widget for displaying and switching between Hyprland workspaces.
-    This component renders a horizontal row of workspace indicators
-    based on the Hyprland workspaces.
-*/
 Item {
+    id: root
+
     implicitWidth: workspaceRow.implicitWidth
-    implicitHeight: parent
+    implicitHeight: workspaceRow.implicitHeight
+
     width: implicitWidth
     height: implicitHeight
-    
-    // Map as JavaScript object that defines custom display names for workspaces
-    property var workspaceNames: {
+
+    // Workspace display names
+    property var workspaceNames: ({
         "1": "➊",
         "2": "➋",
         "3": "➌",
@@ -28,74 +27,79 @@ Item {
         "9": "➒",
         "10": "➓",
         "11": "⓫"
-    }
+    })
 
-    
-    // Show workspaces
+    // Workspace indicators
     RowLayout {
         id: workspaceRow
+
         anchors.centerIn: parent
-        
+        spacing: 4
+
         Repeater {
             model: Hyprland.workspaces
+
             delegate: Rectangle {
-                // Hide special workspaces
+                required property var modelData
+
                 visible: modelData.id > 0
 
-                // Collapse non visible items
-                width: visible ? 25 : 0
-                height: visible ? 25 : 0
-                
+                Layout.preferredWidth: visible ? 25 : 0
+                Layout.preferredHeight: visible ? 25 : 0
+
                 color: "transparent"
-                Layout.alignment: Qt.AlignVCenter
-                
-                // Workspaces colors & names implementation
+
+                // Workspace number
                 Text {
                     anchors.centerIn: parent
-                    text: workspaceNames[modelData.id.toString()] || modelData.id
-                    
-                    // Color to each type of workspace (active & focus - active & noFocus - inactive)
-                    // This is for multiple monitors
+
+                    text: root.workspaceNames[modelData.id.toString()]
+                          || modelData.id
+
                     color: {
-                        if (modelData.focused) {
-                            return Theme.ThemeManager.color8 // focus
-                        } else if (modelData.active) {
-                            return Theme.ThemeManager.color6 // no-focus
-                        } else {
+                        if (modelData.focused)
+                            return Theme.ThemeManager.color8
+                        else if (modelData.active)
+                            return Theme.ThemeManager.color6
+                        else
                             return Theme.ThemeManager.color2
-                        }
                     }
-                    
+
                     font.pixelSize: Theme.ThemeManager.baseFontSize
-                    
                 }
-                
-                // Button border to active & focus workspace
+
+                // Active workspace indicator
                 Rectangle {
-                    id: bottomBorder
                     width: parent.width * 0.8
                     height: 2
+
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
-                    
-                    // Color to each type of workspace (active & focus - active & noFocus - inactive)
-                    // This is for multiple monitors
+
                     color: {
-                        if (modelData.focused) {
-                            return Theme.ThemeManager.color8 // focus
-                        } else if (modelData.active) {
-                            return Theme.ThemeManager.color6 // no-focus
-                        } else {
+                        if (modelData.focused)
+                            return Theme.ThemeManager.color8
+                        else if (modelData.active)
+                            return Theme.ThemeManager.color6
+                        else
                             return "transparent"
-                        }
                     }
                 }
-            
-                // Clickable
+
+                // Click interaction
                 MouseArea {
                     anchors.fill: parent
+                    acceptedButtons: Qt.LeftButton
                     cursorShape: Qt.PointingHandCursor
-                    onClicked: Hyprland.dispatch("workspace " + modelData.id)
+                    z: 10
+
+                    onClicked: {
+                        console.log("Cambiando al workspace:", modelData.id)
+
+                        Hyprland.dispatch(
+                            "hl.dsp.focus({ workspace = " + modelData.id + " })"
+                        )
+                    }
                 }
             }
         }

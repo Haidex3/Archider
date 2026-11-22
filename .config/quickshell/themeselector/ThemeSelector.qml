@@ -79,18 +79,14 @@ PanelWindow {
 
             onThemesLoaded: {
                 ThemeService.model = themeModel
-                
-                var count = ThemeService.count
-                
-                if (count > 0) {
-                    if (!ThemeService.currentItem) {
-                        ThemeService.select(0)
-                    }
-                    
-                    if (ThemeService.currentItem) {
-                        preview.theme = ThemeService.currentItem
-                        carousel.updateSelection()
-                    }
+
+                if (ThemeService.count > 0 && !ThemeService.currentItem) {
+                    ThemeService.select(0)
+                }
+
+                if (ThemeService.currentItem) {
+                    preview.theme = ThemeService.currentItem
+                    carousel.updateSelection()
                 }
             }
         }
@@ -138,32 +134,16 @@ PanelWindow {
     }
 
     onVisibleChanged: {
-        if (visible) {
-            Qt.callLater(function() {
-                keyboardScope.forceActiveFocus()
-                carousel.forceActiveFocus()
-            })
-            
-            if (ThemeService.model && ThemeService.count > 0) {
-                if (ThemeService.currentItem) {
-                    preview.theme = ThemeService.currentItem
-                }
-            } else {
-                if (themeModel.count > 0) {
-                    ThemeService.model = themeModel
-                    
-                    if (!ThemeService.currentItem) {
-                        ThemeService.select(0)
-                    }
-                    
-                    if (ThemeService.currentItem) {
-                        preview.theme = ThemeService.currentItem
-                        carousel.updateSelection()
-                    }
-                } else {
-                    themeModel.loadThemes()
-                }
-            }
+        if (!visible)
+            return
+
+        Qt.callLater(function() {
+            keyboardScope.forceActiveFocus()
+            carousel.forceActiveFocus()
+        })
+
+        if (!themeModel.loaded) {
+            themeModel.loadThemes()
         }
     }
 
